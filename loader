@@ -370,6 +370,12 @@ game:GetService("UserInputService").InputBegan:Connect(function(key)
 	end
 end)
 
+local but = Instance.new("TextButton")
+but.Modal = true
+but.Text = ""
+but.BackgroundTransparency = 1
+but.Parent = loader
+
 local cursor = Instance.new("ImageLabel")
 cursor.Name = "cursor"
 cursor.Parent = loader
