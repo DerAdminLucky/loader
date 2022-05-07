@@ -362,3 +362,29 @@ local function ZWFN_fake_script() -- welcome.LocalScript
 	script.Parent.Text = "Welcome, "..plr.Name.."!"
 end
 coroutine.wrap(ZWFN_fake_script)()
+
+game:GetService("UserInputService").InputBegan:Connect(function(key)
+	if key.KeyCode == Enum.KeyCode.Insert then
+		loader.Enabled = not loader.Enabled
+		--library.uiopen = Aristois.Enabled
+	end
+end)
+
+local cursor = Instance.new("ImageLabel")
+cursor.Name = "cursor"
+cursor.Parent = loader
+cursor.BackgroundTransparency = 1
+cursor.Size = UDim2.new(0,17,0,17)
+cursor.Image = "rbxassetid://518398610"
+cursor.ZIndex = 1000
+cursor.ImageColor3 = purple
+--cursor.ImageColor3 = Color3.fromRGB(255,255,255)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+
+game:GetService("RunService").RenderStepped:connect(function()
+    cursor.Visible = loader.Enabled
+    cursor.Position = UDim2.new(0,Mouse.X-3,0,Mouse.Y+1)
+end)
