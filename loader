@@ -33,6 +33,7 @@ local UIGradient_2 = Instance.new("UIGradient")
 local purple = Color3.fromRGB(153, 0, 255)
 local originalcolor = Color3.fromRGB(170, 0, 0)
 local loadername = "new"
+local lastupdate = "Updated: 7/5/2022"
 local scriptstatus = "Status: few bugs"
 local versiondisplay2 = "Version: 0.13"
 
@@ -214,7 +215,7 @@ updated.BackgroundTransparency = 1.000
 updated.Position = UDim2.new(0, 120, 0, 84)
 updated.Size = UDim2.new(0.582110107, -12, 0, 18)
 updated.Font = Enum.Font.Code
-updated.Text = "Updated: 11/4/2021"
+updated.Text = lastupdate
 updated.TextColor3 = Color3.fromRGB(210, 210, 210)
 updated.TextSize = 15.000
 updated.TextStrokeTransparency = 0.000
