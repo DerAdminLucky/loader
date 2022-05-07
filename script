@@ -1,5 +1,5 @@
 
-versiondisplay = "0.13"
+versiondisplay = "0.14"
 
 local bordercolorlist = {}
 
@@ -379,7 +379,8 @@ function library:New(name)
 	cursor.Size = UDim2.new(0,17,0,17)
 	cursor.Image = 'rbxassetid://518398610'
 	cursor.ZIndex = 1000
-	cursor.ImageColor3 = Color3.fromRGB(255,255,255)
+	--cursor.ImageColor3 = Color3.fromRGB(255,255,255)
+    cursor.ImageColor3 = Color3.fromRGB(255, 255, 255) colorchanger:Connect(function() cursor.ImageColor3 = values.misc.ui['ui cursor'].Color end)
 
 	local Players = game:GetService('Players')
 	local LocalPlayer = Players.LocalPlayer
@@ -7952,6 +7953,8 @@ end)
 
 ui:Element('ToggleColor', 'ui border', {default = {Color = Color3.fromRGB(255,255,255)}})
 
+ui:Element('ToggleColor', 'ui cursor', {default = {Color = Color3.fromRGB(255,255,255)}},function() colorchanger:Fire() end)
+
 ui:Element('ToggleColor', 'ui toggle box', {default = {Color = Color3.fromRGB(255,255,255)}},function() colorchanger:Fire() end)
 
 --[[
@@ -7974,12 +7977,7 @@ ui:Element('ToggleColor', 'ui toggle fill', {default = {Color = coolcolor}}, fun
 		end
 	end
         
-		
-		
-		
 		else
-		
-		
 		
 		oldUiColor = tbl.Color
 		coolcolor = Color3.fromRGB(255, 255, 255)
