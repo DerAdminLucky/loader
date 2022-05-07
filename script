@@ -7312,7 +7312,7 @@ if tbl.Toggle then
 							velocity = velocity + (workspace.CurrentCamera.CoordinateFrame.lookVector * -values.misc.advanced["fly speed"].Slider)
 						end
 						if UserInputService:IsKeyDown(Enum.KeyCode.D) then
-							velocity = velocity + (workspace.CurrentCamera.CoordinateFrame.rightVector * values.misc.advancedt["fly speed"].Slider)
+							velocity = velocity + (workspace.CurrentCamera.CoordinateFrame.rightVector * values.misc.advanced["fly speed"].Slider)
 						end
 						
 						LocalPlayer.Character.HumanoidRootPart.Velocity = velocity
