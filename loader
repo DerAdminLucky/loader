@@ -31,11 +31,12 @@ local exitlabel = Instance.new("TextLabel")
 local UIGradient_2 = Instance.new("UIGradient")
 
 local purple = Color3.fromRGB(153, 0, 255)
+local warningred = Color3.fromRGB(255, 41, 41)
 local originalcolor = Color3.fromRGB(170, 0, 0)
 local loadername = "new"
 local lastupdate = "Updated: 7/5/2022"
 local scriptstatus = "Status: few bugs"
-local versiondisplay2 = "Version: 0.14"
+local versiondisplay2 = "Version: 0.13"
 
 loader.Name = "loader"
 loader.Parent = game.CoreGui
@@ -394,3 +395,231 @@ game:GetService("RunService").RenderStepped:connect(function()
     cursor.Visible = loader.Enabled
     cursor.Position = UDim2.new(0,Mouse.X-3,0,Mouse.Y+1)
 end)
+
+getgenv().values = {}
+local library = {}
+local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/Quenty/NevermoreEngine/version2/Modules/Shared/Events/Signal.lua"))()
+
+local txt = game:GetService('TextService')
+local TweenService = game:GetService('TweenService')
+function library:Tween(...) TweenService:Create(...):Play() end
+
+	local MX_ONHIT = Instance.new("ScreenGui")
+	do
+	local OnHitFrame = Instance.new("Frame")
+	local UIListLayout = Instance.new("UIListLayout")
+	local SampleFrame = Instance.new("Frame")
+	local Grad = Instance.new("Frame")
+	local SampleLabel = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+
+	MX_ONHIT.Name = "MX_ONHIT"
+	MX_ONHIT.Parent = game.CoreGui
+	MX_ONHIT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+	OnHitFrame.Name = "OnHitFrame"
+	OnHitFrame.Parent = MX_ONHIT
+	OnHitFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	OnHitFrame.BackgroundTransparency = 1.000
+	OnHitFrame.Position = UDim2.new(0, 52, 0, -15)
+	OnHitFrame.Size = UDim2.new(0, 300, 0, 500)
+
+	UIListLayout.Parent = OnHitFrame
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 6)
+
+	SampleFrame.Name = "SampleFrame"
+	SampleFrame.Parent = OnHitFrame
+	SampleFrame.AutomaticSize = Enum.AutomaticSize.XY
+	SampleFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	SampleFrame.BackgroundTransparency = 1.000
+	SampleFrame.BorderColor3 = Color3.fromRGB(7, 0, 0)
+	SampleFrame.Size = UDim2.new(0, 0, 0, 24)
+
+	Grad.Name = "Grad"
+	Grad.Parent = SampleFrame
+	Grad.BackgroundColor3 = purple
+	Grad.BackgroundTransparency = 1.000
+	Grad.AutomaticSize = Enum.AutomaticSize.Y
+	Grad.BorderSizePixel = 0
+	Grad.Size = UDim2.new(0, 3, 0, 24)
+
+	SampleLabel.Name = "SampleLabel"
+	SampleLabel.Parent = Grad
+	SampleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	SampleLabel.BackgroundTransparency = 1.000
+	SampleLabel.BorderSizePixel = 0
+	SampleLabel.Position = UDim2.new(1.97835922, 0, 0, 0)
+	SampleLabel.Size = UDim2.new(0, 0, 0, 24)
+	SampleLabel.Font = Enum.Font.Ubuntu
+	SampleLabel.Text = "TEST"
+	SampleLabel.TextTruncate = Enum.TextTruncate.AtEnd
+	SampleLabel.AutomaticSize = Enum.AutomaticSize.XY
+	SampleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	SampleLabel.TextSize = 13.000
+	SampleLabel.TextStrokeTransparency = 0.000
+	SampleLabel.TextTransparency = 1.000
+	SampleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(49, 49, 49)), ColorSequenceKeypoint.new(0.41, Color3.fromRGB(25, 25, 25)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))}
+	UIGradient.Rotation = 90
+	UIGradient.Parent = SampleFrame
+	end
+	 
+	local function CreateHitElement(text,col,time, size, size2, size3, size4)
+		spawn(function()
+			local Frame = MX_ONHIT.OnHitFrame.SampleFrame:Clone()
+			local Grad = Frame.Grad
+			local Label = Grad.SampleLabel
+			
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(size, size2, size3, size4)}) 
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(size, size2, size3, size4)}) 	
+			
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.000})       
+			library:Tween(Grad, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.000})  
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.000}) 
+			
+			Frame.Parent = MX_ONHIT.OnHitFrame
+			Grad.Parent = Frame
+			Label.Parent = Grad
+			Label.TextColor3 = col
+			Label.Text = text
+			wait(time)
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1.000})       
+			library:Tween(Grad, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1.000})  
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 1.000})
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextStrokeTransparency = 1.000})
+			
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, size3, size4)}) 
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, size3, size4)}) 
+			
+			wait(0.8)
+			Frame:Destroy()
+			Grad:Destroy()
+			Label:Destroy()
+		end)
+	end
+	CreateHitElement(" Welcome "..game.Players.LocalPlayer.Name.." to new loader. ",Color3.fromRGB(255, 255, 255),6, 0, 340, 0, 22)
+	wait(0.5)
+	CreateHitElement(" Open and close loader with Insert. ",Color3.fromRGB(255, 255, 255),6, 0, 340, 0, 22)
+	
+	local MX_ONHIT = Instance.new("ScreenGui")
+	do
+	local OnHitFrame = Instance.new("Frame")
+	local UIListLayout = Instance.new("UIListLayout")
+	local SampleFrame = Instance.new("Frame")
+	local Grad = Instance.new("Frame")
+	local SampleLabel = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+
+	MX_ONHIT.Name = "MX_ONHIT"
+	MX_ONHIT.Parent = game.CoreGui
+	MX_ONHIT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+	OnHitFrame.Name = "OnHitFrame"
+	OnHitFrame.Parent = MX_ONHIT
+	OnHitFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	OnHitFrame.BackgroundTransparency = 1.000
+	OnHitFrame.Position = UDim2.new(0, 52, 0, -15)
+	OnHitFrame.Size = UDim2.new(0, 300, 0, 500)
+
+	UIListLayout.Parent = OnHitFrame
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 6)
+
+	SampleFrame.Name = "SampleFrame"
+	SampleFrame.Parent = OnHitFrame
+	SampleFrame.AutomaticSize = Enum.AutomaticSize.XY
+	SampleFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	SampleFrame.BackgroundTransparency = 1.000
+	SampleFrame.BorderColor3 = Color3.fromRGB(7, 0, 0)
+	SampleFrame.Size = UDim2.new(0, 0, 0, 24)
+
+	Grad.Name = "Grad"
+	Grad.Parent = SampleFrame
+	Grad.BackgroundColor3 = warningred
+	Grad.BackgroundTransparency = 1.000
+	Grad.AutomaticSize = Enum.AutomaticSize.Y
+	Grad.BorderSizePixel = 0
+	Grad.Size = UDim2.new(0, 3, 0, 24)
+
+	SampleLabel.Name = "SampleLabel"
+	SampleLabel.Parent = Grad
+	SampleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	SampleLabel.BackgroundTransparency = 1.000
+	SampleLabel.BorderSizePixel = 0
+	SampleLabel.Position = UDim2.new(1.97835922, 0, 0, 0)
+	SampleLabel.Size = UDim2.new(0, 0, 0, 24)
+	SampleLabel.Font = Enum.Font.Ubuntu
+	SampleLabel.Text = "TEST"
+	SampleLabel.TextTruncate = Enum.TextTruncate.AtEnd
+	SampleLabel.AutomaticSize = Enum.AutomaticSize.XY
+	SampleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	SampleLabel.TextSize = 13.000
+	SampleLabel.TextStrokeTransparency = 0.000
+	SampleLabel.TextTransparency = 1.000
+	SampleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(49, 49, 49)), ColorSequenceKeypoint.new(0.41, Color3.fromRGB(25, 25, 25)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))}
+	UIGradient.Rotation = 90
+	UIGradient.Parent = SampleFrame
+	end
+	 
+	local function CreateHitElement(text,col,time, size, size2, size3, size4)
+		spawn(function()
+			local Frame = MX_ONHIT.OnHitFrame.SampleFrame:Clone()
+			local Grad = Frame.Grad
+			local Label = Grad.SampleLabel
+			
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(size, size2, size3, size4)}) 
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(size, size2, size3, size4)}) 	
+			
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.000})       
+			library:Tween(Grad, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.000})  
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.000}) 
+			
+			Frame.Parent = MX_ONHIT.OnHitFrame
+			Grad.Parent = Frame
+			Label.Parent = Grad
+			Label.TextColor3 = col
+			Label.Text = text
+			wait(time)
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1.000})       
+			library:Tween(Grad, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1.000})  
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 1.000})
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextStrokeTransparency = 1.000})
+			
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, size3, size4)}) 
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, size3, size4)}) 
+			
+			wait(0.8)
+			Frame:Destroy()
+			Grad:Destroy()
+			Label:Destroy()
+		end)
+	end
+	wait(6.5)
+	CreateHitElement(" !!!  WARNING  !!!\
+  \
+ This script has many whitelist\
+ functions, if you proceed to\
+ click load I will recieve\
+ several informations about you! ",Color3.fromRGB(255, 255, 255),15, 0, 230, 0, 100)
+	wait(10.1)
+	CreateHitElement(" You have been warned! ",Color3.fromRGB(255, 255, 255),5, 0, 230, 0, 30)
+
+--[[
+--local Players = game:GetService("Players") 
+--local LocalPlayer = Players.LocalPlayer 
+
+local developers = {'ion_FakeClone100','ion_FakeClone101','ion_FakeClone102','ion_FakeClone103','ion_FakeClone104','ion_FakeClone105','ion_FakeClone106','ion_FakeClone107','ion_FakeClone108','ion_FakeClone109','ion_FakeClone110','ion_FakeClone111','ion_FakeClone112','ion_FakeClone113','ion_FakeClone114','ion_FakeClone115','ion_FakeClone116','ion_FakeClone117','ion_FakeClone118','ion_FakeClone119','ion_FakeClone120','ion_FakeClone121','ion_FakeClone122','ion_FakeClone123','ion_FakeClone124','ion_FakeClone125','ion_FakeClone126','ion_FakeClone127','ion_FakeClone128','ion_FakeClone129','ion_FakeClone130','ion_FakeClone131','ion_FakeClone132','ion_FakeClone133','ion_FakeClone134','ion_FakeClone135','ion_FakeClone136','ion_FakeClone137','ion_FakeClone138','ion_FakeClone139','ion_FakeClone140','ion_FakeClone141','ion_FakeClone142','ion_FakeClone143','ion_FakeClone144','ion_FakeClone145','ion_FakeClone146','ion_FakeClone147','ion_FakeClone148','ion_FakeClone149','ion_FakeClone150','CrakedAndBased','CBRO_HAX3R'}
+
+if table.find(developers, LocalPlayer.Name) then
+	CreateHitElement("Reconized as script developer!",Color3.fromRGB(255, 255, 255),15, 0, 380, 0, 22)
+end
+game:GetService("Players").PlayerAdded:Connect(function(plr)
+	if table.find(developers, plr.Name) then
+		CreateHitElement("Developer of script joined your game.",Color3.fromRGB(255, 255, 255),15, 0, 380, 0, 22)
+	end
+end)
+]]--
