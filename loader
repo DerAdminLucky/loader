@@ -34,9 +34,9 @@ local purple = Color3.fromRGB(153, 0, 255)
 local warningred = Color3.fromRGB(255, 41, 41)
 local originalcolor = Color3.fromRGB(170, 0, 0)
 local loadername = "new"
-local lastupdate = "Updated: 7/5/2022"
-local scriptstatus = "Status: few bugs"
-local versiondisplay2 = "Version: 0.13"
+local lastupdate = "Updated: 9/5/2022"
+local scriptstatus = "Status: Many bugs fixed!"
+local versiondisplay2 = "Version: 0.18"
 
 loader.Name = "loader"
 loader.Parent = game.CoreGui
