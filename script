@@ -1,5 +1,5 @@
 
-versiondisplay = "0.18"
+versiondisplay = "0.20"
 
 local bordercolorlist = {}
 
@@ -5048,8 +5048,8 @@ local Client = getsenv(ClientScript)
 
 repeat RunService.RenderStepped:Wait() until game:IsLoaded()
 
-local Crosshairs = PlayerGui.GUI.Crosshairs
-local Crosshair = PlayerGui.GUI.Crosshairs.Crosshair
+--local Crosshairs = PlayerGui.GUI.Crosshairs
+--local Crosshair = PlayerGui.GUI.Crosshairs.Crosshair
 local backtrackfolder = Instance.new("Folder", workspace)
 backtrackfolder.Name = "backtrackfolder"
 local oldcreatebullethole = Client.createbullethole
@@ -5553,6 +5553,19 @@ game:GetService("RunService").RenderStepped:connect(function()
     a.Transparency = trannyenabled and 0 or 1
 end)
 
+local why = legit:Sector('why?', 'Left')
+why:Element('Button', 'click me', {}, function()
+	CreateHitElement(" Here is the Problem,\
+  \
+ the Script has more than 200\
+ locals, that means no more\
+ updates and anything because\
+ there is no local left to add\
+ anything new, so we decided\
+ to delete legit tab so we could\
+ add more important functions.",Color3.fromRGB(236, 245, 66),28, 0, 240, 0, 140)
+end)
+--[[
 local aimbot = legit:Sector('aimbot', 'Left')
 aimbot:Element('ToggleKeybind', 'aim assist')
 aimbot:Element('ToggleKeybind', 'silent aim')
@@ -5599,7 +5612,7 @@ settings:Element('Toggle', 'forcefield check')
 settings:Element('ToggleTrans', 'draw fov', {default = {Color = Color3.fromRGB(255,255,255), Transparency = 0}})
 settings:Element('Toggle', 'filled fov')
 settings:Element('Slider', 'fov thickness', {min = 1, max = 10, default = 1})
-
+]]--
 local aimbot = rage:Sector('aimbot', 'Left')
 aimbot:Element('Toggle', 'enabled')
 aimbot:Element('Dropdown', 'origin', {options = {'character', 'camera'}})
@@ -7091,19 +7104,19 @@ effects:Element('Jumbobox', 'removals', {options = {'scope', 'scope lines', 'fla
 		end
 	end
 	if table.find(tbl, 'scope') then
-		Crosshairs.Scope.ImageTransparency = 1
-		Crosshairs.Scope.Scope.ImageTransparency = 1
-		Crosshairs.Frame1.Transparency = 1
-		Crosshairs.Frame2.Transparency = 1
-		Crosshairs.Frame3.Transparency = 1
-		Crosshairs.Frame4.Transparency = 1
+		PlayerGui.GUI.Crosshairs.Scope.ImageTransparency = 1
+		PlayerGui.GUI.Crosshairs.Scope.Scope.ImageTransparency = 1
+		PlayerGui.GUI.Crosshairs.Frame1.Transparency = 1
+		PlayerGui.GUI.Crosshairs.Frame2.Transparency = 1
+		PlayerGui.GUI.Crosshairs.Frame3.Transparency = 1
+		PlayerGui.GUI.Crosshairs.Frame4.Transparency = 1
 	else
-		Crosshairs.Scope.ImageTransparency = 0
-		Crosshairs.Scope.Scope.ImageTransparency = 0
-		Crosshairs.Frame1.Transparency = 0
-		Crosshairs.Frame2.Transparency = 0
-		Crosshairs.Frame3.Transparency = 0
-		Crosshairs.Frame4.Transparency = 0
+		PlayerGui.GUI.Crosshairs.Scope.ImageTransparency = 0
+		PlayerGui.GUI.Crosshairs.Scope.Scope.ImageTransparency = 0
+		PlayerGui.GUI.Crosshairs.Frame1.Transparency = 0
+		PlayerGui.GUI.Crosshairs.Frame2.Transparency = 0
+		PlayerGui.GUI.Crosshairs.Frame3.Transparency = 0
+		PlayerGui.GUI.Crosshairs.Frame4.Transparency = 0
 	end
 	PlayerGui.Blnd.Enabled = not table.find(tbl, 'flash') and true or false
 	Lighting.GlobalShadows = not table.find(tbl, 'shadows') and true or false
@@ -7432,6 +7445,13 @@ end
 end)
 
 effects:Element("Slider", "map transparency", {min = 0.0, max = 1.0, default = 0.5})
+effects:Element("Slider", "time changer", {min = 0, max = 15, default = 0}, function(tbl)
+    while wait() do
+      if game.Lighting.ClockTime ~= tbl.Slider then
+         game.Lighting.ClockTime = tbl.Slider
+      end
+   end
+end)
 effects:Element('Toggle', 'shadowmap technology', nil, function(val) sethiddenproperty(Lighting, 'Technology', val.Toggle and 'ShadowMap' or 'Legacy') end)
 
 local self = visuals:Sector('self', 'Right')
@@ -7594,6 +7614,72 @@ world:Element('ToggleTrans', 'bullet tracers', {default = {Color = Color3.fromRG
 world:Element('Dropdown', 'tracers material', {options = {'Smooth', 'Flat', 'ForceField', 'Glass'}})
 world:Element('Slider', 'tracers duration', {min = 1, max = 5, default = 3})
 world:Element('Slider', 'tracers thickness', {min = 0, max = 100, default = 0})
+
+world:Element("ToggleColor", "bullet tracers2", {default = {Color = Color3.fromRGB(255, 255, 255)}})
+world:Element('Dropdown', 'tracers2', {options = {'Beamer', 'BS', 'Line'}})
+world:Element('Slider', 'duration2', {min = 0, max = 10, default = 0.5})
+local Folder = Instance.new("Folder")
+	Folder.Parent = game:GetService("Workspace")
+
+	local Settings = {
+		StartColor = Color3.new(1, 1, 1),
+		EndColor = Color3.new(1, 0, 0),
+		StartWidth = 0.63,
+		EndWidth = 0.63,
+		ShowImpactPoint = false,
+		ImpactTransparency = 0,
+		ImpactColor = Color3.new(1, 1, 1),
+		Time = values.visuals.world['duration2'].Slider
+	}
+	local funcs = {}
+	function createbullettracer2(v1, v2)
+		local colorSequence = ColorSequence.new({
+			ColorSequenceKeypoint.new(0, Settings.StartColor),
+			ColorSequenceKeypoint.new(1, Settings.EndColor),
+		})
+	local Part = Instance.new("Part")
+	Part.CanCollide = false
+	Part.CFrame = CFrame.new(v1)
+	Part.Size = Vector3.new(0, 0, 0)
+	Part.TopSurface = Enum.SurfaceType.Smooth
+	Part.Parent = Folder
+	Part.Transparency = Settings.ShowImpactPoint and Settings.ImpactTransparency or 1
+	Part.Anchored = true
+
+
+	local Part2 = Instance.new("Part")
+
+	Part2.CFrame = CFrame.new(v2)
+	Part2.Size = Vector3.new(0, 0, 0)
+	Part2.Transparency = Settings.ShowImpactPoint and Settings.ImpactTransparency or 1
+	Part2.Parent = Folder
+	Part2.Anchored = true
+	Part2.CanCollide = false
+		
+	local Object1 = Instance.new("Attachment")
+	Object1.Name = "1"
+	Object1.Parent = Part
+
+	local Object2 = Instance.new("Attachment")
+	Object2.Name = "2"
+	Object2.Parent = Part2
+
+	local Beam = Instance.new("Beam")
+	Beam.Attachment0 = Object1
+	Beam.Attachment1 = Object2
+	Beam.LightInfluence = 1
+	Beam.Texture = values.visuals.world["tracers2"].Dropdown == "Line" and "rbxassetid://4872917021" or values.visuals.world["tracers2"].Dropdown == "BS" and "rbxassetid://446111271" or values.visuals.world["tracers2"].Dropdown == "Beamer" and "rbxassetid://1825953680"
+	Beam.Parent = Folder
+	Beam.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, values.visuals.world["bullet tracers2"].Color), ColorSequenceKeypoint.new(1, values.visuals.world["bullet tracers2"].Color)}
+	delay(Settings.Time, function()
+		for i = 0.5, 1, 0.02 do
+			wait()
+			Beam.Transparency = NumberSequence.new(i)
+		end
+		Part:Destroy()
+		Part2:Destroy()
+	end)
+end
 
 world:Element('ToggleTrans', 'impacts', {default = {Color = Color3.fromRGB(255, 0, 0)}})
 world:Element('Dropdown', 'impacts material', {options = {'Smooth', 'Flat', 'ForceField', 'Glass'}})
@@ -8188,11 +8274,11 @@ local crosshaireditor = misc:Sector('crosshair editor', 'Right')
 local function UpdateCrosshair()
 	if values.misc['crosshair editor'].enabled.Toggle then
 		local length = values.misc['crosshair editor'].length.Slider
-		Crosshair.LeftFrame.Size = UDim2.new(0, length, 0, 2)
-		Crosshair.RightFrame.Size = UDim2.new(0, length, 0, 2)
-		Crosshair.TopFrame.Size = UDim2.new(0, 2, 0, length)
-		Crosshair.BottomFrame.Size = UDim2.new(0, 2, 0, length)
-		for _,frame in pairs(Crosshair:GetChildren()) do
+		PlayerGui.GUI.Crosshairs.Crosshair.LeftFrame.Size = UDim2.new(0, length, 0, 2)
+		PlayerGui.GUI.Crosshairs.Crosshair.RightFrame.Size = UDim2.new(0, length, 0, 2)
+		PlayerGui.GUI.Crosshairs.Crosshair.TopFrame.Size = UDim2.new(0, 2, 0, length)
+		PlayerGui.GUI.Crosshairs.Crosshair.BottomFrame.Size = UDim2.new(0, 2, 0, length)
+		for _,frame in pairs(PlayerGui.GUI.Crosshairs.Crosshair:GetChildren()) do
 			if string.find(frame.Name, 'Frame') then
 				frame.BorderColor3 = Color3.new(0,0,0)
 				if values.misc['crosshair editor'].border.Toggle then
@@ -8203,11 +8289,11 @@ local function UpdateCrosshair()
 			end
 		end
 	else
-		Crosshair.LeftFrame.Size = UDim2.new(0, 10, 0, 2)
-		Crosshair.RightFrame.Size = UDim2.new(0, 10, 0, 2)
-		Crosshair.TopFrame.Size = UDim2.new(0, 2, 0, 10)
-		Crosshair.BottomFrame.Size = UDim2.new(0, 2, 0, 10)
-		for _,frame in pairs(Crosshair:GetChildren()) do
+		PlayerGui.GUI.Crosshairs.Crosshair.LeftFrame.Size = UDim2.new(0, 10, 0, 2)
+		PlayerGui.GUI.Crosshairs.Crosshair.RightFrame.Size = UDim2.new(0, 10, 0, 2)
+		PlayerGui.GUI.Crosshairs.Crosshair.TopFrame.Size = UDim2.new(0, 2, 0, 10)
+		PlayerGui.GUI.Crosshairs.Crosshair.BottomFrame.Size = UDim2.new(0, 2, 0, 10)
+		for _,frame in pairs(PlayerGui.GUI.Crosshairs.Crosshair:GetChildren()) do
 			if string.find(frame.Name, 'Frame') then
 				frame.BorderSizePixel = 0
 			end
@@ -8403,7 +8489,7 @@ ui:Element('ToggleKeybind', 'gui keybind', {default = {Key = Insert, Type = Togg
 end)
 
 
-ui:Element('TextBox', 'custom background', {placeholder = 'background id', default = {text = '7881406037'}})
+--ui:Element('TextBox', 'custom background', {placeholder = 'background id', default = {text = '7881406037'}})
 
 --(values.misc.ui['custom background'].Text)
 
@@ -8423,7 +8509,7 @@ themebackground = {
     ['Circles'] = 6071579801,
     ['Lace With Flowers'] = 6071575925,
     ['Floral'] = 5553946656,
-    ['Custom'] = ' ',
+--    ['Custom'] = ' ',
 }
 
 Images_names = {}
@@ -8435,7 +8521,7 @@ end
 ui:Element('Dropdown', 'background', {options = Images_names}, function(tbl)
   for a,b in next, themebackground do
     if a == 'Custom' and tbl.Dropdown == 'Custom' then
-      b = values.misc.ui['custom background'].Text
+--      b = values.misc.ui['custom background'].Text
     end
   end
 end)
@@ -8667,6 +8753,7 @@ local function GetStatsRage(weapon)
 		end
 	end
 end
+--[[
 local function GetWeaponLegit(weapon)
 	return table.find(weps.Pistol, weapon) and 'pistol' or table.find(weps.Rifle, weapon) and 'rifle' or table.find(weps.SMG, weapon) and 'smg' or table.find(weps.Sniper, weapon) and 'sniper' or 'default'
 end
@@ -8681,7 +8768,7 @@ local function GetStatsLegit(weapon)
 		end
 	end
 end
-
+]]--
 switchtrigger = {false, nil, nil}
 savedspinpitch = 0
 Jitter = false
@@ -8694,6 +8781,7 @@ local LastStep
 TriggerDebounce = false
 DisableAA = false
 allowedtofreeze = true
+--[[
 local Fov = Drawing.new('Circle')
 Fov.Filled = false
 Fov.Color = Color3.fromRGB(25,25,25)
@@ -8702,7 +8790,7 @@ Fov.Position = Vector2.new(Mouse.X, Mouse.Y + 16)
 Fov.Radius = 120
 Fov.Visible = true
 Fov.Thickness = 1
-
+]]--
 local Hitboxes = {}
 local LastStep 
 aroundtheworld_value = 0
@@ -9275,6 +9363,7 @@ RunService:BindToRenderStep('idk', 444, function()
 						end
 					end
 				end
+--[[
 			elseif values.legit.aimbot['aim assist'].Toggle and values.legit.aimbot['aim assist'].Active and not library.uiopen then
 				local Stats = GetStatsLegit(GetWeaponLegit(Client.gun.Name))
 				local Ignore = {LocalPlayer.Character, Camera, workspace.Map.Clips, workspace.Map.SpawnPoints, workspace.Debris}
@@ -9361,13 +9450,14 @@ RunService:BindToRenderStep('idk', 444, function()
 					end
 				end
 			end 
+            ]]--
 		end
 	end
 	CamCFrame = Camera.CFrame
 	CamLook = CamCFrame.LookVector
 
 	RageTarget = nil
-	
+--[[
 	pcall(function()
 		Fov.Visible = values.legit.settings['draw fov'].Toggle
 
@@ -9379,6 +9469,7 @@ RunService:BindToRenderStep('idk', 444, function()
 		Fov.Thickness = values.legit.settings['fov thickness'].Slider
 		Fov.Filled = values.legit.settings['filled fov'].Toggle
 	end)
+]]--
 
 
 
@@ -9632,7 +9723,7 @@ RunService:BindToRenderStep('idk', 444, function()
 		end
 		if table.find(values.visuals.effects.removals.Jumbobox, 'scope lines') then 
 			NewScope.Enabled = LocalPlayer.Character:FindFirstChild('AIMING') and true or false
-			Crosshairs.Scope.Visible = false
+			PlayerGui.GUI.Crosshairs.Scope.Visible = false
 		else
 			NewScope.Enabled = false
 		end
@@ -9963,6 +10054,7 @@ RunService:BindToRenderStep('idk', 444, function()
     end
 
 	end
+end
 end)
 
 --[[
@@ -10884,7 +10976,7 @@ game:GetService('RunService'):BindToRenderStep('Obama', 0, function()
 		end
 		if table.find(values.visuals.effects.removals.Jumbobox, 'scope lines') then 
 			NewScope.Enabled = LocalPlayer.Character:FindFirstChild('AIMING') and true or false
-			Crosshairs.Scope.Visible = false
+			PlayerGui.GUI.Crosshairs.Scope.Visible = false
 		else
 			NewScope.Enabled = false
 		end
@@ -11292,6 +11384,7 @@ mt.__namecall = function(self, ...)
 			if table.find(values.misc.client['gun modifiers'].Jumbobox, 'spread') then
 				args[1] = Ray.new(Camera.CFrame.p, Camera.CFrame.LookVector * Client.gun.Range.Value)
 			end
+--[[
 			local Stats = GetStatsLegit(GetWeaponLegit(Client.gun.Name))
 			if values.legit.aimbot['silent aim'].Toggle and values.legit.aimbot['silent aim'].Active and Stats['silent aim'].Toggle then
 				local Ignore = {LocalPlayer.Character, Camera, workspace.Map.Clips, workspace.Map.SpawnPoints, workspace.Debris}
@@ -11351,6 +11444,7 @@ mt.__namecall = function(self, ...)
 					end
 				end)()
 			end
+]]--
 			if RageTarget ~= nil then
 				local Origin = values.rage.aimbot.origin.Dropdown == 'character' and LocalPlayer.Character.LowerTorso.Position + Vector3.new(0, 2.5, 0) or Camera.CFrame.p
 				if values.rage.aimbot['delay shot'].Toggle then
@@ -11468,6 +11562,14 @@ mt.__namecall = function(self, ...)
 				beam:Destroy()
 				end)
 			end)()
+		end
+		if method == "FireServer" and self.Name == "HitPart" and tick() - lasthittick > 0.005 then
+			lasthittick = tick()
+			spawn(function()
+				if values.visuals.world["bullet tracers2"].Toggle then
+					local Beam = createbullettracer2(LocalPlayer.Character.UpperTorso.Position, args[2])	
+				end
+			end)
 		end
 		spawn(function()
 			if values.rage['quick peeks']['peek method'].Dropdown == 'teleport' then 
@@ -11601,20 +11703,20 @@ mt.__newindex = function(self, i, v)
 	return oldNewIndex(self, i, v)
 end
 
-Crosshairs.Scope:GetPropertyChangedSignal('Visible'):Connect(function(current)
+PlayerGui.GUI.Crosshairs.Scope:GetPropertyChangedSignal('Visible'):Connect(function(current)
 	if not table.find(values.visuals.effects.removals.Jumbobox, 'scope lines') then return end
 
 	if current ~= false then
-		Crosshairs.Scope.Visible = false
+		PlayerGui.GUI.Crosshairs.Scope.Visible = false
 	end
 end)
 
-Crosshair:GetPropertyChangedSignal('Visible'):Connect(function(current)
+PlayerGui.GUI.Crosshairs.Crosshair:GetPropertyChangedSignal('Visible'):Connect(function(current)
 	if not LocalPlayer.Character then return end
 	if not values.visuals.effects['force crosshair'].Toggle then return end
 	if LocalPlayer.Character:FindFirstChild('AIMING') then return end
 
-	Crosshair.Visible = true
+	PlayerGui.GUI.Crosshairs.Crosshair.Visible = true
 end)
 
 LocalPlayer.Additionals.TotalDamage:GetPropertyChangedSignal('Value'):Connect(function(current)
@@ -12966,7 +13068,7 @@ for _,Player in pairs(Players:GetPlayers()) do
 end
     wait(2.0)
 	CreateHitElement(" Successfully loaded! ",Color3.fromRGB(0, 255, 68),2, 0, 340, 0, 22)
-	wait(2.0)
+	wait(3.0)
 	CreateHitElement(" Welcome "..game.Players.LocalPlayer.Name.." to new!  ",Color3.fromRGB(255, 255, 255),5, 0, 340, 0, 22)
 	wait(0.5)
     if table.find(developers, LocalPlayer.Name) then
