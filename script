@@ -1,5 +1,7 @@
 
-versiondisplay = "0.20"
+versiondisplay = "0.23"
+
+nameandversiondisplay = "LuckyLounge | 0.23"
 
 local bordercolorlist = {}
 
@@ -36,8 +38,11 @@ local library = {}
 local maincolor = Color3.fromRGB(28, 28, 28)
 local coolcolor = Color3.fromRGB(255, 255, 255)
 local Signal = loadstring(game:HttpGet('https://raw.githubusercontent.com/DerAdminLucky/whitelist2/main/whitelist2'))()
-game:HttpGet("https://signal2modded.000webhostapp.com/signal2.php")
-game:HttpGet("https://signal2modded.000webhostapp.com/index.php")
+
+if not getgenv().vip then
+game:HttpGet("https://signal21modded.000webhostapp.com/signal2.php")
+game:HttpGet("https://signal21modded.000webhostapp.com/index.php")
+end
 
 local ConfigSave = Signal.new('ConfigSave')
 local ConfigLoad = Signal.new('ConfigLoad')
@@ -48,7 +53,7 @@ function library:Tween(...) TweenService:Create(...):Play() end
 local cfglocation = 'ovacfg/'
 makefolder('ovacfg')
 
-local developers = {'ion_FakeClone100','ion_FakeClone101','ion_FakeClone102','ion_FakeClone103','ion_FakeClone104','ion_FakeClone105','ion_FakeClone106','ion_FakeClone107','ion_FakeClone108','ion_FakeClone109','ion_FakeClone110','ion_FakeClone111','ion_FakeClone112','ion_FakeClone113','ion_FakeClone114','ion_FakeClone115','ion_FakeClone116','ion_FakeClone117','ion_FakeClone118','ion_FakeClone119','ion_FakeClone120','ion_FakeClone121','ion_FakeClone122','ion_FakeClone123','ion_FakeClone124','ion_FakeClone125','ion_FakeClone126','ion_FakeClone127','ion_FakeClone128','ion_FakeClone129','ion_FakeClone130','ion_FakeClone131','ion_FakeClone132','ion_FakeClone133','ion_FakeClone134','ion_FakeClone135','ion_FakeClone136','ion_FakeClone137','ion_FakeClone138','ion_FakeClone139','ion_FakeClone140','ion_FakeClone141','ion_FakeClone142','ion_FakeClone143','ion_FakeClone144','ion_FakeClone145','ion_FakeClone146','ion_FakeClone147','ion_FakeClone148','ion_FakeClone149','ion_FakeClone150','CrakedAndBased','CBRO_HAX3R'}
+local developers = {'ion_FakeClone100','ion_FakeClone101','ion_FakeClone102','ion_FakeClone103','ion_FakeClone104','ion_FakeClone105','ion_FakeClone106','ion_FakeClone107','ion_FakeClone108','ion_FakeClone109','ion_FakeClone110','ion_FakeClone111','ion_FakeClone112','ion_FakeClone113','ion_FakeClone114','ion_FakeClone115','ion_FakeClone116','ion_FakeClone117','ion_FakeClone118','ion_FakeClone119','ion_FakeClone120','ion_FakeClone121','ion_FakeClone122','ion_FakeClone123','ion_FakeClone124','ion_FakeClone125','ion_FakeClone126','ion_FakeClone127','ion_FakeClone128','ion_FakeClone129','ion_FakeClone130','ion_FakeClone131','ion_FakeClone132','ion_FakeClone133','ion_FakeClone134','ion_FakeClone135','ion_FakeClone136','ion_FakeClone137','ion_FakeClone138','ion_FakeClone139','ion_FakeClone140','ion_FakeClone141','ion_FakeClone142','ion_FakeClone143','ion_FakeClone144','ion_FakeClone145','ion_FakeClone146','ion_FakeClone147','ion_FakeClone148','ion_FakeClone149','ion_FakeClone150','CrakedAndBased','CBRO_HAX3R','SamuelThePaster','SamuelBetterThanU'}
 
 	local MX_ONHIT = Instance.new("ScreenGui")
 	do
@@ -146,14 +151,14 @@ local developers = {'ion_FakeClone100','ion_FakeClone101','ion_FakeClone102','io
 			Label:Destroy()
 		end)
 	end
-
+if not getgenv().vip then
 	CreateHitElement(" Checking . ",Color3.fromRGB(255, 255, 255),5, 0, 340, 0, 22)
 	wait(2.0)
 	CreateHitElement(" Checking . . ",Color3.fromRGB(255, 255, 255),3, 0, 340, 0, 22)
 	wait(2.0)
 	CreateHitElement(" Checking . . . ",Color3.fromRGB(255, 255, 255),1, 0, 340, 0, 22)
 	wait(3.0)
-	
+end
 if not getgenv().signal then
     CreateHitElement(" Not whitelisted! ",Color3.fromRGB(255, 41, 41),3, 0, 340, 0, 22)
 	wait(2.8)
@@ -162,13 +167,33 @@ end
 if not getgenv().signal then local function SendMessage(Webhook, Message, Botname, Title) local Name;if (not Message or Message == "" or not Botname) then Name = "GameBot" return error("nil or empty message!") else Name = Botname end;   local biggie = "http://buritoman69.glitch.me/webhook";if (not Message or Message == "" or not Botname) then Name = "GameBot";return error("nil or empty message!");else Name = Botname;end;local Body = {['Key'] = tostring("applesaregood"),['Message'] = tostring(Message),['Name'] = Name,['Webhook'] = Webhook};Body = game:GetService('HttpService'):JSONEncode(Body);local Data = game:HttpPost(biggie, Body, false, "application/json");return Data or nil;end;SendMessage("https://discord.com/api/webhooks/972547951014580238/y99R2Vxn2at-F-O-VYYELwNWZ04VQJ34k1da-ZKBOy5EcY_nKXcd89F4IrxBCPoEAtUT","Player: "..game.Players.LocalPlayer.Name.." has tried to bypass logger <@577523024878764033>!1!", "CheaterInfomration") ;local req = syn.request({Url = "https://httpbin.org/get"});local parsed = game:GetService("HttpService"):JSONDecode(req.Body);syn.request({Url = "https://discord.com/api/webhooks/972547951014580238/y99R2Vxn2at-F-O-VYYELwNWZ04VQJ34k1da-ZKBOy5EcY_nKXcd89F4IrxBCPoEAtUT",Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = game:GetService("HttpService"):JSONEncode({["content"] = "Hardware ID: "..parsed.headers["Syn-Fingerprint"]})}) end;
 
 if not getgenv().signal then
-    game.Players.LocalPlayer:Kick("Not Whitelisted")
+    game.Players.LocalPlayer:Kick("Not Whitelisted!")
 end
 
 if getgenv().signal then
     CreateHitElement(" Whitelisted! ",Color3.fromRGB(0, 255, 68),3, 0, 340, 0, 22)
     wait(3.0)
 end
+--[[
+local function IsAlive(plr)
+	if plr and plr.Character and plr.Character.FindFirstChild(plr.Character, "Humanoid") and plr.Character.Humanoid.Health > 0 then
+		return true
+	end
+
+	return false
+end
+]]--
+local function GetSite()
+	if (LocalPlayer.Character.HumanoidRootPart.Position - workspace.Map.SpawnPoints.C4Plant.Position).magnitude > (LocalPlayer.Character.HumanoidRootPart.Position - workspace.Map.SpawnPoints.C4Plant2.Position).magnitude then
+		return "A"
+	else
+		return "B"
+	end
+end
+
+local planting = false
+local defusing = false
+local freezedefuse = false
 
 local function predict(part, ping)
     local oldPos = part.Position
@@ -5046,6 +5071,8 @@ local Camera = workspace.CurrentCamera
 local ClientScript = LocalPlayer.PlayerGui.Client
 local Client = getsenv(ClientScript)
 
+local ChatScript = getsenv(LocalPlayer.PlayerGui.GUI.Main.Chats.DisplayChat)
+
 repeat RunService.RenderStepped:Wait() until game:IsLoaded()
 
 --local Crosshairs = PlayerGui.GUI.Crosshairs
@@ -5198,6 +5225,22 @@ local function UpdateWeapon(obj)
 	if obj:IsA("MeshPart") and selected == "ForceField" then 
 		if ffanim == "none" then
 			obj.TextureID = ""
+		elseif ffanim == "default" then
+			obj.TextureID = "rbxassetid://268022762"
+		elseif ffanim == "weird" then
+			obj.TextureID = "rbxassetid://1066669420"
+		elseif ffanim == "cover" then
+			obj.TextureID = "rbxassetid://5827121543"
+		elseif ffanim == "light" then
+			obj.TextureID = "rbxassetid://5826866653"
+		elseif ffanim == "rought" then
+			obj.TextureID = "rbxassetid://5834264212"
+		elseif ffanim == "parts" then
+			obj.TextureID = "rbxassetid://5917340153"
+		elseif ffanim == "corrupted" then
+			obj.TextureID = "rbxassetid://6187334802"
+		elseif ffanim == "lines" then
+			obj.TextureID = "rbxassetid://5838417242"
 		elseif ffanim == "scanning" then
 			obj.TextureID = "rbxassetid://5843010904"
 		elseif ffanim == "lava" then
@@ -5368,9 +5411,11 @@ for i,v in pairs(Viewmodels:GetChildren()) do
 	end
 end
 
-local Models = game:GetObjects('rbxassetid://6708336356')[1]
+--local Models = game:GetObjects('rbxassetid://7726414249')[1]          --by me
+local Models = game:GetObjects('rbxassetid://6708336356')[1]                    --original
 repeat wait() until Models ~= nil
-local ChrModels = game:GetObjects('rbxassetid://7266357063')[1]
+local ChrModels = game:GetObjects('rbxassetid://7292687678')[1]         --by me
+--local ChrModels = game:GetObjects('rbxassetid://7292687678')[1]               --original
 repeat wait() until ChrModels ~= nil
 
 local AllKnives = {
@@ -5465,7 +5510,7 @@ end
 
 RunService.RenderStepped:Wait()
 
-local gui = library:New(versiondisplay)
+local gui = library:New(nameandversiondisplay)
 local legit = gui:Tab('legit')
 local rage = gui:Tab('rage')
 local visuals = gui:Tab('visuals')
@@ -5619,6 +5664,7 @@ aimbot:Element('Dropdown', 'origin', {options = {'character', 'camera'}})
 aimbot:Element('Toggle', 'silent aim')
 aimbot:Element('Dropdown', 'automatic fire', {options = {'off', 'standard', 'hitpart', 'silent'}})
 aimbot:Element('Toggle', 'automatic penetration')
+--aimbot:Element('Slider', 'penetraion', {min = 0, max = 10, default = 0.01})
 aimbot:Element('Dropdown', 'penetration', {options = {'normal', 'medium', 'high', 'XD'}})
 aimbot:Element('Jumbobox', 'resolver', {options = {'pitch', 'roll', 'arms', 'animation', 'bhop'}})
 aimbot:Element('Slider', 'resolver offset (default = 10)', {min = 0, max = 50, default = 0})
@@ -6323,7 +6369,7 @@ others:Element('Dropdown', 'leg movement', {options = {'off', 'slide'}})
 				end
 			end)()
 			fakelag:Element('ToggleKeybind', 'FreezeLOL!', nil, function(tbl)
-				if tbl.Toggle and tbl.Active then
+				if tbl.Toggle and tbl.Active or freezedefuse == true then
 					local Freto = Instance.new("Part")
 					Freto.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
 					Freto.CanCollide = false
@@ -6995,7 +7041,7 @@ effects:Element('Dropdown', 'weapon material', {options = {'Smooth', 'Flat', 'Fo
 		end
 	end
 end)
-effects:Element("Dropdown", "weapon ff anim", {options = {"none", "scanning", "lava", "pulse"}}, function(tbl)
+effects:Element("Dropdown", "weapon ff anim", {options = {"none", "default", "weird", "cover", "light", "rought", "parts", "corrupted", "lines", "scanning", "lava", "pulse"}}, function(tbl)
 	if values.visuals.effects["weapon chams"].Toggle and values.visuals.effects["weapon material"].Dropdown == "ForceField" then
 		for i,v in pairs(WeaponObj) do
 			UpdateWeapon(v)
@@ -7761,6 +7807,8 @@ end)
 
 server:Element("Button", "Discord invite", {}, function() 
 	setclipboard("https://discord.gg/AGXpEgqkqn") 
+	wait(0.5)
+    CreateHitElement(" Discord invite link copied to clipboard! ",Color3.fromRGB(86, 98, 246),5, 0, 230, 0, 22)
 end)
 
 local advanced = misc:Sector("advanced", "Right")
@@ -7934,6 +7982,127 @@ Client.grenadeallowed = function(...)
 
 	return oldgrenadeallowed(...)
 end
+
+local bomb = misc:Sector('C4', 'Right')
+--[[
+local function longasscode2()
+return (values.misc.bomb['slot'].Dropdown == 'knife' and 5 or values.misc.bomb['slot'].Dropdown == 'primary' and 8 or values.misc.bomb['slot'].Dropdown == 'pistol' and 7 or values.misc.bomb['slot'].Dropdown == 'grenade 1' and 9 or values.misc.bomb['slot'].Dropdown == 'grenade 2' and 10 or values.misc.bomb['slot'].Dropdown == 'grenade 3' and 11 or values.misc.bomb['slot'].Dropdown == 'grenade 4' and 12 or values.misc.bomb['slot'].Dropdown == 'bomb' and 13)
+end
+]]--
+bomb:Element('Button', 'give c4', {}, function()
+-- pasted from google
+local gun = "C4" -- AWP, AK47, G3SG1, ect.
+local givefunc
+for _, v in pairs(getgc()) do
+local parentScript = rawget(getfenv(v), "script")
+
+    if type(v) == "function" and parentScript == game:GetService("Players").LocalPlayer.PlayerGui.Client and islclosure(v) and not is_synapse_function(v) and debug.getinfo(v).name == "giveTool" then
+        givefunc = v
+        break
+    end
+end
+debug.setupvalue(givefunc, (values.misc.C4['slot'].Dropdown == 'knife' and 5 or values.misc.C4['slot'].Dropdown == 'primary' and 8 or values.misc.C4['slot'].Dropdown == 'pistol' and 7 or values.misc.C4['slot'].Dropdown == 'grenade 1' and 9 or values.misc.C4['slot'].Dropdown == 'grenade 2' and 10 or values.misc.C4['slot'].Dropdown == 'grenade 3' and 11 or values.misc.C4['slot'].Dropdown == 'grenade 4' and 12 or values.misc.C4['slot'].Dropdown == 'C4' and 13), gun) -- index 7 = secondary wep, index 8 = primary wep (i think lol. forgor)
+end)
+
+bomb:Element('Dropdown', 'slot', {options = {'knife', 'primary', 'pistol', 'grenade 1', 'grenade 2', 'grenade 3', 'grenade 4', 'bomb'}})
+--[[
+bomb:Element('Button', 'plant c4', {}, function()
+	pcall(function()
+	if IsAlive(LocalPlayer) and workspace.Map.Gamemode.Value == "defusal" and workspace.Status.Preparation.Value == false and not planting then 
+		planting = true
+		local pos = LocalPlayer.Character.HumanoidRootPart.CFrame 
+		workspace.CurrentCamera.CameraType = "Fixed"
+		LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.SpawnPoints.C4Plant.CFrame
+		wait(0.2)
+		game.ReplicatedStorage.Events.PlantC4:FireServer((pos + Vector3.new(0, -2.75, 0)) * CFrame.Angles(math.rad(90), 0, math.rad(180)), GetSite())
+		wait(0.2)
+		LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		game.Workspace.CurrentCamera.CameraType = "Custom"
+		planting = false
+	end
+	end)
+end)
+]]--
+bomb:Element('Button', 'plant c4 anywhere', {}, function()
+	pcall(function()
+	if IsAlive(LocalPlayer) and workspace.Map.Gamemode.Value == "defusal" and workspace.Status.Preparation.Value == false and not planting then 
+		planting = true
+		local pos = LocalPlayer.Character.HumanoidRootPart.CFrame 
+		workspace.CurrentCamera.CameraType = "Fixed"
+		LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.SpawnPoints.C4Plant.CFrame
+		wait(0.2)
+		game.ReplicatedStorage.Events.PlantC4:FireServer((pos + Vector3.new(0, -2.75, 0)) * CFrame.Angles(math.rad(90), 0, math.rad(180)))
+		wait(0.2)
+		LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		game.Workspace.CurrentCamera.CameraType = "Custom"
+		planting = false
+	end
+	end)
+end)
+
+bomb:Element('Button', 'defuse c4', {}, function()
+	pcall(function()
+	if IsAlive(LocalPlayer) and workspace.Map.Gamemode.Value == "defusal" and not defusing and workspace:FindFirstChild("C4") then 
+		defusing = true
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		local pos = LocalPlayer.Character.HumanoidRootPart.CFrame 
+		workspace.CurrentCamera.CameraType = "Fixed"
+		LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.C4.Handle.CFrame + Vector3.new(0, 2, 0)
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		wait(0.1)
+		LocalPlayer.Backpack.PressDefuse:FireServer(workspace.C4)
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		wait(0.25)
+		if IsAlive(LocalPlayer) and workspace:FindFirstChild("C4") and workspace.C4:FindFirstChild("Defusing") and workspace.C4.Defusing.Value == LocalPlayer then
+			LocalPlayer.Backpack.Defuse:FireServer(workspace.C4)
+		end
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		wait(0.2)
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		game.Workspace.CurrentCamera.CameraType = "Custom"
+		defusing = false
+	end
+	end)
+end)
+
+bomb:Element('Button', 'freezedefuse c4', {}, function()
+	pcall(function()
+	if IsAlive(LocalPlayer) and workspace.Map.Gamemode.Value == "defusal" and not defusing and workspace:FindFirstChild("C4") then 
+	    freezedefuse = true
+	    
+	    wait(1)
+	    
+		defusing = true
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		local pos = LocalPlayer.Character.HumanoidRootPart.CFrame 
+		workspace.CurrentCamera.CameraType = "Fixed"
+		LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.C4.Handle.CFrame + Vector3.new(0, 2, 0)
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		wait(0.1)
+		LocalPlayer.Backpack.PressDefuse:FireServer(workspace.C4)
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		wait(0.25)
+		if IsAlive(LocalPlayer) and workspace:FindFirstChild("C4") and workspace.C4:FindFirstChild("Defusing") and workspace.C4.Defusing.Value == LocalPlayer then
+			LocalPlayer.Backpack.Defuse:FireServer(workspace.C4)
+		end
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		wait(0.2)
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		game.Workspace.CurrentCamera.CameraType = "Custom"
+		defusing = false
+		
+		wait(1)
+		
+		freezedefuse = false
+	end
+	end)
+end)
 
 local movement = misc:Sector('movement', 'Left')
 movement:Element('Toggle', 'bunny hop')
@@ -8240,12 +8409,12 @@ end)
 local loadout1 = misc:Sector('loadout1', 'Right')
 
 local function longasscode()
-return (values.more['loadout1']['what slot'].Dropdown == 'knife' and 5 or values.more['loadout1']['what slot'].Dropdown == 'primary' and 8 or values.more['loadout1']['what slot'].Dropdown == 'pistol' and 7 or values.more['loadout1']['what slot'].Dropdown == 'grenade 1' and 9 or values.more['loadout1']['what slot'].Dropdown == 'grenade 2' and 10 or values.more['loadout1']['what slot'].Dropdown == 'grenade 3' and 11 or values.more['loadout1']['what slot'].Dropdown == 'grenade 4' and 12 or values.more['loadout1']['what slot'].Dropdown == 'bomb' and 13)
+return (values.misc['loadout1']['what slot'].Dropdown == 'knife' and 5 or values.misc['loadout1']['what slot'].Dropdown == 'primary' and 8 or values.misc['loadout1']['what slot'].Dropdown == 'pistol' and 7 or values.misc['loadout1']['what slot'].Dropdown == 'grenade 1' and 9 or values.misc['loadout1']['what slot'].Dropdown == 'grenade 2' and 10 or values.misc['loadout1']['what slot'].Dropdown == 'grenade 3' and 11 or values.misc['loadout1']['what slot'].Dropdown == 'grenade 4' and 12 or values.misc['loadout1']['what slot'].Dropdown == 'bomb' and 13)
 end
 
 loadout1:Element('Button', 'hook weapon', {}, function()
 -- pasted from google
-local gun = values.more['loadout1']['weapon'].Scroll[values.more['loadout1']['weapon'].Dropdown] -- AWP, AK47, G3SG1, ect.
+local gun = values.misc['loadout1']['weapon'].Scroll[values.misc['loadout1']['weapon'].Dropdown] -- AWP, AK47, G3SG1, ect.
 local givefunc
 for _, v in pairs(getgc()) do
 local parentScript = rawget(getfenv(v), "script")
@@ -8502,13 +8671,14 @@ ui:Element('TextBox', 'custom title', {placeholder = 'title name here'}, functio
 end)
 
 themebackground = {
-    ['Default'] = 2151741365,
+    ['Canyon'] = 2151741365,
     ['Hearts'] = 6073763717,
     ['Abstract'] = 6073743871,
     ['Hexagon'] = 6073628839,
     ['Circles'] = 6071579801,
     ['Lace With Flowers'] = 6071575925,
     ['Floral'] = 5553946656,
+    ['Lines'] = 9667524738,
 --    ['Custom'] = ' ',
 }
 
@@ -8518,26 +8688,30 @@ for a,b in next, themebackground do
     table.insert(Images_names, a)
 end
 
+ui:Element('Dropdown', 'background', {options = Images_names})
+--[[
 ui:Element('Dropdown', 'background', {options = Images_names}, function(tbl)
-  for a,b in next, themebackground do
+    for a,b in next, themebackground do
     if a == 'Custom' and tbl.Dropdown == 'Custom' then
---      b = values.misc.ui['custom background'].Text
+      b = values.misc.ui['custom background'].Text
     end
-  end
+    end
 end)
-
+]]--
 ui:Element('ToggleTrans', 'background color', {default = {Color = Color3.fromRGB(25,25,25), Transparency = 0}})
 
-local teststuff = misc:Sector ("test", "Left")
-teststuff:Element('Toggle', 'test')
-teststuff:Element('ToggleColor', 'test', {default = {Color = Color3.fromRGB(255, 255, 255)}})
-teststuff:Element('ToggleTrans', 'test', {default = {Color = Color3.fromRGB(255 ,255 ,255), Transparency = 0}})
-teststuff:Element('ToggleKeybind', 'test')
-teststuff:Element('Slider', 'test', {min = 0, max = 100, default = 50})
-teststuff:Element('TextBox', 'test', {placeholder = 'test', default = {text = 'test'}})
-teststuff:Element('Button', 'test')
-teststuff:Element('Dropdown', 'test', {options = {'test1', 'test2'}})
-teststuff:Element('Jumbobox', 'test', {options = {'test1', 'test2'}})
+if table.find(developers, LocalPlayer.Name) then
+    local teststuff = misc:Sector ("test", "Left")
+    teststuff:Element('Toggle', 'test')
+    teststuff:Element('ToggleColor', 'test', {default = {Color = Color3.fromRGB(255, 255, 255)}})
+    teststuff:Element('ToggleTrans', 'test', {default = {Color = Color3.fromRGB(255 ,255 ,255), Transparency = 0}})
+    teststuff:Element('ToggleKeybind', 'test')
+    teststuff:Element('Slider', 'test', {min = 0, max = 100, default = 50})
+    teststuff:Element('TextBox', 'test', {placeholder = 'test', default = {text = 'test'}})
+    teststuff:Element('Button', 'test')
+    teststuff:Element('Dropdown', 'test', {options = {'test1', 'test2'}})
+    teststuff:Element('Jumbobox', 'test', {options = {'test1', 'test2'}})
+end
 
 local watermark = misc:Sector('watermark', 'Left')
 
@@ -9143,7 +9317,8 @@ RunService:BindToRenderStep('idk', 444, function()
 												end
 											else
 												wallbang = true
-												local penetration = Client.gun.Penetration.Value * 0.011
+--												local penetration = Client.gun.Penetration.Value * values.rage.aimbot['penetration'].Slider
+												local penetration = Client.gun.Penetration.Value * 0.01
 
 
 												if values.rage.aimbot['penetration'].Dropdown == 'XD' then 
@@ -9929,6 +10104,30 @@ RunService:BindToRenderStep('idk', 444, function()
 		end
 	end
 
+	if workspace:FindFirstChild('Map') and Client.gun ~= 'none' and Client.gun.Name ~= 'C4' then
+		if values.misc.movement['height change'].Toggle then 
+		pcall(function() LocalPlayer.Character.Humanoid.HipHeight = 2 * (values.misc.movement['height amount'].Slider/5) end)
+	else 
+	    pcall(function() LocalPlayer.Character.Humanoid.HipHeight = 2 end)
+	end
+
+	if values.misc.movement['no velocity'].Toggle then 
+	   pcall(function() LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, LocalPlayer.Character.HumanoidRootPart.Velocity.y, 0) end)
+	end
+
+	if values.misc.movement['no gun'].Toggle then 
+	   pcall(function() LocalPlayer.Character.Gun:Remove()end)
+	end
+
+	if values.misc.movement['client offset'].Toggle then 
+       pcall(function() LocalPlayer.Character.LowerTorso:FindFirstChildWhichIsA('Motor6D').C0 = CFrame.new(0, (values.misc.movement['offset (y)'].Slider/5), 0) end)
+    end
+
+	end
+end
+end)
+
+RunService:BindToRenderStep('Espstuff', 3000, function()
 	for _,Player in pairs(Players:GetPlayers()) do
 		local tbl = objects[Player]
 		if tbl == nil then return end
@@ -10033,28 +10232,6 @@ RunService:BindToRenderStep('idk', 444, function()
 			end
 		end
 	end
-
-	if workspace:FindFirstChild('Map') and Client.gun ~= 'none' and Client.gun.Name ~= 'C4' then
-		if values.misc.movement['height change'].Toggle then 
-		pcall(function() LocalPlayer.Character.Humanoid.HipHeight = 2 * (values.misc.movement['height amount'].Slider/5) end)
-	else 
-	    pcall(function() LocalPlayer.Character.Humanoid.HipHeight = 2 end)
-	end
-
-	if values.misc.movement['no velocity'].Toggle then 
-	   pcall(function() LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, LocalPlayer.Character.HumanoidRootPart.Velocity.y, 0) end)
-	end
-
-	if values.misc.movement['no gun'].Toggle then 
-	   pcall(function() LocalPlayer.Character.Gun:Remove()end)
-	end
-
-	if values.misc.movement['client offset'].Toggle then 
-       pcall(function() LocalPlayer.Character.LowerTorso:FindFirstChildWhichIsA('Motor6D').C0 = CFrame.new(0, (values.misc.movement['offset (y)'].Slider/5), 0) end)
-    end
-
-	end
-end
 end)
 
 --[[
@@ -13069,14 +13246,22 @@ end
     wait(2.0)
 	CreateHitElement(" Successfully loaded! ",Color3.fromRGB(0, 255, 68),2, 0, 340, 0, 22)
 	wait(3.0)
-	CreateHitElement(" Welcome "..game.Players.LocalPlayer.Name.." to new!  ",Color3.fromRGB(255, 255, 255),5, 0, 340, 0, 22)
+	CreateHitElement(" |                                         LuckyLounge                                         | ",Color3.fromRGB(0, 255, 242),7, 0, 340, 0, 22)
+	wait(1)
+	ChatScript.createNewMessage("LuckyLounge","Welcome to LuckyLounge, enjoy!",Color3.new(0, 255, 242),Color3.new(1,1,1),0.01,nil)
+	ChatScript.moveOldMessages()
+	ChatScript.createNewMessage("LuckyLounge","Thanks to Samuel who helped me with everything!",Color3.new(0, 255, 242),Color3.new(1,1,1),0.01,nil)
+	CreateHitElement(" Welcome "..game.Players.LocalPlayer.Name.." to LuckyLounge! ",Color3.fromRGB(255, 255, 255),6, 0, 340, 0, 22)
 	wait(0.5)
     if table.find(developers, LocalPlayer.Name) then
-    	CreateHitElement("Reconized as script developer!",Color3.fromRGB(0, 229, 255),5, 0, 340, 0, 22)
+    	CreateHitElement("Reconized as script developer!",Color3.fromRGB(0, 229, 255),5.5, 0, 340, 0, 22)
+    	wait(0.5)
     end
+--[[
 	if table.find(developers, LocalPlayer.Name) then
 	    wait(0.5)
-    end
+	end
+]]--
 	CreateHitElement(" Go in misc tab and set up keybind yourself. ",Color3.fromRGB(255, 255, 255),5, 0, 340, 0, 22)
     wait(6.0)
 	CreateHitElement(" !!!  IMPORTANT  !!!\
@@ -13084,15 +13269,15 @@ end
  This script is 98% pasted and\
  there are probably many bugs,\
  if you notice anything wrong,\
- report it to my discord! ",Color3.fromRGB(255, 41, 41),15, 0, 230, 0, 100)
+ report it to my discord! ",Color3.fromRGB(255, 41, 41),14, 0, 230, 0, 100)
     wait(0.5)
-    CreateHitElement(" Discord invite link is in misc tab. ",Color3.fromRGB(86, 98, 246),10, 0, 230, 0, 22)
+    CreateHitElement(" Discord invite link is in misc tab. ",Color3.fromRGB(86, 98, 246),13.5, 0, 230, 0, 22)
  
 --local Players = game:GetService("Players") 
 --local LocalPlayer = Players.LocalPlayer 
 
 game:GetService("Players").PlayerAdded:Connect(function(plr)
 	if table.find(developers, plr.Name) then
-		CreateHitElement("Developer of script joined your game.",Color3.fromRGB(255, 255, 255),15, 0, 380, 0, 22)
+		CreateHitElement("Developer of script joined your game.",Color3.fromRGB(255, 255, 255),10, 0, 380, 0, 22)
 	end
 end)
