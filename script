@@ -1,7 +1,7 @@
 
-versiondisplay = "0.24"
+versiondisplay = "0.25"
 
-nameandversiondisplay = "LuckyLounge | 0.24"
+nameandversiondisplay = "LuckyLounge | 0.25"
 
 local bordercolorlist = {}
 
@@ -5549,7 +5549,8 @@ glove:Element('Toggle', 'glove changer')
 glove:Element('ScrollDrop', 'model', {options = AllGloves, Amount = 9})
 
 local sleeves = skins:Sector('misc', 'Left')
-sleeves:Element('Toggle', 'Remove sleeves')
+sleeves:Element('Toggle', 'remove sleeves')
+sleeves:Element('Toggle', 'hide arms')
 
 local skin = skins:Sector('skins', 'Right')
 skin:Element('Toggle', 'skin changer')
@@ -7559,7 +7560,7 @@ self:Element('ToggleKeybind', 'third person', {}, function(tbl)
 		end
 	end
 end)
-self:Element('Toggle', 'hide arms')
+--self:Element('Toggle', 'hide arms')
 
 self:Element('Slider', 'distance', {min = 6, max = 18, default = 12}, function(tbl)
 	if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild('Humanoid') then
@@ -7774,10 +7775,10 @@ world:Element('ToggleTrans', 'hit chams', {default = {Color = Color3.fromRGB(0, 
 world:Element('Dropdown', 'hit material', {options = {'Smooth', 'Flat', 'ForceField', 'Glass'}})
 world:Element('Slider', 'hit duration', {min = 1, max = 5, default = 3})
 
-world:Element('Dropdown', 'hitsound', {options = {'none', 'skeet', 'neverlose', 'rust', 'bag', 'baimware', 'nn dog', 'retro', 'tf2'}})
+world:Element('Dropdown', 'hitsound', {options = {'none', 'skeet', 'bubble with bell', 'osu', 'Slap', 'Minecraft', 'jojo', 'vibe', 'supersmash', 'epic', 'quek', 'killing spree', 'UwU', 'zap', 'rust', 'nn dog', '1 nn dog', 'baimware', 'neverlose', 'tf2 hit', 'tf2 crit hit', 'tf2 pan'}})
 world:Element('TextBox', 'customsound', {placeholder = 'sound id here'})
 
-world:Element('Dropdown', 'killsound', {options = {'none', 'skeet', 'neverlose', 'rust', 'bag', 'baimware', 'nn dog', 'retro', 'tf2'}})
+world:Element('Dropdown', 'killsound', {options = {'none', 'skeet', 'bubble with bell', 'osu', 'Slap', 'Minecraft', 'jojo', 'vibe', 'supersmash', 'epic', 'quek', 'killing spree', 'UwU', 'zap', 'rust', 'nn dog', '1 nn dog', 'baimware', 'neverlose', 'tf2 hit', 'tf2 crit hit', 'tf2 pan'}})
 
 world:Element('Slider', 'sound volume', {min = 1, max = 5, default = 3})
 world:Element('Dropdown', 'skybox', {options = {'none', 'nebula', 'vaporwave', 'clouds'}}, function(tbl)
@@ -11545,7 +11546,7 @@ mt.__namecall = function(self, ...)
 	local args = {...}
 
 	if method == 'SetPrimaryPartCFrame' and self.Name == 'Arms' then
-		if values.visuals.self['hide arms'].Toggle and LocalPlayer.Character then
+		if values.skins.misc['hide arms'].Toggle and LocalPlayer.Character then
 			args[1] = args[1] * CFrame.new(99, 99, 99)
 		else
 			if values.visuals.self['viewmodel changer'].Toggle then
@@ -11770,7 +11771,7 @@ mt.__namecall = function(self, ...)
 				beam.Transparency = values.visuals.world['bullet tracers'].Transparency
 				beam.Color = values.visuals.world['bullet tracers'].Color
 
-				if values.visuals.self['hide arms'].Toggle then 
+				if values.skins.misc['hide arms'].Toggle then 
 					beam.Size = Vector3.new(0.001*values.visuals.world['tracers thickness'].Slider, 0.001*values.visuals.world['tracers thickness'].Slider, (workspace.Camera.CFrame.Position - args[2]).Magnitude)
 					beam.CFrame = CFrame.new(workspace.Camera.CFrame.Position, args[2]) * CFrame.new(0, 0, -beam.Size.Z / 2)
 				else
@@ -12000,7 +12001,7 @@ LocalPlayer.Additionals.TotalDamage:GetPropertyChangedSignal('Value'):Connect(fu
 	if values.visuals.world.hitsound.Dropdown == 'none' then return end
 	local sound = Instance.new('Sound')
 	sound.Parent = game:GetService('SoundService')
-	sound.SoundId = values.visuals.world.hitsound.Dropdown == 'skeet' and 'rbxassetid://5447626464' or values.visuals.world.hitsound.Dropdown == 'tf2' and 'rbxassetid://2868331684' or values.visuals.world.hitsound.Dropdown == 'rust' and 'rbxassetid://5043539486' or values.visuals.world.hitsound.Dropdown == 'retro' and 'rbxassetid://7293523910' or values.visuals.world.hitsound.Dropdown == 'bag' and 'rbxassetid://364942410' or values.visuals.world.hitsound.Dropdown == 'nn dog' and 'rbxassetid://5902468562' or values.visuals.world.hitsound.Dropdown == 'baimware' and 'rbxassetid://6607339542' or 'rbxassetid://6607204501'
+	sound.SoundId = values.visuals.world.hitsound.Dropdown == 'skeet' and 'rbxassetid://5447626464' or values.visuals.world.hitsound.Dropdown == "bubble with bell" and "rbxassetid://5276754334" or values.visuals.world.hitsound.Dropdown == "osu" and "rbxassetid://7149919358" or values.visuals.world.hitsound.Dropdown == "Slap" and "rbxassetid://4888372697" or values.visuals.world.hitsound.Dropdown == "Minecraft" and "rbxassetid://7273736372" or values.visuals.world.hitsound.Dropdown == "jojo" and "rbxassetid://6787514780" or values.visuals.world.hitsound.Dropdown == "vibe" and "rbxassetid://1848288500" or values.visuals.world.hitsound.Dropdown == "supersmash" and "rbxassetid://2039907664" or values.visuals.world.hitsound.Dropdown == "epic" and "rbxassetid://7344303740" or values.visuals.world.hitsound.Dropdown == "quek" and "rbxassetid://4868633804" or values.visuals.world.hitsound.Dropdown == "killing spree" and "rbxassetid://723054723" or values.visuals.world.hitsound.Dropdown == "UwU" and "rbxassetid://4821247887" or values.visuals.world.hitsound.Dropdown == 'tf2 hit' and 'rbxassetid://2868331684' or values.visuals.world.hitsound.Dropdown == 'tf2 crit hit' and 'rbxassetid://296102734' or values.visuals.world.hitsound.Dropdown == 'tf2 pan' and 'rbxassetid://3431749479' or values.visuals.world.hitsound.Dropdown == 'zap' and 'rbxassetid://364942410' or values.visuals.world.hitsound.Dropdown == 'rust' and 'rbxassetid://5043539486' or values.visuals.world.hitsound.Dropdown == 'nn dog' and 'rbxassetid://5902468562' or values.visuals.world.hitsound.Dropdown  == "1 nn dog" and "rbxassetid://7349055654" or values.visuals.world.hitsound.Dropdown == 'baimware' and 'rbxassetid://6607339542' or 'rbxassetid://6607204501' or values.visuals.world.hitsound.Dropdown == 'neverlose' and 'rbxassetid://6607204501'
 	sound.Volume = values.visuals.world['sound volume'].Slider
 	sound.PlayOnRemove = true
 	sound:Destroy()
@@ -12016,12 +12017,12 @@ LocalPlayer.Status.Kills:GetPropertyChangedSignal('Value'):Connect(function(curr
 			game:GetService('ReplicatedStorage').Events.PlayerChatted:FireServer(values.misc.chat['message'].Text ~= '' and texatee or "rawrie what's that! no shiba.gang :(", false, 'Innocent', false, true)
 		end	
 		
-		local sound = Instance.new('Sound')
-		sound.Parent = game:GetService('SoundService')
-		sound.SoundId = values.visuals.world.killsound.Dropdown == 'skeet' and 'rbxassetid://5447626464' or values.visuals.world.killsound.Dropdown == 'tf2' and 'rbxassetid://2868331684' or values.visuals.world.killsound.Dropdown == 'rust' and 'rbxassetid://5043539486' or values.visuals.world.killsound.Dropdown == 'retro' and 'rbxassetid://7293523910' or values.visuals.world.killsound.Dropdown == 'bag' and 'rbxassetid://364942410' or values.visuals.world.killsound.Dropdown == 'nn dog' and 'rbxassetid://5902468562' or values.visuals.world.killsound.Dropdown == 'baimware' and 'rbxassetid://6607339542' or 'rbxassetid://6607204501'
-		sound.Volume = values.visuals.world['sound volume'].Slider
-		sound.PlayOnRemove = true
-		sound:Destroy()
+        local sound = Instance.new('Sound')
+        sound.Parent = game:GetService('SoundService')
+        sound.SoundId = values.visuals.world.killsound.Dropdown == 'skeet' and 'rbxassetid://5447626464' or values.visuals.world.killsound.Dropdown == "bubble with bell" and "rbxassetid://5276754334" or values.visuals.world.killsound.Dropdown == "osu" and "rbxassetid://7149919358" or values.visuals.world.killsound.Dropdown == "Slap" and "rbxassetid://4888372697" or values.visuals.world.killsound.Dropdown == "Minecraft" and "rbxassetid://7273736372" or values.visuals.world.killsound.Dropdown == "jojo" and "rbxassetid://6787514780" or values.visuals.world.killsound.Dropdown == "vibe" and "rbxassetid://1848288500" or values.visuals.world.killsound.Dropdown == "supersmash" and "rbxassetid://2039907664" or values.visuals.world.killsound.Dropdown == "epic" and "rbxassetid://7344303740" or values.visuals.world.killsound.Dropdown == "quek" and "rbxassetid://4868633804" or values.visuals.world.killsound.Dropdown == "killing spree" and "rbxassetid://723054723" or values.visuals.world.killsound.Dropdown == "UwU" and "rbxassetid://4821247887" or values.visuals.world.killsound.Dropdown == 'tf2 hit' and 'rbxassetid://2868331684' or values.visuals.world.killsound.Dropdown == 'tf2 crit hit' and 'rbxassetid://296102734' or values.visuals.world.killsound.Dropdown == 'tf2 pan' and 'rbxassetid://3431749479' or values.visuals.world.killsound.Dropdown == 'zap' and 'rbxassetid://364942410' or values.visuals.world.killsound.Dropdown == 'rust' and 'rbxassetid://5043539486' or values.visuals.world.killsound.Dropdown == 'nn dog' and 'rbxassetid://5902468562' or values.visuals.world.killsound.Dropdown  == "1 nn dog" and "rbxassetid://7349055654" or values.visuals.world.killsound.Dropdown == 'baimware' and 'rbxassetid://6607339542' or 'rbxassetid://6607204501' or values.visuals.world.killsound.Dropdown == 'neverlose' and 'rbxassetid://6607204501'
+        sound.Volume = values.visuals.world['sound volume'].Slider
+        sound.PlayOnRemove = true
+        sound:Destroy()
 	end
 
 
@@ -12198,7 +12199,7 @@ Camera.ChildAdded:Connect(function(obj)
 		end
 		RSleeve = RArm:FindFirstChild("Sleeve")
 		if RSleeve ~= nil then
-			if values.skins.misc["Remove sleeves"].Toggle then
+			if values.skins.misc["remove sleeves"].Toggle then
 			pcall(function()
 			RSleeve.Transparency = 1 
 			end)
@@ -12249,7 +12250,7 @@ Camera.ChildAdded:Connect(function(obj)
 		end
 		LSleeve = LArm:FindFirstChild("Sleeve")
 		if LSleeve ~= nil then
-			if values.skins.misc["Remove sleeves"].Toggle then
+			if values.skins.misc["remove sleeves"].Toggle then
 			pcall(function()
 			LSleeve.Transparency = 1
 			end)
