@@ -48,8 +48,8 @@ local vipyellow = Color3.fromRGB(246, 255, 0)
 local originalcolor = Color3.fromRGB(170, 0, 0)
 local loadername = "LuckyLounge"
 local lastupdate = "Updated: 19/5/2022"
-local scriptstatus = "Status: ambient + anim"
-local versiondisplay2 = "VIP Version: 0.24"
+local scriptstatus = "Status: more hitsounds"
+local versiondisplay2 = "VIP Version: 0.25"
 
 loader.Name = "loader"
 loader.Parent = game.CoreGui
@@ -577,8 +577,8 @@ local warningred = Color3.fromRGB(255, 41, 41)
 local originalcolor = Color3.fromRGB(170, 0, 0)
 local loadername = "LuckyLounge"
 local lastupdate = "Updated: 19/5/2022"
-local scriptstatus = "Status: ambient + anim"
-local versiondisplay2 = "Version: 0.24"
+local scriptstatus = "Status: more hitsounds"
+local versiondisplay2 = "Version: 0.25"
 
 loader.Name = "loader"
 loader.Parent = game.CoreGui
