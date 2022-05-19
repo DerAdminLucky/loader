@@ -1,7 +1,7 @@
 
-versiondisplay = "0.23"
+versiondisplay = "0.24"
 
-nameandversiondisplay = "LuckyLounge | 0.23"
+nameandversiondisplay = "LuckyLounge | 0.24"
 
 local bordercolorlist = {}
 
@@ -5223,9 +5223,11 @@ local function UpdateWeapon(obj)
 	local selected = values.visuals.effects["weapon material"].Dropdown
 	local ffanim = values.visuals.effects["weapon ff anim"].Dropdown
 	if obj:IsA("MeshPart") and selected == "ForceField" then 
-		if ffanim == "none" then
+		if ffanim == "nothing" then
 			obj.TextureID = ""
-		elseif ffanim == "default" then
+		elseif ffanim == "skin" then
+
+		elseif ffanim == "galaxy" then
 			obj.TextureID = "rbxassetid://268022762"
 		elseif ffanim == "weird" then
 			obj.TextureID = "rbxassetid://1066669420"
@@ -7043,7 +7045,7 @@ effects:Element('Dropdown', 'weapon material', {options = {'Smooth', 'Flat', 'Fo
 		end
 	end
 end)
-effects:Element("Dropdown", "weapon ff anim", {options = {"none", "default", "weird", "cover", "light", "rought", "parts", "corrupted", "lines2", "lines", "scanning", "lava", "pulse"}}, function(tbl)
+effects:Element("Dropdown", "weapon ff anim", {options = {"skin", "nothing", "galaxy", "weird", "cover", "light", "rought", "parts", "corrupted", "lines2", "lines", "scanning", "lava", "pulse"}}, function(tbl)
 	if values.visuals.effects["weapon chams"].Toggle and values.visuals.effects["weapon material"].Dropdown == "ForceField" then
 		for i,v in pairs(WeaponObj) do
 			UpdateWeapon(v)
@@ -7187,6 +7189,20 @@ effects:Element('ToggleColor', 'world color', {default = {Color = Color3.fromRGB
 	else
 		Camera.ColorCorrection.TintColor = Color3.fromRGB(255,255,255)
 	end
+end)
+effects:Element("ToggleColor", "indoor ambient", {default = {Color = Color3.fromRGB(255,255,255)}}, function(tbl) 
+	if tbl.Toggle then 
+		game.Lighting.Ambient = tbl.Color
+	else 
+		game.Lighting.Ambient = Color3.fromRGB(255,255,255) 
+	end 
+end)
+effects:Element("ToggleColor", "outdoor ambient", {default = {Color = Color3.fromRGB(255,255,255)}}, function(tbl) 
+	if tbl.Toggle then 
+		game.Lighting.OutdoorAmbient = tbl.Color
+	else 
+		game.Lighting.OutdoorAmbient = Color3.fromRGB(255,255,255) 
+	end 
 end)
 effects:Element("Toggle", "old sounds", {}, function(tbl)
 if tbl.Toggle then
@@ -7501,6 +7517,26 @@ effects:Element("Slider", "time changer", {min = 0, max = 15, default = 0}, func
    end
 end)
 effects:Element('Toggle', 'shadowmap technology', nil, function(val) sethiddenproperty(Lighting, 'Technology', val.Toggle and 'ShadowMap' or 'Legacy') end)
+
+effects:Element("Button", "remove textures", nil, function()
+ repeat wait() until game:IsLoaded()
+ for _,v in pairs(workspace:GetDescendants()) do
+if v.ClassName == "Part"
+or v.ClassName == "SpawnLocation"
+or v.ClassName == "WedgePart"
+or v.ClassName == "Terrain"
+or v.ClassName == "MeshPart" then
+v.Material = "Plastic"
+end
+end
+
+for _,v in pairs(workspace:GetDescendants()) do
+if v.ClassName == "Decal"
+or v.ClassName == "Texture" then
+v:Destroy()
+end
+end
+end)
 
 local self = visuals:Sector('self', 'Right')
 self:Element('ToggleKeybind', 'third person', {}, function(tbl)
@@ -7975,6 +8011,14 @@ client:Element('Toggle', 'buy any grenade')
 client:Element('Toggle', 'chat alive')
 client:Element('Jumbobox', 'shop', {options = {'inf time', 'anywhere'}})
 client:Element('Toggle', 'anti spectate')
+client:Element("Toggle","debris clear",{},function(tbl)
+    while values.misc.client["debris clear"].Toggle == true do
+        wait(1)
+        for i,v in pairs(workspace.Debris:GetDescendants()) do
+            ReplicatedStorage.Events.DestroyObject:FireServer(v)
+        end 
+    end
+end)
 
 local oldgrenadeallowed = Client.grenadeallowed
 Client.grenadeallowed = function(...)
