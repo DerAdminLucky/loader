@@ -1,3 +1,545 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+
+local vips = {'ion_FakeClone100','ion_FakeClone101','ion_FakeClone102','ion_FakeClone103','ion_FakeClone104','ion_FakeClone105','ion_FakeClone106','ion_FakeClone107','ion_FakeClone108','ion_FakeClone109','ion_FakeClone110','ion_FakeClone111','ion_FakeClone112','ion_FakeClone113','ion_FakeClone114','ion_FakeClone115','ion_FakeClone116','ion_FakeClone117','ion_FakeClone118','ion_FakeClone119','ion_FakeClone120','ion_FakeClone121','ion_FakeClone122','ion_FakeClone123','ion_FakeClone124','ion_FakeClone125','ion_FakeClone126','ion_FakeClone127','ion_FakeClone128','ion_FakeClone129','ion_FakeClone130','ion_FakeClone131','ion_FakeClone132','ion_FakeClone133','ion_FakeClone134','ion_FakeClone135','ion_FakeClone136','ion_FakeClone137','ion_FakeClone138','ion_FakeClone139','ion_FakeClone140','ion_FakeClone141','ion_FakeClone142','ion_FakeClone143','ion_FakeClone144','ion_FakeClone145','ion_FakeClone146','ion_FakeClone147','ion_FakeClone148','ion_FakeClone149','ion_FakeClone150','CrakedAndBased','CBRO_HAX3R','SamuelThePaster','SamuelBetterThanU'}
+
+
+
+if table.find(vips, LocalPlayer.Name) then
+
+
+
+getgenv().vip = true
+
+local loader = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local outline = Instance.new("Frame")
+local inner = Instance.new("Frame")
+local upstuff = Instance.new("Frame")
+local name = Instance.new("TextLabel")
+local divider = Instance.new("Frame")
+local blackdivider = Instance.new("Frame")
+local group1 = Instance.new("Frame")
+local infogroup = Instance.new("Frame")
+local infogroupmain = Instance.new("Frame")
+local infolabel = Instance.new("TextLabel")
+local cbimage = Instance.new("ImageLabel")
+local welcome = Instance.new("TextLabel")
+local gamelabel = Instance.new("TextLabel")
+local version = Instance.new("TextLabel")
+local updated = Instance.new("TextLabel")
+local status = Instance.new("TextLabel")
+local infodivider = Instance.new("Frame")
+local optionsgroup = Instance.new("Frame")
+local optionsgroupmain = Instance.new("Frame")
+local optionsdivider = Instance.new("Frame")
+local optionslabel = Instance.new("TextLabel")
+local load = Instance.new("Frame")
+local loadlabel = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+local loadbutton = Instance.new("TextButton")
+local exit = Instance.new("Frame")
+local exitbutton = Instance.new("TextButton")
+local exitlabel = Instance.new("TextLabel")
+local UIGradient_2 = Instance.new("UIGradient")
+
+local vipyellow = Color3.fromRGB(246, 255, 0)
+local originalcolor = Color3.fromRGB(170, 0, 0)
+local loadername = "LuckyLounge"
+local lastupdate = "Updated: 19/5/2022"
+local scriptstatus = "Status: Fixed C4"
+local versiondisplay2 = "VIP Version: 0.23"
+
+loader.Name = "loader"
+loader.Parent = game.CoreGui
+loader.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = loader
+main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+main.Position = UDim2.new(0.553374231, -200, 0.42504409, -92)
+main.Size = UDim2.new(0, 313, 0, 268)
+
+dragging = false 
+do 
+    local a = main
+    local dragInput 
+    local dragStart 
+    local startPos 
+    local function update(input) 
+        local delta = input.Position - dragStart 
+        a.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y) 
+    end 
+    a.InputBegan:Connect(function(input) 
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then 
+            dragging = true 
+            dragStart = input.Position 
+            startPos = a.Position 
+    
+            input.Changed:Connect(function() 
+                if input.UserInputState == Enum.UserInputState.End then 
+                    dragging = false 
+                end 
+            end) 
+        end 
+    end) 
+    a.InputChanged:Connect(function(input) 
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then 
+            dragInput = input 
+        end 
+    end) 
+    game:GetService('UserInputService').InputChanged:Connect(function(input) 
+        if input == dragInput and dragging then 
+            update(input) 
+        end 
+    end) 
+end 
+
+outline.Name = "outline"
+outline.Parent = main
+outline.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+outline.BorderColor3 = Color3.fromRGB(35, 35, 35)
+outline.Position = UDim2.new(0, 1, 0, 1)
+outline.Size = UDim2.new(1, -2, 1, -2)
+
+inner.Name = "inner"
+inner.Parent = outline
+inner.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+inner.BorderColor3 = Color3.fromRGB(0, 0, 0)
+inner.Position = UDim2.new(0, 1, 0, 1)
+inner.Size = UDim2.new(1, -2, 1, -2)
+
+upstuff.Name = "upstuff"
+upstuff.Parent = inner
+upstuff.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+upstuff.BorderSizePixel = 0
+upstuff.Size = UDim2.new(1, 0, 0.125, 0)
+
+name.Name = "name"
+name.Parent = upstuff
+name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+name.BackgroundTransparency = 1.000
+name.Position = UDim2.new(0.0226537213, 0, 0.0303030312, 0)
+name.Size = UDim2.new(0.249190941, 0, 1, 0)
+name.Font = Enum.Font.Code
+name.Text = loadername
+name.TextColor3 = Color3.fromRGB(210, 210, 210)
+name.TextSize = 16.000
+name.TextStrokeTransparency = 0.000
+name.TextXAlignment = Enum.TextXAlignment.Left
+
+divider.Name = "divider"
+divider.Parent = upstuff
+divider.BackgroundColor3 = vipyellow
+divider.BorderColor3 = Color3.fromRGB(0, 0, 0)
+divider.Size = UDim2.new(1, 0, 0, 1)
+
+blackdivider.Name = "blackdivider"
+blackdivider.Parent = upstuff
+blackdivider.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+blackdivider.BorderColor3 = Color3.fromRGB(0, 0, 0)
+blackdivider.Position = UDim2.new(-4.65661287e-10, 0, 1, 0)
+blackdivider.Size = UDim2.new(1, 0, 0, 1)
+
+group1.Name = "group1"
+group1.Parent = inner
+group1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+group1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+group1.Position = UDim2.new(0.0250000004, 0, 0.170000002, 0)
+group1.Size = UDim2.new(0.949999988, 0, 0.800000012, 0)
+
+infogroup.Name = "infogroup"
+infogroup.Parent = group1
+infogroup.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+infogroup.BorderColor3 = Color3.fromRGB(35, 35, 35)
+infogroup.Position = UDim2.new(0, 1, 0, 1)
+infogroup.Size = UDim2.new(1, -2, 1, -2)
+
+infogroupmain.Name = "infogroupmain"
+infogroupmain.Parent = infogroup
+infogroupmain.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+infogroupmain.BorderColor3 = Color3.fromRGB(0, 0, 0)
+infogroupmain.Position = UDim2.new(0, 1, 0, 1)
+infogroupmain.Size = UDim2.new(1, -2, 1, -2)
+
+infolabel.Name = "infolabel"
+infolabel.Parent = infogroupmain
+infolabel.BackgroundTransparency = 1.000
+infolabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+infolabel.BorderSizePixel = 2
+infolabel.Position = UDim2.new(0, 11, 0, 6)
+infolabel.Size = UDim2.new(0.350716531, -12, 0, 18)
+infolabel.Font = Enum.Font.Code
+infolabel.Text = "Info"
+infolabel.TextColor3 = Color3.fromRGB(210, 210, 210)
+infolabel.TextSize = 15.000
+infolabel.TextStrokeTransparency = 0.000
+infolabel.TextXAlignment = Enum.TextXAlignment.Left
+
+cbimage.Name = "cbimage"
+cbimage.Parent = infogroupmain
+cbimage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+cbimage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+cbimage.BorderSizePixel = 2
+cbimage.Position = UDim2.new(0.0379899889, 0, 0.144787654, 0)
+cbimage.Size = UDim2.new(0, 100, 0, 100)
+cbimage.Image = "rbxassetid://7885626884"
+
+welcome.Name = "welcome"
+welcome.Parent = infogroupmain
+welcome.BackgroundTransparency = 1.000
+welcome.Position = UDim2.new(0, 120, 0, 30)
+welcome.Size = UDim2.new(0.582110107, -12, 0, 18)
+welcome.Font = Enum.Font.Code
+welcome.Text = "hi"
+welcome.TextColor3 = Color3.fromRGB(210, 210, 210)
+welcome.TextSize = 15.000
+welcome.TextStrokeTransparency = 0.000
+welcome.TextXAlignment = Enum.TextXAlignment.Left
+
+gamelabel.Name = "gamelabel"
+gamelabel.Parent = infogroupmain
+gamelabel.BackgroundTransparency = 1.000
+gamelabel.Position = UDim2.new(0, 120, 0, 48)
+gamelabel.Size = UDim2.new(0.582110107, -12, 0, 18)
+gamelabel.Font = Enum.Font.Code
+gamelabel.Text = "Counter Blox"
+gamelabel.TextColor3 = Color3.fromRGB(210, 210, 210)
+gamelabel.TextSize = 15.000
+gamelabel.TextStrokeTransparency = 0.000
+gamelabel.TextXAlignment = Enum.TextXAlignment.Left
+
+version.Name = "version"
+version.Parent = infogroupmain
+version.BackgroundTransparency = 1.000
+version.Position = UDim2.new(0, 120, 0, 66)
+version.Size = UDim2.new(0.582110107, -12, 0, 18)
+version.Font = Enum.Font.Code
+version.Text = versiondisplay2
+version.TextColor3 = Color3.fromRGB(210, 210, 210)
+version.TextSize = 15.000
+version.TextStrokeTransparency = 0.000
+version.TextXAlignment = Enum.TextXAlignment.Left
+
+updated.Name = "updated"
+updated.Parent = infogroupmain
+updated.BackgroundTransparency = 1.000
+updated.Position = UDim2.new(0, 120, 0, 84)
+updated.Size = UDim2.new(0.582110107, -12, 0, 18)
+updated.Font = Enum.Font.Code
+updated.Text = lastupdate
+updated.TextColor3 = Color3.fromRGB(210, 210, 210)
+updated.TextSize = 15.000
+updated.TextStrokeTransparency = 0.000
+updated.TextXAlignment = Enum.TextXAlignment.Left
+
+status.Name = "status"
+status.Parent = infogroupmain
+status.BackgroundTransparency = 1.000
+status.Position = UDim2.new(0, 120, 0, 102)
+status.Size = UDim2.new(0.582110107, -12, 0, 18)
+status.Font = Enum.Font.Code
+status.Text = scriptstatus
+status.TextColor3 = Color3.fromRGB(210, 210, 210)
+status.TextSize = 15.000
+status.TextStrokeTransparency = 0.000
+status.TextXAlignment = Enum.TextXAlignment.Left
+
+infodivider.Name = "infodivider"
+infodivider.Parent = infogroupmain
+infodivider.BackgroundColor3 = vipyellow
+infodivider.BorderColor3 = Color3.fromRGB(0, 0, 0)
+infodivider.Position = UDim2.new(0.00095079346, 0, -0.0008482915, 1)
+infodivider.Size = UDim2.new(0.999049119, 0, 0, 1)
+
+optionsgroup.Name = "optionsgroup"
+optionsgroup.Parent = group1
+optionsgroup.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+optionsgroup.BorderColor3 = Color3.fromRGB(35, 35, 35)
+optionsgroup.Position = UDim2.new(0, 13, 0, 142)
+optionsgroup.Size = UDim2.new(0.911429048, -2, 0.24737066, -2)
+
+optionsgroupmain.Name = "optionsgroupmain"
+optionsgroupmain.Parent = optionsgroup
+optionsgroupmain.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+optionsgroupmain.BorderColor3 = Color3.fromRGB(0, 0, 0)
+optionsgroupmain.Position = UDim2.new(-1.14922159e-07, 0, 0, 0)
+optionsgroupmain.Size = UDim2.new(1.00753152, -2, 1.17912352, -2)
+
+optionsdivider.Name = "optionsdivider"
+optionsdivider.Parent = optionsgroupmain
+optionsdivider.BackgroundColor3 = vipyellow
+optionsdivider.BorderColor3 = Color3.fromRGB(0, 0, 0)
+optionsdivider.Position = UDim2.new(0, 0, -0.00299979653, 0)
+optionsdivider.Size = UDim2.new(1.00004923, 0, 0, 1)
+
+optionslabel.Name = "optionslabel"
+optionslabel.Parent = optionsdivider
+optionslabel.BackgroundTransparency = 1.000
+optionslabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+optionslabel.BorderSizePixel = 2
+optionslabel.Position = UDim2.new(0, 9, 0, 1)
+optionslabel.Size = UDim2.new(0.350716531, -12, 0, 18)
+optionslabel.Font = Enum.Font.Code
+optionslabel.Text = "Options"
+optionslabel.TextColor3 = Color3.fromRGB(210, 210, 210)
+optionslabel.TextSize = 15.000
+optionslabel.TextStrokeTransparency = 0.000
+optionslabel.TextXAlignment = Enum.TextXAlignment.Left
+
+
+load.Name = "load"
+load.Parent = optionsdivider
+load.BackgroundTransparency = 1.000
+load.LayoutOrder = 1
+load.Position = UDim2.new(0.0338902585, 0, 51, -27)
+load.Size = UDim2.new(0.42899999, 0, 0, 26)
+load.ZIndex = 0
+
+loadlabel.Name = "loadlabel"
+loadlabel.Parent = load
+loadlabel.AnchorPoint = Vector2.new(0.5, 1)
+loadlabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+loadlabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+loadlabel.Position = UDim2.new(0.499768794, 0, 1, -5)
+loadlabel.Size = UDim2.new(1.04346514, -12, 0, 18)
+loadlabel.Font = Enum.Font.Code
+loadlabel.Text = "Quick load"
+--loadlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+loadlabel.TextColor3 = vipyellow
+loadlabel.TextSize = 15.000
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(90, 90, 90))}
+UIGradient.Rotation = 90
+UIGradient.Parent = loadlabel
+
+loadbutton.Name = "loadbutton"
+loadbutton.Parent = load
+loadbutton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+loadbutton.BackgroundTransparency = 0.990
+loadbutton.BorderSizePixel = 0
+loadbutton.Size = UDim2.new(0.992623329, 0, 1, 0)
+loadbutton.Font = Enum.Font.SourceSans
+loadbutton.Text = ""
+loadbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
+loadbutton.TextSize = 14.000
+loadbutton.MouseButton1Click:Connect(function()
+    
+	game.CoreGui.loader:Destroy()
+	
+	if game.CoreGui:FindFirstChild('MX_ONHIT') then
+        game.CoreGui.MX_ONHIT:Destroy()
+    end
+    
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/DerAdminLucky/loader/main/script", true))()
+end)
+    
+exit.Name = "exit"
+exit.Parent = optionsdivider
+exit.BackgroundTransparency = 1.000
+exit.LayoutOrder = 1
+exit.Position = UDim2.new(0.514239669, 0, 51, -27)
+exit.Size = UDim2.new(0.429276586, 0, 0, 26)
+exit.ZIndex = 0
+
+exitbutton.Name = "exitbutton"
+exitbutton.Parent = exit
+exitbutton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+exitbutton.BackgroundTransparency = 0.990
+exitbutton.BorderSizePixel = 0
+exitbutton.Size = UDim2.new(1, 0, 1, 0)
+exitbutton.Font = Enum.Font.SourceSans
+exitbutton.Text = ""
+exitbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
+exitbutton.TextSize = 14.000
+exitbutton.MouseButton1Click:Connect(function()
+
+	game.CoreGui.loader:Destroy()
+	
+	if game.CoreGui:FindFirstChild('MX_ONHIT') then
+        game.CoreGui.MX_ONHIT:Destroy()
+    end
+	
+end)
+
+exitlabel.Name = "exitlabel"
+exitlabel.Parent = exit
+exitlabel.AnchorPoint = Vector2.new(0.5, 1)
+exitlabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+exitlabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+exitlabel.Position = UDim2.new(0.503482759, 0, 1, -5)
+exitlabel.Size = UDim2.new(1.06730533, -12, 0, 18)
+exitlabel.Font = Enum.Font.Code
+exitlabel.Text = "Exit"
+exitlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+exitlabel.TextSize = 15.000
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(90, 90, 90))}
+UIGradient_2.Rotation = 90
+UIGradient_2.Parent = exitlabel
+
+-- Scripts:
+
+local function ZWFN_fake_script() -- welcome.LocalScript 
+	local script = Instance.new('LocalScript', welcome)
+
+	local plr = game.Players.LocalPlayer
+	
+	script.Parent.Text = "Welcome, "..plr.Name.."!"
+end
+coroutine.wrap(ZWFN_fake_script)()
+
+game:GetService("UserInputService").InputBegan:Connect(function(key)
+	if key.KeyCode == Enum.KeyCode.Insert then
+		loader.Enabled = not loader.Enabled
+		--library.uiopen = Aristois.Enabled
+	end
+end)
+
+local but = Instance.new("TextButton")
+but.Modal = true
+but.Text = ""
+but.BackgroundTransparency = 1
+but.Parent = loader
+
+local cursor = Instance.new("ImageLabel")
+cursor.Name = "cursor"
+cursor.Parent = loader
+cursor.BackgroundTransparency = 1
+cursor.Size = UDim2.new(0,17,0,17)
+cursor.Image = "rbxassetid://518398610"
+cursor.ZIndex = 1000
+cursor.ImageColor3 = vipyellow
+--cursor.ImageColor3 = Color3.fromRGB(255,255,255)
+
+game:GetService("RunService").RenderStepped:connect(function()
+    cursor.Visible = loader.Enabled
+    cursor.Position = UDim2.new(0,Mouse.X-3,0,Mouse.Y+1)
+end)
+
+getgenv().values = {}
+local library = {}
+local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/Quenty/NevermoreEngine/version2/Modules/Shared/Events/Signal.lua"))()
+
+local txt = game:GetService('TextService')
+local TweenService = game:GetService('TweenService')
+function library:Tween(...) TweenService:Create(...):Play() end
+
+	local MX_ONHIT = Instance.new("ScreenGui")
+	do
+	local OnHitFrame = Instance.new("Frame")
+	local UIListLayout = Instance.new("UIListLayout")
+	local SampleFrame = Instance.new("Frame")
+	local Grad = Instance.new("Frame")
+	local SampleLabel = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+
+	MX_ONHIT.Name = "MX_ONHIT"
+	MX_ONHIT.Parent = game.CoreGui
+	MX_ONHIT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+	OnHitFrame.Name = "OnHitFrame"
+	OnHitFrame.Parent = MX_ONHIT
+	OnHitFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	OnHitFrame.BackgroundTransparency = 1.000
+	OnHitFrame.Position = UDim2.new(0, 52, 0, -15)
+	OnHitFrame.Size = UDim2.new(0, 300, 0, 500)
+
+	UIListLayout.Parent = OnHitFrame
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 6)
+
+	SampleFrame.Name = "SampleFrame"
+	SampleFrame.Parent = OnHitFrame
+	SampleFrame.AutomaticSize = Enum.AutomaticSize.XY
+	SampleFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	SampleFrame.BackgroundTransparency = 1.000
+	SampleFrame.BorderColor3 = Color3.fromRGB(7, 0, 0)
+	SampleFrame.Size = UDim2.new(0, 0, 0, 24)
+
+	Grad.Name = "Grad"
+	Grad.Parent = SampleFrame
+	Grad.BackgroundColor3 = vipyellow
+	Grad.BackgroundTransparency = 1.000
+	Grad.AutomaticSize = Enum.AutomaticSize.Y
+	Grad.BorderSizePixel = 0
+	Grad.Size = UDim2.new(0, 3, 0, 24)
+
+	SampleLabel.Name = "SampleLabel"
+	SampleLabel.Parent = Grad
+	SampleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	SampleLabel.BackgroundTransparency = 1.000
+	SampleLabel.BorderSizePixel = 0
+	SampleLabel.Position = UDim2.new(1.97835922, 0, 0, 0)
+	SampleLabel.Size = UDim2.new(0, 0, 0, 24)
+	SampleLabel.Font = Enum.Font.Ubuntu
+	SampleLabel.Text = "TEST"
+	SampleLabel.TextTruncate = Enum.TextTruncate.AtEnd
+	SampleLabel.AutomaticSize = Enum.AutomaticSize.XY
+	SampleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	SampleLabel.TextSize = 13.000
+	SampleLabel.TextStrokeTransparency = 0.000
+	SampleLabel.TextTransparency = 1.000
+	SampleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(49, 49, 49)), ColorSequenceKeypoint.new(0.41, Color3.fromRGB(25, 25, 25)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))}
+	UIGradient.Rotation = 90
+	UIGradient.Parent = SampleFrame
+	end
+	 
+	local function CreateHitElement(text,col,time, size, size2, size3, size4)
+		spawn(function()
+			local Frame = MX_ONHIT.OnHitFrame.SampleFrame:Clone()
+			local Grad = Frame.Grad
+			local Label = Grad.SampleLabel
+			
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(size, size2, size3, size4)}) 
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(size, size2, size3, size4)}) 	
+			
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.000})       
+			library:Tween(Grad, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.000})  
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.000}) 
+			
+			Frame.Parent = MX_ONHIT.OnHitFrame
+			Grad.Parent = Frame
+			Label.Parent = Grad
+			Label.TextColor3 = col
+			Label.Text = text
+			wait(time)
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1.000})       
+			library:Tween(Grad, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1.000})  
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 1.000})
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextStrokeTransparency = 1.000})
+			
+			library:Tween(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, size3, size4)}) 
+			library:Tween(Label, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, size3, size4)}) 
+			
+			wait(0.8)
+			Frame:Destroy()
+			Grad:Destroy()
+			Label:Destroy()
+		end)
+	end
+    CreateHitElement(" Welcome "..game.Players.LocalPlayer.Name.." to LuckyLounge VIP loader. ",Color3.fromRGB(255, 255, 255),7, 0, 340, 0, 22)
+    wait(0.5)
+    CreateHitElement(" Reconized as VIP, enjoy the new features! ",vipyellow,6.5, 0, 380, 0, 22)
+    wait(0.5)
+    CreateHitElement(" Open and close loader with Insert. ",Color3.fromRGB(255, 255, 255),6, 0, 340, 0, 22)
+
+local ChatScript = getsenv(LocalPlayer.PlayerGui.GUI.Main.Chats.DisplayChat)
+
+	ChatScript.createNewMessage("LuckyLounge loader","Welcome to LuckyLounge VIP loader, enjoy!",vipyellow,Color3.new(1,1,1),0.01,nil)
+	ChatScript.moveOldMessages()
+	ChatScript.createNewMessage("LuckyLounge loader","VIP features are: quick load and skip verification.",vipyellow,Color3.new(1,1,1),0.01,nil)
+
+
+
+elseif not table.find(vips, LocalPlayer.Name) then
+
+
+
 local loader = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local outline = Instance.new("Frame")
@@ -33,10 +575,10 @@ local UIGradient_2 = Instance.new("UIGradient")
 local purple = Color3.fromRGB(153, 0, 255)
 local warningred = Color3.fromRGB(255, 41, 41)
 local originalcolor = Color3.fromRGB(170, 0, 0)
-local loadername = "new"
-local lastupdate = "Updated: 9/5/2022"
-local scriptstatus = "Status: Many bugs fixed!"
-local versiondisplay2 = "Version: 0.18"
+local loadername = "LuckyLounge"
+local lastupdate = "Updated: 19/5/2022"
+local scriptstatus = "Status: Fixed C4"
+local versiondisplay2 = "Version: 0.23"
 
 loader.Name = "loader"
 loader.Parent = game.CoreGui
@@ -276,6 +818,7 @@ optionslabel.TextSize = 15.000
 optionslabel.TextStrokeTransparency = 0.000
 optionslabel.TextXAlignment = Enum.TextXAlignment.Left
 
+
 load.Name = "load"
 load.Parent = optionsdivider
 load.BackgroundTransparency = 1.000
@@ -311,10 +854,16 @@ loadbutton.Text = ""
 loadbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
 loadbutton.TextSize = 14.000
 loadbutton.MouseButton1Click:Connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/DerAdminLucky/loader/main/script", true))()
+    
 	game.CoreGui.loader:Destroy()
+	
+	if game.CoreGui:FindFirstChild('MX_ONHIT') then
+        game.CoreGui.MX_ONHIT:Destroy()
+    end
+    
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/DerAdminLucky/loader/main/script", true))()
 end)
-
+    
 exit.Name = "exit"
 exit.Parent = optionsdivider
 exit.BackgroundTransparency = 1.000
@@ -334,7 +883,13 @@ exitbutton.Text = ""
 exitbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
 exitbutton.TextSize = 14.000
 exitbutton.MouseButton1Click:Connect(function()
+
 	game.CoreGui.loader:Destroy()
+	
+	if game.CoreGui:FindFirstChild('MX_ONHIT') then
+        game.CoreGui.MX_ONHIT:Destroy()
+    end
+	
 end)
 
 exitlabel.Name = "exitlabel"
@@ -386,10 +941,6 @@ cursor.Image = "rbxassetid://518398610"
 cursor.ZIndex = 1000
 cursor.ImageColor3 = purple
 --cursor.ImageColor3 = Color3.fromRGB(255,255,255)
-
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local Mouse = LocalPlayer:GetMouse()
 
 game:GetService("RunService").RenderStepped:connect(function()
     cursor.Visible = loader.Enabled
@@ -499,9 +1050,9 @@ function library:Tween(...) TweenService:Create(...):Play() end
 			Label:Destroy()
 		end)
 	end
-	CreateHitElement(" Welcome "..game.Players.LocalPlayer.Name.." to new loader. ",Color3.fromRGB(255, 255, 255),6, 0, 340, 0, 22)
-	wait(0.5)
-	CreateHitElement(" Open and close loader with Insert. ",Color3.fromRGB(255, 255, 255),6, 0, 340, 0, 22)
+    CreateHitElement(" Welcome "..game.Players.LocalPlayer.Name.." to LuckyLounge loader. ",Color3.fromRGB(255, 255, 255),6.5, 0, 340, 0, 22)
+    wait(0.5)
+    CreateHitElement(" Open and close loader with Insert. ",Color3.fromRGB(255, 255, 255),6, 0, 340, 0, 22)
 	
 	local MX_ONHIT = Instance.new("ScreenGui")
 	do
@@ -605,21 +1156,9 @@ function library:Tween(...) TweenService:Create(...):Play() end
  functions, if you proceed to\
  click load I will recieve\
  several informations about you! ",Color3.fromRGB(255, 255, 255),15, 0, 230, 0, 100)
-	wait(10.1)
+	wait(10)
 	CreateHitElement(" You have been warned! ",Color3.fromRGB(255, 255, 255),5, 0, 230, 0, 30)
 
---[[
---local Players = game:GetService("Players") 
---local LocalPlayer = Players.LocalPlayer 
 
-local developers = {'ion_FakeClone100','ion_FakeClone101','ion_FakeClone102','ion_FakeClone103','ion_FakeClone104','ion_FakeClone105','ion_FakeClone106','ion_FakeClone107','ion_FakeClone108','ion_FakeClone109','ion_FakeClone110','ion_FakeClone111','ion_FakeClone112','ion_FakeClone113','ion_FakeClone114','ion_FakeClone115','ion_FakeClone116','ion_FakeClone117','ion_FakeClone118','ion_FakeClone119','ion_FakeClone120','ion_FakeClone121','ion_FakeClone122','ion_FakeClone123','ion_FakeClone124','ion_FakeClone125','ion_FakeClone126','ion_FakeClone127','ion_FakeClone128','ion_FakeClone129','ion_FakeClone130','ion_FakeClone131','ion_FakeClone132','ion_FakeClone133','ion_FakeClone134','ion_FakeClone135','ion_FakeClone136','ion_FakeClone137','ion_FakeClone138','ion_FakeClone139','ion_FakeClone140','ion_FakeClone141','ion_FakeClone142','ion_FakeClone143','ion_FakeClone144','ion_FakeClone145','ion_FakeClone146','ion_FakeClone147','ion_FakeClone148','ion_FakeClone149','ion_FakeClone150','CrakedAndBased','CBRO_HAX3R'}
 
-if table.find(developers, LocalPlayer.Name) then
-	CreateHitElement("Reconized as script developer!",Color3.fromRGB(255, 255, 255),15, 0, 380, 0, 22)
 end
-game:GetService("Players").PlayerAdded:Connect(function(plr)
-	if table.find(developers, plr.Name) then
-		CreateHitElement("Developer of script joined your game.",Color3.fromRGB(255, 255, 255),15, 0, 380, 0, 22)
-	end
-end)
-]]--
