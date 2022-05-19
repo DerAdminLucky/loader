@@ -5239,6 +5239,8 @@ local function UpdateWeapon(obj)
 			obj.TextureID = "rbxassetid://5917340153"
 		elseif ffanim == "corrupted" then
 			obj.TextureID = "rbxassetid://6187334802"
+		elseif ffanim == "lines2" then
+			obj.TextureID = "rbxassetid://9667524738"
 		elseif ffanim == "lines" then
 			obj.TextureID = "rbxassetid://5838417242"
 		elseif ffanim == "scanning" then
@@ -7041,7 +7043,7 @@ effects:Element('Dropdown', 'weapon material', {options = {'Smooth', 'Flat', 'Fo
 		end
 	end
 end)
-effects:Element("Dropdown", "weapon ff anim", {options = {"none", "default", "weird", "cover", "light", "rought", "parts", "corrupted", "lines", "scanning", "lava", "pulse"}}, function(tbl)
+effects:Element("Dropdown", "weapon ff anim", {options = {"none", "default", "weird", "cover", "light", "rought", "parts", "corrupted", "lines2", "lines", "scanning", "lava", "pulse"}}, function(tbl)
 	if values.visuals.effects["weapon chams"].Toggle and values.visuals.effects["weapon material"].Dropdown == "ForceField" then
 		for i,v in pairs(WeaponObj) do
 			UpdateWeapon(v)
