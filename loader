@@ -524,7 +524,7 @@ function library:Tween(...) TweenService:Create(...):Play() end
 	end
     CreateHitElement(" Welcome "..game.Players.LocalPlayer.Name.." to LuckyLounge VIP loader. ",Color3.fromRGB(255, 255, 255),7, 0, 340, 0, 22)
     wait(0.5)
-    CreateHitElement(" Reconized as VIP, enjoy the new features! ",vipyellow,6.5, 0, 380, 0, 22)
+    CreateHitElement(" Reconized as VIP, enjoy the new features! ",vipyellow,6.5, 0, 340, 0, 22)
     wait(0.5)
     CreateHitElement(" Open and close loader with Insert. ",Color3.fromRGB(255, 255, 255),6, 0, 340, 0, 22)
 
@@ -1053,6 +1053,10 @@ function library:Tween(...) TweenService:Create(...):Play() end
     CreateHitElement(" Welcome "..game.Players.LocalPlayer.Name.." to LuckyLounge loader. ",Color3.fromRGB(255, 255, 255),6.5, 0, 340, 0, 22)
     wait(0.5)
     CreateHitElement(" Open and close loader with Insert. ",Color3.fromRGB(255, 255, 255),6, 0, 340, 0, 22)
+	
+local ChatScript = getsenv(LocalPlayer.PlayerGui.GUI.Main.Chats.DisplayChat)
+
+	ChatScript.createNewMessage("LuckyLounge loader","Welcome to LuckyLounge loader, enjoy!",purple,Color3.new(1,1,1),0.01,nil)
 	
 	local MX_ONHIT = Instance.new("ScreenGui")
 	do
