@@ -10210,9 +10210,11 @@ RunService:BindToRenderStep('idk', 444, function()
 											table.insert(Hitboxes, Player.Character.RightHand)
 									    elseif Hitbox == 'head' and (not values.rage.aimbot['auto baim'].Toggle and not values.rage.aimbot['auto baim'].Active or Player.Character:FindFirstChild('FakeHead')) then
 											table.insert(Hitboxes, Player.Character.Head)
+--[[
 											if values.misc.Backtrack.enabled.Toggle then 
 												table.insert(Hitboxes, workspace.backtrackfolder[Player.Name].PlayerName.Value.Character.Head)
 											end
+]]--
 										else
 											table.insert(Hitboxes, Player.Character.LowerTorso) 
 										end
