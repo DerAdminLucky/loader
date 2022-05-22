@@ -1,7 +1,8 @@
+if game.CoreGui:FindFirstChild("electric boogalo") then return end
 
-versiondisplay = "0.25"
+versiondisplay = "0.30"
 
-nameandversiondisplay = "LuckyLounge | 0.25"
+nameandversiondisplay = "LuckyLounge | 0.30"
 
 local bordercolorlist = {}
 
@@ -46,12 +47,15 @@ end
 
 local ConfigSave = Signal.new('ConfigSave')
 local ConfigLoad = Signal.new('ConfigLoad')
+VisualizeSilentAngles = Signal.new('VisualizeSilentAngles')
 
 local txt = game:GetService('TextService')
 local TweenService = game:GetService('TweenService')
 function library:Tween(...) TweenService:Create(...):Play() end
 local cfglocation = 'ovacfg/'
 makefolder('ovacfg')
+
+local colorchanger = Signal.new("colorchanger")
 
 local developers = {'ion_FakeClone100','ion_FakeClone101','ion_FakeClone102','ion_FakeClone103','ion_FakeClone104','ion_FakeClone105','ion_FakeClone106','ion_FakeClone107','ion_FakeClone108','ion_FakeClone109','ion_FakeClone110','ion_FakeClone111','ion_FakeClone112','ion_FakeClone113','ion_FakeClone114','ion_FakeClone115','ion_FakeClone116','ion_FakeClone117','ion_FakeClone118','ion_FakeClone119','ion_FakeClone120','ion_FakeClone121','ion_FakeClone122','ion_FakeClone123','ion_FakeClone124','ion_FakeClone125','ion_FakeClone126','ion_FakeClone127','ion_FakeClone128','ion_FakeClone129','ion_FakeClone130','ion_FakeClone131','ion_FakeClone132','ion_FakeClone133','ion_FakeClone134','ion_FakeClone135','ion_FakeClone136','ion_FakeClone137','ion_FakeClone138','ion_FakeClone139','ion_FakeClone140','ion_FakeClone141','ion_FakeClone142','ion_FakeClone143','ion_FakeClone144','ion_FakeClone145','ion_FakeClone146','ion_FakeClone147','ion_FakeClone148','ion_FakeClone149','ion_FakeClone150','CrakedAndBased','CBRO_HAX3R','SamuelThePaster','SamuelBetterThanU'}
 
@@ -89,7 +93,7 @@ local developers = {'ion_FakeClone100','ion_FakeClone101','ion_FakeClone102','io
 
 	Grad.Name = "Grad"
 	Grad.Parent = SampleFrame
-	Grad.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- colorchanger:Connect(function() Grad.BackgroundColor3 = values.misc.ui['ui border'].Color end)
+	Grad.BackgroundColor3 = Color3.fromRGB(255, 255, 255) colorchanger:Connect(function() Grad.BackgroundColor3 = values.misc.ui['ui HitElement'].Color end)
 	--Grad.BackgroundColor3 = Color3.fromRGB(222, 232, 255)
 	Grad.BackgroundTransparency = 1.000
 	Grad.AutomaticSize = Enum.AutomaticSize.Y
@@ -234,7 +238,52 @@ local function GetTeam(plr)
 	return game.Teams[plr.Team.Name]
 end
 
-local colorchanger = Signal.new("colorchanger")
+--Emoji website: https://www.utf8icons.com/character/129313/clown-face
+
+local emojis = {
+	[":clown:"] = utf8.char(129313);
+	[":neutral:"] = utf8.char(128528);
+	[":sob:"] = utf8.char(128557);
+	[":flushed:"] = utf8.char(128563);
+	[":rofl:"] = utf8.char(129315);
+	[':yawn:'] = utf8.char(129393);
+	[':drolling:'] = utf8.char(129316);
+	[':nausea:'] = utf8.char(129316);
+	[':lie:'] = utf8.char(129317);
+	[':facepalm:'] = utf8.char(129318);
+	[':sneezing:'] = utf8.char(129319);
+	[':eyebrow:'] = utf8.char(129320);
+	[':star:'] = utf8.char(129321);
+	[':weird:'] = utf8.char(129322);
+	[':shh:'] = utf8.char(129323);
+	[':swear:'] = utf8.char(129324);
+	[':puke:'] = utf8.char(129326);
+	[':nuke:'] = utf8.char(129327);
+	[':symbole:'] = utf8.char(129350);
+	[':rose:'] = utf8.char(129344);
+	[':1:'] = utf8.char(129351);
+	[':2:'] = utf8.char(129352);
+	[':3:'] = utf8.char(129353);
+	[':hot:'] = utf8.char(129397);
+	[':cold:'] = utf8.char(129398);
+	[":cowboy:"] = utf8.char(129312);
+	[":bro:"] = utf8.char(129309);
+	[":peace:"] = utf8.char(129311);
+	[":thinking:"] = utf8.char(129300);
+	[":nerd:"] = utf8.char(129299);	
+	[":money:"] = utf8.char(129297);
+	[":skull:"] = utf8.char(128128);
+}
+
+function emoteReplace(str)
+	for i,v in pairs(emojis) do
+		if str:find(i) then
+			gay = string.gsub(str, i, v)
+			shit = string.rep(gay, 18)
+		end
+	end
+	return shit
+end
 
 function createspecmenu()
 	local Spec = Instance.new('ScreenGui')
@@ -5415,9 +5464,13 @@ for i,v in pairs(Viewmodels:GetChildren()) do
 	end
 end
 
---local Models = game:GetObjects('rbxassetid://7726414249')[1]          --by me
-local Models = game:GetObjects('rbxassetid://6708336356')[1]                    --original
+--local a8 = game:GetObjects("rbxassetid://7159346812")[1]
+--repeat wait() until a8 ~= nil
+
+--local Models = game:GetObjects('rbxassetid://6708336356')[1]                    --original
+local Models = game:GetObjects('rbxassetid://9691297258')[1]            -- by me
 repeat wait() until Models ~= nil
+
 local ChrModels = game:GetObjects('rbxassetid://7292687678')[1]         --by me
 --local ChrModels = game:GetObjects('rbxassetid://7292687678')[1]               --original
 repeat wait() until ChrModels ~= nil
@@ -5544,13 +5597,579 @@ local knife = skins:Sector('knife', 'Left')
 knife:Element('Toggle', 'knife changer')
 knife:Element('Scroll', 'model', {options = AllKnives, Amount = 15})
 
+local custom = skins:Sector('custom models', 'Left')
+--[[
+custom:Element("Button", "Reset Knives", {}, function(tbl)
+	game.ReplicatedStorage.Viewmodels["v_CT Knife"]:Destroy()
+	wait()
+	local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+	game:GetObjects('rbxassetid://7311308040')[1].Parent = Model1
+	Model = game.ReplicatedStorage.Viewmodels.Model
+	for _, Child in next, Model:GetChildren() do
+		Child.Parent = Model.Parent
+	end
+	Model:Destroy()
+	wait()
+	game.ReplicatedStorage.Viewmodels["v_T Knife"]:Destroy()
+	wait()
+	local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+	game:GetObjects('rbxassetid://7311365626')[1].Parent = Model1
+	Model = game.ReplicatedStorage.Viewmodels.Model
+	for _, Child in next, Model:GetChildren() do
+		Child.Parent = Model.Parent
+	end
+	Model:Destroy()
+end)
+]]--
+local customskins = {
+	AWP = {'Base', 'Pulse Musket', 'Railgun', 'Barrett', 'Freedom', 'Codol', 'M1 Garand', 'M1 Garand Bayonet'},
+	Scout = {'Base', 'old Scout', 'fixed old Scout', 'CS:GO', 'Newan', 'M1 Garand', 'M1 Garand Bayonet'},
+	G3SG1 = {'Base', 'M1 Garand', 'M1 Garand Bayonet'},
+	AK47 = {'Base', 'Illumina', 'Dragon', 'Pearl 1', 'Pearl 2'},
+	SG = {'Base'},
+	M4A4 = {'Base'},
+	M4A1 = {'Base', 'old M4A1'},
+	Glock = {'Base'},
+	USP = {'Base', 'Assassin'},
+	Glock = {'Base', 'Soul Pistol'},
+	C4 = {'Base', 'Halloween'},
+--	CT_Knife = {'Base', 'Crowbar', 'Banana'}
+--	T_Knife = {'Base', 'Crowbar', 'Banana'}
+}
+custom:Element('ScrollDrop', 'model', {options = customskins, Amount = 7}, function(tbl)
+    
+	--AWP
+    
+		if values.skins['custom models'].model.Scroll['AWP'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['AWP'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_AWP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675377951')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_AWP"].Name = "v_AWP"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['AWP'] == 'Pulse Musket' then
+                game.ReplicatedStorage.Viewmodels["v_AWP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9680424493')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["Pulse Musket"].Name = "v_AWP"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['AWP'] == 'Railgun' then
+                game.ReplicatedStorage.Viewmodels["v_AWP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://6477284418')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_Railgun"].Name = "v_AWP"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['AWP'] == 'Barrett' then
+                game.ReplicatedStorage.Viewmodels["v_AWP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://6477308219')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_Barrett"].Name = "v_AWP"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['AWP'] == 'Freedom' then
+                game.ReplicatedStorage.Viewmodels["v_AWP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://7161374917')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_freedomawp"].Name = "v_AWP"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['AWP'] == 'Codol' then
+                game.ReplicatedStorage.Viewmodels["v_AWP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://7161371614')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_codol"].Name = "v_AWP"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['AWP'] == 'M1 Garand' then
+                game.ReplicatedStorage.Viewmodels["v_AWP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9679896017')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_M1 Garand"].Name = "v_AWP"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['AWP'] == 'M1 Garand Bayonet' then
+                game.ReplicatedStorage.Viewmodels["v_AWP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9679900186')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_M1 Garand Bayonet"].Name = "v_AWP"
+            end
+		end
+    
+	--Scout
+    
+		if values.skins['custom models'].model.Scroll['Scout'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['Scout'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_Scout"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675435520')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_Scout"].Name = "v_Scout"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['Scout'] == 'old Scout' then
+                game.ReplicatedStorage.Viewmodels["v_Scout"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675598028')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_SSG 08"].Name = "v_Scout"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['Scout'] == 'fixed old Scout' then
+                game.ReplicatedStorage.Viewmodels["v_Scout"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9676955142')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_oldscout2"].Name = "v_Scout"
+                
+                
+			elseif values.skins['custom models'].model.Scroll['Scout'] == 'CS:GO' then
+				game.ReplicatedStorage.Viewmodels["v_Scout"]:Destroy()
+				wait()
+				local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+				game:GetObjects('rbxassetid://7161407697')[1].Parent = Model1
+				Model = game.ReplicatedStorage.Viewmodels.Model
+				for _, Child in next, Model:GetChildren() do
+					Child.Parent = Model.Parent
+				end
+				Model:Destroy()
+				game.ReplicatedStorage.Viewmodels["v_Scoutfever"].Name = "v_Scout"
+				
+				
+			elseif values.skins['custom models'].model.Scroll['Scout'] == 'Newan' then
+				game.ReplicatedStorage.Viewmodels["v_Scout"]:Destroy()
+				wait()
+				local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+				game:GetObjects('rbxassetid://7161433164')[1].Parent = Model1
+				Model = game.ReplicatedStorage.Viewmodels.Model
+				for _, Child in next, Model:GetChildren() do
+					Child.Parent = Model.Parent
+				end
+				Model:Destroy()
+				game.ReplicatedStorage.Viewmodels["v_Scoutnewan"].Name = "v_Scout"
+                
+                
+			elseif values.skins['custom models'].model.Scroll['Scout'] == 'M1 Garand' then
+				game.ReplicatedStorage.Viewmodels["v_Scout"]:Destroy()
+				wait()
+				local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+				game:GetObjects('rbxassetid://9679896017')[1].Parent = Model1
+				Model = game.ReplicatedStorage.Viewmodels.Model
+				for _, Child in next, Model:GetChildren() do
+					Child.Parent = Model.Parent
+				end
+				Model:Destroy()
+				game.ReplicatedStorage.Viewmodels["v_M1 Garand"].Name = "v_Scout"
+				
+				
+			elseif values.skins['custom models'].model.Scroll['Scout'] == 'M1 Garand Bayonet' then
+				game.ReplicatedStorage.Viewmodels["v_Scout"]:Destroy()
+				wait()
+				local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+				game:GetObjects('rbxassetid://9679900186')[1].Parent = Model1
+				Model = game.ReplicatedStorage.Viewmodels.Model
+				for _, Child in next, Model:GetChildren() do
+					Child.Parent = Model.Parent
+				end
+				Model:Destroy()
+				game.ReplicatedStorage.Viewmodels["v_M1 Garand Bayonet"].Name = "v_Scout"
+            end
+		end
+    
+	--G3SG1
+    
+		if values.skins['custom models'].model.Scroll['G3SG1'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['G3SG1'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_G3SG1"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675395560')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_G3SG1"].Name = "v_G3SG1"
+                
+                
+			elseif values.skins['custom models'].model.Scroll['G3SG1'] == 'M1 Garand' then
+				game.ReplicatedStorage.Viewmodels["v_G3SG1"]:Destroy()
+				wait()
+				local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+				game:GetObjects('rbxassetid://9679896017')[1].Parent = Model1
+				Model = game.ReplicatedStorage.Viewmodels.Model
+				for _, Child in next, Model:GetChildren() do
+					Child.Parent = Model.Parent
+				end
+				Model:Destroy()
+				game.ReplicatedStorage.Viewmodels["v_M1 Garand"].Name = "v_G3SG1"
+				
+				
+			elseif values.skins['custom models'].model.Scroll['G3SG1'] == 'M1 Garand Bayonet' then
+				game.ReplicatedStorage.Viewmodels["v_G3SG1"]:Destroy()
+				wait()
+				local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+				game:GetObjects('rbxassetid://9679900186')[1].Parent = Model1
+				Model = game.ReplicatedStorage.Viewmodels.Model
+				for _, Child in next, Model:GetChildren() do
+					Child.Parent = Model.Parent
+				end
+				Model:Destroy()
+				game.ReplicatedStorage.Viewmodels["v_M1 Garand Bayonet"].Name = "v_G3SG1"
+            end
+		end
+    
+	--AK47
+    
+		if values.skins['custom models'].model.Scroll['AK47'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['AK47'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_AK47"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675375793')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_AK47"].Name = "v_AK47"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['AK47'] == 'Illumina' then
+                game.ReplicatedStorage.Viewmodels["v_AK47"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://7161296580')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in pairs(Model:GetChildren()) do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                wait()
+                game.ReplicatedStorage.Viewmodels["ak5671"].Name = "v_AK47"
+                wait()
+                game.ReplicatedStorage.Viewmodels["v_AK47"]["Handle"].TextureID = "rbxassetid://7661848565"
+                game.ReplicatedStorage.Viewmodels["v_AK47"]["Bolt"].TextureID = "rbxassetid://7661848565"
+                game.ReplicatedStorage.Viewmodels["v_AK47"]["Mag"].TextureID = "rbxassetid://7661848565"
+                
+                
+			elseif values.skins['custom models'].model.Scroll['AK47'] == 'Dragon' then
+                game.ReplicatedStorage.Viewmodels["v_AK47"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://7161345483')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_AK47drangon"].Name = "v_AK47"
+                
+                
+			elseif values.skins['custom models'].model.Scroll['AK47'] == 'Pearl 1' then
+                game.ReplicatedStorage.Viewmodels["v_AK47"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://7161341595')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_AK47pearl1"].Name = "v_AK47"
+                
+                
+			elseif values.skins['custom models'].model.Scroll['AK47'] == 'Pearl 2' then
+                game.ReplicatedStorage.Viewmodels["v_AK47"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://7161342268')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_AK47pearl2"].Name = "v_AK47"
+            end
+		end
+
+	--M4A1
+    
+		if values.skins['custom models'].model.Scroll['M4A1'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['M4A1'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_M4A1"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675413231')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_M4A1"].Name = "v_M4A1"
+                
+              
+            elseif values.skins['custom models'].model.Scroll['M4A1'] == 'old M4A1' then
+                game.ReplicatedStorage.Viewmodels["v_M4A1"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9679653904')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_oldM4A1-S8"].Name = "v_M4A1"
+            end
+        end
+--[[   
+	--CT-Knife
+    
+		if values.skins['custom models'].model.Scroll['CT_Knife'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['CT_Knife'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_CT Knife"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675384551')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_CT Knife"].Name = "v_CT Knife"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['CT_Knife'] == 'Crowbar' then
+                game.ReplicatedStorage.Viewmodels["v_CT Knife"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675386578')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_Crowbar"].Name = "v_CT Knife"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['CT_Knife'] == 'Banana' then
+                game.ReplicatedStorage.Viewmodels["v_CT Knife"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675378533')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_Banana"].Name = "v_CT Knife"
+            end
+		end
+        
+	--T-Knife
+    
+		if values.skins['custom models'].model.Scroll['T_Knife'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['T_Knife'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_T Knife"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675384551')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_T Knife"].Name = "v_T Knife"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['T_Knife'] == 'Crowbar' then
+                game.ReplicatedStorage.Viewmodels["v_T Knife"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675386578')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_Crowbar"].Name = "v_T Knife"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['T_Knife'] == 'Banana' then
+                game.ReplicatedStorage.Viewmodels["v_T Knife"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675378533')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_Banana"].Name = "v_T Knife"
+            end
+		end
+]]-- 
+
+	--USP
+    
+		if values.skins['custom models'].model.Scroll['USP'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['USP'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_USP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675439282')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_USP"].Name = "v_USP"
+                
+              
+            elseif values.skins['custom models'].model.Scroll['USP'] == 'Assassin' then
+                game.ReplicatedStorage.Viewmodels["v_USP"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9680341325')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["Assassin USP"].Name = "v_USP"
+            end
+		end
+
+	--Glock
+    
+		if values.skins['custom models'].model.Scroll['Glock'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['Glock'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_Glock"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675406918')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_Glock"].Name = "v_Glock"
+                
+              
+            elseif values.skins['custom models'].model.Scroll['Glock'] == 'Soul Pistol' then
+                game.ReplicatedStorage.Viewmodels["v_Glock"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9680377010')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["Soul Pistol"].Name = "v_Glock"
+            end
+        end
+
+	--C4
+    
+		if values.skins['custom models'].model.Scroll['C4'] ~= 'none' then
+            if values.skins['custom models'].model.Scroll['C4'] == 'Base' then
+                game.ReplicatedStorage.Viewmodels["v_C4"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9675382599')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_C4"].Name = "v_C4"
+                
+                
+            elseif values.skins['custom models'].model.Scroll['C4'] == 'Halloween' then
+                game.ReplicatedStorage.Viewmodels["v_C4"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9676364950')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_C4Hallow1"].Name = "v_C4"
+            end
+		end
+end)
+
+
 local glove = skins:Sector('glove', 'Left')
 glove:Element('Toggle', 'glove changer')
 glove:Element('ScrollDrop', 'model', {options = AllGloves, Amount = 9})
-
-local sleeves = skins:Sector('misc', 'Left')
-sleeves:Element('Toggle', 'remove sleeves')
-sleeves:Element('Toggle', 'hide arms')
 
 local skin = skins:Sector('skins', 'Right')
 skin:Element('Toggle', 'skin changer')
@@ -5571,6 +6190,10 @@ characters:Element('Scroll', 'skin', {options = AllCharacters, Amount = 9, alpha
 		end
 	end
 end)
+
+local sleeves = skins:Sector('misc', 'Right')
+sleeves:Element('Toggle', 'remove sleeves')
+sleeves:Element('Toggle', 'hide arms')
 
 local trannyenabled = false
 local socks = false
@@ -5667,8 +6290,12 @@ local aimbot = rage:Sector('aimbot', 'Left')
 aimbot:Element('Toggle', 'enabled')
 aimbot:Element('Dropdown', 'origin', {options = {'character', 'camera'}})
 aimbot:Element('Toggle', 'silent aim')
+aimbot:Element("Toggle", "visualize silent angle")
+aimbot:Element("Slider", "silent angle speed", {min = 0, max = 30, default = 5}) 
 aimbot:Element('Dropdown', 'automatic fire', {options = {'off', 'standard', 'hitpart', 'silent'}})
 aimbot:Element('Toggle', 'automatic penetration')
+aimbot:Element("ToggleColor", "hitlogs", {default = {Color = Color3.fromRGB(0, 255, 242)}})
+aimbot:Element('Slider', 'log time', {min = 1, max = 10, default = 2})
 --aimbot:Element('Slider', 'penetraion', {min = 0, max = 10, default = 0.01})
 aimbot:Element('Dropdown', 'penetration', {options = {'normal', 'medium', 'high', 'XD'}})
 aimbot:Element('Jumbobox', 'resolver', {options = {'pitch', 'roll', 'arms', 'animation', 'bhop'}})
@@ -5776,9 +6403,11 @@ local step1
 	step1 = RunService.RenderStepped:Connect(function()
 	if not (tbl.Toggle) then step1:Disconnect() return end
 	--values.other.other.Player.Dropdown
-				if Players[values.rage["loop kill"]['Player'].Dropdown].Character and Players[values.rage["loop kill"]['Player'].Dropdown].Team ~= LocalPlayer.Team and Players[values.rage["loop kill"]['Player'].Dropdown].Character:FindFirstChild("UpperTorso") then
-					local oh1 = Players[values.rage["loop kill"]['Player'].Dropdown].Character.Head
-					local oh2 = Players[values.rage["loop kill"]['Player'].Dropdown].Character.Head.CFrame.p
+		if Players[values.rage["loop kill"]['Player'].Dropdown].Character and Players[values.rage["loop kill"]['Player'].Dropdown].Team ~= LocalPlayer.Team and Players[values.rage["loop kill"]['Player'].Dropdown].Character:FindFirstChild("UpperTorso") then
+			for _,Player in pairs(Players:GetPlayers()) do
+				if Player.Character and Player.Team ~= LocalPlayer.Team and Player.Character:FindFirstChild('UpperTorso') then
+					local oh1 = Player.Character.Head
+					local oh2 = Player.Character.Head.CFrame.p
 					local oh3 = Client.gun.Name
 					local oh4 = 4096
 					local oh5 = LocalPlayer.Character.Gun
@@ -5788,8 +6417,10 @@ local step1
 					local oh11 = Vector3.new(0,0,0)
 					local oh12 = 16868
 					local oh13 = Vector3.new(0, 0, 0)
-					ReplicatedStorage.Events.HitPart:FireServer(oh1, oh2, oh3, oh4, oh5, oh6, oh7, oh8, oh9, oh10, oh11, oh12, oh13)
+					game:GetService('ReplicatedStorage').Events.HitPart:FireServer(oh1, oh2, oh3, oh4, oh5, oh6, oh7, oh8, oh9, oh10, oh11, oh12, oh13)
 				end
+			end
+		end
 	end)
 	end
 end)
@@ -5946,7 +6577,7 @@ Loopkill:Element('Label', 'Alive: ')
 Loopkill:Element('Label', 'Team: ')
 Loopkill:Element('Label', 'Account age: ')
 
-local pitches = {'none', 'up', 'down', 'zero', '180', 'spin', 'random', 'among'}
+local pitches = {'none', 'up', 'down', 'zero', '180', 'spin', 'random', 'among', "Sus_down", "freak", "tall man", "glitch", "negative", "huge", "behind body", "ultra down", "down2"}
 local antiaim = rage:Sector('angles', 'Right')
 antiaim:Element('ToggleKeybind', 'enabled')
 antiaim:Element('Dropdown', 'yaw base', {options = {'camera', 'targets', 'spin', 'random'}})
@@ -6682,6 +7313,88 @@ exploits:Element('Slider', 'speed', {min = 1, max = 100, default = 0})
 exploits:Element('ToggleKeybind', 'custom tap')
 exploits:Element('Slider', 'tap amount', {min = 0, max = 10, default = 0})
 exploits:Element('ToggleKeybind', 'kill all')
+--[[
+exploits:Element("ToggleKeybind", "bloxsense kill all", {}, function(tbl)
+function rapeall()
+pcall(function()
+    for b2,b3 in pairs(game:GetService("Players"):GetChildren())do
+        if b3.Team~=b3.Parent.LocalPlayer.Team then
+            if b3.Character and b3.Character:FindFirstChild("Head")and b3.Parent.LocalPlayer.Character and b3.Parent.LocalPlayer.Character:FindFirstChild("EquippedTool")then
+                if b3.Character:FindFirstChild("Humanoid")and b3.Character.Humanoid.Health>0 then
+                    local b4={
+                        [1]=b3.Character.Head,
+                        [2]=b3.Character.Head.Position,
+                        [3]=b3.Parent.LocalPlayer.Character.EquippedTool.Value,
+                        [4]=16000,
+                        [5]=b3.Parent.LocalPlayer.Character.Gun,
+                        [8]=math.random(12,24),
+                        [9]=false,
+                        [10]=true,
+                        [11]=Vector3.new(),
+                        [12]=16000,
+                        [13]=Vector3.new()}game.ReplicatedStorage.Events.HitPart:FireServer(unpack(b4))
+                    end
+                end
+            end
+        end
+    end)
+end
+]]--
+exploits:Element("ToggleKeybind", "stormy kill all", {}, function(tbl)
+local stormykillall
+stormykillall = RunService.RenderStepped:Connect(function()
+         if not (tbl.Active and tbl.Toggle) then stormykillall:Disconnect() return end
+		for _,Player in pairs(Players:GetPlayers()) do
+			if Player.Character and Player.Team ~= LocalPlayer.Team and Player.Character:FindFirstChild('UpperTorso') then
+				game:GetService('ReplicatedStorage').Events.HitPart:FireServer(
+						Player.Character.Head,
+						Player.Character.Head.CFrame.p,
+						Client.gun.Name,
+						4096,
+						LocalPlayer.Character.Gun,
+						15,
+						false,
+						false,
+						Vector3.new(0,0,0),
+						16868,
+						Vector3.new(0, 0, 0)
+					)
+			end
+		end
+	end)
+end)			
+exploits:Element("Slider", "damage modifier", {min = 1, max = 5, default = 1}) 
+exploits:Element("ToggleKeybind", "hexagon kill all", {}, function(tbl) 
+
+if tbl.Toggle then
+
+
+local hexagonkillall
+hexagonkillall = RunService.RenderStepped:Connect(function()
+         if not (tbl.Active and tbl.Toggle) then hexagonkillall:Disconnect() return end
+        for i,v in ipairs(Players:GetPlayers()) do
+            if v ~= Player and v.Team ~= game.Players.LocalPlayer.Team and IsAlive(v) and IsAlive(game.Players.LocalPlayer) then
+                ReplicatedStorage.Events.HitPart:FireServer(
+                    v.Character.Head,
+                    predict(v.Character.Head, game:GetService("Stats").PerformanceStats.Ping:GetValue()),
+                    "Banana",
+                    100, -- Range
+                    game.Players.LocalPlayer.Character:WaitForChild("Gun"),
+                    Vector3.new(), -- Start Position
+                    Vector3.new(),
+                    100, -- Damage Modifier
+                    false,
+                    false,
+                    Vector3.new(),
+                    100,
+                    Vector3.new()
+                )
+            end
+        end
+end)
+	end
+end)
+
 exploits:Element('Toggle', 'whizz all', {}, function(tbl)
 	while tbl.Toggle and LocalPlayer.Character:FindFirstChild('Gun') do
     wait()
@@ -7372,14 +8085,23 @@ if not (tbl.Toggle) then oldsounds:Disconnect() return end
             player.Gun.Zoom.SoundId = "rbxassetid://2862871544"
             player.Gun.Zoom.PlaybackSpeed = 1
 		end
-		if player.EquippedTool.Value == "G3SG1" then
+		if player.EquippedTool.Value == "G3SG1" and not values.visuals.effects["G3SG1 Scout shoot"].Toggle then
 			player.Gun.Shoot.SoundId = "rbxassetid://340365815"
 			player.Gun.bolt.SoundId = "rbxassetid://1684285559"
 			player.Gun.boltin.SoundId = "rbxassetid://1684285841"
 			player.Gun.maghit.SoundId = "rbxassetid://777244606"
 			player.Gun.magin.SoundId = "rbxassetid://1684286087"
 			player.Gun.magout.SoundId = "rbxassetid://1684286303"
-	    player.Gun.Zoom.SoundId = "rbxassetid://1684300267"
+            player.Gun.Zoom.SoundId = "rbxassetid://1684300267"
+            player.Gun.Zoom.PlaybackSpeed = 1
+		elseif player.EquippedTool.Value == "G3SG1" and values.visuals.effects["G3SG1 Scout shoot"].Toggle then
+			player.Gun.Shoot.SoundId = "rbxassetid://2476571739"
+			player.Gun.bolt.SoundId = "rbxassetid://1684285559"
+			player.Gun.boltin.SoundId = "rbxassetid://1684285841"
+			player.Gun.maghit.SoundId = "rbxassetid://777244606"
+			player.Gun.magin.SoundId = "rbxassetid://1684286087"
+			player.Gun.magout.SoundId = "rbxassetid://1684286303"
+            player.Gun.Zoom.SoundId = "rbxassetid://1684300267"
             player.Gun.Zoom.PlaybackSpeed = 1
 		end
 		if player.EquippedTool.Value == "MAC10" then
@@ -7492,6 +8214,8 @@ end)
 
 end
 end)
+
+effects:Element("Toggle", "G3SG1 Scout shoot")
 
 effects:Element("Toggle", "x-ray", {}, function(tbl)
 if tbl.Toggle then
@@ -7821,6 +8545,243 @@ configs:Element('Button', 'load', {}, function() if values.misc.configs.config.T
 configs:Element('Toggle', 'keybind list', nil, function(tbl)
 	library:SetKeybindVisible(tbl.Toggle)
 end)
+configs:Element('Toggle', 'spectate list', {default = {Toggle = false}}, function(tbl)
+	specmenu.Enabled = tbl.Toggle
+end)
+			configs:Element("Toggle", "keystrokes", {}, function(tbl)
+				if tbl.Toggle then
+						 local ScreenGuiKey = Instance.new("ScreenGui")
+			local W = Instance.new("TextLabel")
+			local A = Instance.new("TextLabel")
+			local S = Instance.new("TextLabel")
+			local D = Instance.new("TextLabel")
+			local E = Instance.new("TextLabel")
+			local R = Instance.new("TextLabel")
+			local _ = Instance.new("TextLabel")
+			local _2 = Instance.new("TextLabel")
+			local _3 = Instance.new("TextLabel")
+			local _4 = Instance.new("TextLabel")
+			local _5 = Instance.new("TextLabel")
+			local _6 = Instance.new("TextLabel")
+
+
+			ScreenGuiKey.Parent = game.CoreGui
+			ScreenGuiKey.Name = "keystrokess"
+
+			W.Name = "W"
+			W.Parent = ScreenGuiKey
+			W.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			W.BackgroundTransparency = 1.000
+			W.Position = UDim2.new(0.488053292, 0, 0.728395104, 0)
+			W.Size = UDim2.new(0, 29, 0, 28)
+			W.Visible = false
+			W.Font = Enum.Font.Code
+			W.Text = "W"
+			W.TextColor3 = Color3.fromRGB(255, 255, 255)
+			W.TextSize = 14.000
+			W.TextStrokeTransparency = 0.000
+			
+			_.Name = "_"
+			_.Parent = ScreenGuiKey
+			_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			_.BackgroundTransparency = 1.000
+			_.Position = UDim2.new(0.488053292, 0, 0.728395104, 0)
+			_.Size = UDim2.new(0, 29, 0, 28)
+			_.Visible = true
+			_.Font = Enum.Font.Code
+			_.Text = "_"
+			_.TextColor3 = Color3.fromRGB(255, 255, 255)
+			_.TextSize = 14.000
+			_.TextStrokeTransparency = 0.000
+
+			A.Name = "A"
+			A.Parent = ScreenGuiKey
+			A.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			A.BackgroundTransparency = 1.000
+			A.Position = UDim2.new(0.453584045, 0, 0.777777791, 0)
+			A.Size = UDim2.new(0, 29, 0, 28)
+			A.Visible = false
+			A.Font = Enum.Font.Code
+			A.Text = "A"
+			A.TextColor3 = Color3.fromRGB(255, 255, 255)
+			A.TextSize = 14.000
+			A.TextStrokeTransparency = 0.000
+			
+			_2.Name = "_2"
+			_2.Parent = ScreenGuiKey
+			_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			_2.BackgroundTransparency = 1.000
+			_2.Position = UDim2.new(0.453584045, 0, 0.777777791, 0)
+			_2.Size = UDim2.new(0, 29, 0, 28)
+			_2.Visible = true
+			_2.Font = Enum.Font.Code
+			_2.Text = "_"
+			_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+			_2.TextSize = 14.000
+			_2.TextStrokeTransparency = 0.000
+
+			S.Name = "S"
+			S.Parent = ScreenGuiKey
+			S.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			S.BackgroundTransparency = 1.000
+			S.Position = UDim2.new(0.488053292, 0, 0.777777791, 0)
+			S.Size = UDim2.new(0, 29, 0, 28)
+			S.Visible = false
+			S.Font = Enum.Font.Code
+			S.Text = "S"
+			S.TextColor3 = Color3.fromRGB(255, 255, 255)
+			S.TextSize = 14.000
+			S.TextStrokeTransparency = 0.000
+			
+			_3.Name = "_3"
+			_3.Parent = ScreenGuiKey
+			_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			_3.BackgroundTransparency = 1.000
+			_3.Position = UDim2.new(0.488053292, 0, 0.777777791, 0)
+			_3.Size = UDim2.new(0, 29, 0, 28)
+			_3.Visible = true
+			_3.Font = Enum.Font.Code
+			_3.Text = "_"
+			_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+			_3.TextSize = 14.000
+			_3.TextStrokeTransparency = 0.000
+
+			D.Name = "D"
+			D.Parent = ScreenGuiKey
+			D.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			D.BackgroundTransparency = 1.000
+			D.Position = UDim2.new(0.522522688, 0, 0.777777791, 0)
+			D.Size = UDim2.new(0, 29, 0, 28)
+			D.Visible = false
+			D.Font = Enum.Font.Code
+			D.Text = "D"
+			D.TextColor3 = Color3.fromRGB(255, 255, 255)
+			D.TextSize = 14.000
+			D.TextStrokeTransparency = 0.000
+			
+			_4.Name = "_4"
+			_4.Parent = ScreenGuiKey
+			_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			_4.BackgroundTransparency = 1.000
+			_4.Position = UDim2.new(0.522522688, 0, 0.777777791, 0)
+			_4.Size = UDim2.new(0, 29, 0, 28)
+			_4.Visible = true
+			_4.Font = Enum.Font.Code
+			_4.Text = "_"
+			_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+			_4.TextSize = 14.000
+			_4.TextStrokeTransparency = 0.000
+
+			E.Name = "E"
+			E.Parent = ScreenGuiKey
+			E.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			E.BackgroundTransparency = 1.000
+			E.Position = UDim2.new(0.453584045, 0, 0.728395045, 0)
+			E.Size = UDim2.new(0, 29, 0, 28)
+			E.Visible = false
+			E.Font = Enum.Font.Code
+			E.Text = "C"
+			E.TextColor3 = Color3.fromRGB(255, 255, 255)
+			E.TextSize = 14.000
+			E.TextStrokeTransparency = 0.000
+			
+			_5.Name = "_5"
+			_5.Parent = ScreenGuiKey
+			_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			_5.BackgroundTransparency = 1.000
+			_5.Position = UDim2.new(0.453584045, 0, 0.728395045, 0)
+			_5.Size = UDim2.new(0, 29, 0, 28)
+			_5.Visible = true
+			_5.Font = Enum.Font.Code
+			_5.Text = "_"
+			_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+			_5.TextSize = 14.000
+			_5.TextStrokeTransparency = 0.000
+
+			R.Name = "R"
+			R.Parent = ScreenGuiKey
+			R.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			R.BackgroundTransparency = 1.000
+			R.Position = UDim2.new(0.522522688, 0, 0.728395045, 0)
+			R.Size = UDim2.new(0, 29, 0, 28)
+			R.Visible = false
+			R.Font = Enum.Font.Code
+			R.Text = "J"
+			R.TextColor3 = Color3.fromRGB(255, 255, 255)
+			R.TextSize = 14.000
+			R.TextStrokeTransparency = 0.000
+			
+			_6.Name = "_6"
+			_6.Parent = ScreenGuiKey
+			_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			_6.BackgroundTransparency = 1.000
+			_6.Position = UDim2.new(0.522522688, 0, 0.728395045, 0)
+			_6.Size = UDim2.new(0, 29, 0, 28)
+			_6.Visible = true
+			_6.Font = Enum.Font.Code
+			_6.Text = "_"
+			_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+			_6.TextSize = 14.000
+			_6.TextStrokeTransparency = 0.000
+	 
+
+			local UserInputService = game:GetService("UserInputService")
+
+			local W1Key = Enum.KeyCode.W
+			local A1Key = Enum.KeyCode.A
+			local S1Key = Enum.KeyCode.S
+			local D1Key = Enum.KeyCode.D
+			local E1Key = Enum.KeyCode.LeftControl
+			local R1Key = Enum.KeyCode.R
+			local SpaceKey = Enum.KeyCode.Space
+
+			UserInputService.InputBegan:Connect(function(input)
+				if (input.KeyCode == W1Key) then
+					W.Visible = true
+					_.Visible = false
+				elseif (input.KeyCode == A1Key) then
+					A.Visible = true
+					_2.Visible = false
+				elseif (input.KeyCode == S1Key) then
+					S.Visible = true
+					_3.Visible = false
+				elseif (input.KeyCode == D1Key) then
+					D.Visible = true
+					_4.Visible = false
+				elseif (input.KeyCode == E1Key) then
+					E.Visible = true
+					_5.Visible = false
+				elseif (input.KeyCode == SpaceKey) then
+					R.Visible = true
+					_6.Visible = false
+				end
+			end)
+
+			UserInputService.InputEnded:Connect(function(input)
+				if (input.KeyCode == W1Key) then
+					W.Visible = false
+					_.Visible = true
+				elseif (input.KeyCode == A1Key) then
+					A.Visible = false
+					_2.Visible = true
+				elseif (input.KeyCode == S1Key) then
+					S.Visible = false
+					_3.Visible = true
+				elseif (input.KeyCode == D1Key) then
+					D.Visible = false
+					_4.Visible = true
+				elseif (input.KeyCode == E1Key) then
+					E.Visible = false
+					_5.Visible = true	
+				elseif (input.KeyCode == SpaceKey) then
+					R.Visible = false
+					_6.Visible = true
+				end
+			end)		
+			else
+			game.CoreGui.keystrokess:Destroy()
+			end
+			end)
 
 local server = misc:Sector("server", "Right")
 
@@ -7913,6 +8874,28 @@ advanced:Element("Button", "destroy stormy", {}, function()
     game.Players.localPlayer.Character.UpperTorso.Waist:Destroy()
 end)
 
+advanced:Element("Button", "Inf hp", {}, function()
+	game.ReplicatedStorage.Events.FallDamage:FireServer(0/0)
+	LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+		LocalPlayer.Character.Humanoid.Health = 100
+	end)
+end)
+
+advanced:Element("Button", "FE godmode", {}, function()
+	LocalPlayer.Character.Humanoid.Parent = nil
+	Instance.new("Humanoid", LocalPlayer.Character)
+end)
+
+advanced:Element("Button", "Invisibillity (don't defuse)", {}, function()
+	local oldpos = LocalPlayer.Character.HumanoidRootPart.CFrame
+	LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9999,9999,9999)
+	local NewRoot = LocalPlayer.Character.LowerTorso.Root:Clone()
+	LocalPlayer.Character.LowerTorso.Root:Destroy()
+	NewRoot.Parent = LocalPlayer.Character.LowerTorso
+	wait()
+	LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+end)
+
 --                  not working rn
 --[[
 advanced:Element('Button', 'destroy gui', {}, function()
@@ -7978,6 +8961,7 @@ end)
 Backtrack:Element("Slider", "Time (ms)", {min = 0, max = 1000, default = 200})
 Backtrack:Element("Slider", "Transparency (0.01 = 1)", {min = 1, max = 100, default = 0})
 ]]--
+
 local client = misc:Sector('client', 'Right')
 
 client:Element('Toggle', 'auto join team')
@@ -8236,6 +9220,30 @@ grenades:Element("Button", "crash server", {}, function()
             end
         end)
 	end   
+end)
+grenades:Element("Button", "crash hop", {}, function()      
+	while true do
+        pcall(function()
+            game:GetService("RunService").RenderStepped:Wait()
+            for i = 1,100,1 do
+                local ohInstance1 = LocalPlayer.Character.Gun.Mag																																																																									-- Server Crasher exploit by property (Mexicanhook). mis hermanos solo usan mexicanhook
+                
+                game:GetService("ReplicatedStorage").Events.DropMag:FireServer(ohInstance1)
+            end
+        end)
+	end
+	wait(2)
+	local x = {}
+	for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+		if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+			x[#x + 1] = v.id
+		end
+	end
+	if #x > 0 then
+		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
+	else
+		return print("Failed")
+	end
 end)
 
 local Dance = Instance.new('Animation')
@@ -8649,16 +9657,13 @@ end
 
 local ui = misc:Sector('ui', 'Left')
 
-
-ui:Element('Toggle', 'spectate list', {default = {Toggle = false}}, function(tbl)
-	specmenu.Enabled = tbl.Toggle
-end)
-
 ui:Element('ToggleColor', 'ui border', {default = {Color = Color3.fromRGB(255,255,255)}},function() colorchanger:Fire() end)
 
 ui:Element('ToggleColor', 'ui cursor', {default = {Color = Color3.fromRGB(255,255,255)}},function() colorchanger:Fire() end)
 
 ui:Element('ToggleColor', 'ui toggle box', {default = {Color = Color3.fromRGB(255,255,255)}},function() colorchanger:Fire() end)
+
+ui:Element('ToggleColor', 'ui HitElement', {default = {Color = Color3.fromRGB(255,255,255)}},function() colorchanger:Fire() end)
 
 --[[
 ui:Element('ToggleColor', 'ui toggle fill', {default = {Color = Color3.fromRGB(255,255,255)}},function(tbl)
@@ -9280,10 +10285,13 @@ RunService:BindToRenderStep('idk', 444, function()
 														Camera.CFrame = CFrame.new(CamCFrame.Position, EndHit.Position)
 													end
 													Filter = true
-													if values.rage.aimbot['automatic fire'].Dropdown == 'standard' then
-
+													
+													if values.rage.aimbot["automatic fire"].Dropdown == "standard" then
 														Client.firebullet()
-														
+														VisualizeSilentAngles:Fire(RageTarget.Position)
+                                                        if values.rage.aimbot.hitlogs.Toggle then -- 
+                                                        	CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                        end
 														if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 															for chingchong = 2, values.rage.exploits['tap amount'].Slider do
 																Client.firebullet()
@@ -9306,6 +10314,7 @@ RunService:BindToRenderStep('idk', 444, function()
 															[13] = Vector3.new()
 														}
 														game.ReplicatedStorage.Events.HitPart:FireServer(unpack(Arguments))
+														VisualizeSilentAngles:Fire(RageTarget.Position)
 														if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 															for chingchong = 2, values.rage.exploits['tap amount'].Slider do
 																Client.firebullet()
@@ -9340,6 +10349,7 @@ RunService:BindToRenderStep('idk', 444, function()
 															[13] = Vector3.new()
 														}
 														game.ReplicatedStorage.Events.HitPart:FireServer(unpack(Arguments))
+														VisualizeSilentAngles:Fire(RageTarget.Position)
 														if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 															for chingchong = 2, values.rage.exploits['tap amount'].Slider do
 																local Arguments = {
@@ -9428,8 +10438,12 @@ RunService:BindToRenderStep('idk', 444, function()
 														Camera.CFrame = CFrame.new(CamCFrame.Position, EndHit.Position)
 													end
 													Filter = true
-													if values.rage.aimbot['automatic fire'].Dropdown == 'standard' then
+													if values.rage.aimbot["automatic fire"].Dropdown == "standard" then
 														Client.firebullet()
+														VisualizeSilentAngles:Fire(RageTarget.Position)
+                                                        if values.rage.aimbot.hitlogs.Toggle then -- 
+                                                        	CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                        end
 														if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 															for chingchong = 2, values.rage.exploits['tap amount'].Slider do
 																Client.firebullet()
@@ -9451,6 +10465,7 @@ RunService:BindToRenderStep('idk', 444, function()
 															[13] = Vector3.new()
 														}
 														game.ReplicatedStorage.Events.HitPart:FireServer(unpack(Arguments))
+														VisualizeSilentAngles:Fire(RageTarget.Position)
 														if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 															for chingchong = 2, values.rage.exploits['tap amount'].Slider do
 																Client.firebullet()
@@ -9485,6 +10500,7 @@ RunService:BindToRenderStep('idk', 444, function()
 															[13] = Vector3.new()
 														}
 														game.ReplicatedStorage.Events.HitPart:FireServer(unpack(Arguments))
+														VisualizeSilentAngles:Fire(RageTarget.Position)
 														if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 															for chingchong = 2, values.rage.exploits['tap amount'].Slider do
 																local Arguments = {
@@ -9502,7 +10518,10 @@ RunService:BindToRenderStep('idk', 444, function()
 																}
 																game.ReplicatedStorage.Events.HitPart:FireServer(unpack(Arguments))
 															end
-														end	
+														end
+                                                        if values.rage.aimbot.hitlogs.Toggle then -- 
+                                                        	CreateHitElement(" Hit "..Hit.Parent.Name.." in the "..Hit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                        end
 													end
 													Filter = false
 													break
@@ -9532,8 +10551,12 @@ RunService:BindToRenderStep('idk', 444, function()
 													Camera.CFrame = CFrame.new(CamCFrame.Position, Hit.Position)
 												end
 												Filter = true
-												if values.rage.aimbot['automatic fire'].Dropdown == 'standard' then
+												if values.rage.aimbot["automatic fire"].Dropdown == "standard" then
 													Client.firebullet()
+													VisualizeSilentAngles:Fire(RageTarget.Position)
+                                                    if values.rage.aimbot.hitlogs.Toggle then -- 
+                                                    	CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                    end
 													if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 														for chingchong = 2, values.rage.exploits['tap amount'].Slider do
 															Client.firebullet()
@@ -9555,6 +10578,7 @@ RunService:BindToRenderStep('idk', 444, function()
 														[13] = Vector3.new()
 													}
 													game.ReplicatedStorage.Events.HitPart:FireServer(unpack(Arguments))
+													VisualizeSilentAngles:Fire(RageTarget.Position)
 													if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 														for chingchong = 2, values.rage.exploits['tap amount'].Slider do
 															Client.firebullet()
@@ -10088,7 +11112,7 @@ RunService:BindToRenderStep('idk', 444, function()
 			end
 
 			savedspinpitch=savedspinpitch+0.25
-			local Pitch = values.rage.angles['pitch'].Dropdown == 'none' and CamLook.Y or values.rage.angles['pitch'].Dropdown == 'up' and 1 or values.rage.angles['pitch'].Dropdown == 'down' and -1 or values.rage.angles['pitch'].Dropdown == 'zero' and 0 or values.rage.angles['pitch'].Dropdown == 'among' and math.huge or values.rage.angles['pitch'].Dropdown == 'random' and Random.new():NextNumber(-50,50) or values.rage.angles['pitch'].Dropdown == 'spin' and savedspinpitch 
+			local Pitch = values.rage.angles['pitch'].Dropdown == 'none' and CamLook.Y or values.rage.angles['pitch'].Dropdown == 'up' and 1 or values.rage.angles['pitch'].Dropdown == 'down' and -1 or values.rage.angles['pitch'].Dropdown == 'zero' and 0 or values.rage.angles['pitch'].Dropdown == 'among' and math.huge or values.rage.angles['pitch'].Dropdown == 'random' and Random.new():NextNumber(-50,50) or values.rage.angles['pitch'].Dropdown == 'spin' and savedspinpitch or values.rage.angles["pitch"].Dropdown == "Sus_down" and -3 or values.rage.angles["pitch"].Dropdown == "behind body" and 94 or values.rage.angles["pitch"].Dropdown == "ultra down" and -97 and 118 or values.rage.angles["pitch"].Dropdown == "freak" and 5 or values.rage.angles["pitch"].Dropdown == "negative" and -14 or values.rage.angles["pitch"].Dropdown == "tall man" and -168 or values.rage.angles["pitch"].Dropdown == "down2" and -1 or values.rage.angles["pitch"].Dropdown == "huge" and math.huge or 11.1 
 
 			if values.rage.angles['extend pitch'].Toggle and (values.rage.angles['pitch'].Dropdown == 'up' or values.rage.angles['pitch'].Dropdown == 'down') then
 				Pitch = (Pitch*2)/1.6
@@ -11534,6 +12558,13 @@ game:GetService('RunService'):BindToRenderStep('Obama', 0, function()
 end)
 ]]--
 
+local visualsilentangle = nil
+VisualizeSilentAngles:Connect(function(pos)
+		visualsilentangle = RageTarget.Position
+		wait(values.rage.aimbot["silent angle speed"].Slider/50)
+		visualsilentangle = nil
+end)
+
 oldcamforfreeze = nil
 local mt = getrawmetatable(game)
 local oldNamecall = mt.__namecall
@@ -11547,12 +12578,15 @@ mt.__namecall = function(self, ...)
 
 	if method == 'SetPrimaryPartCFrame' and self.Name == 'Arms' then
 		if values.skins.misc['hide arms'].Toggle and LocalPlayer.Character then
-			args[1] = args[1] * CFrame.new(99, 99, 99)
-		else
-			if values.visuals.self['viewmodel changer'].Toggle then
+			args[1] = args[1] * CFrame.new(99, 99, 99) 
+		else 
+			if values.visuals.self["viewmodel changer"].Toggle then 
 				args[1] = args[1] * ViewmodelOffset
-			end
-		end
+			end 
+						if values.rage.aimbot["visualize silent angle"].Toggle and visualsilentangle then
+							args[1] = CFrame.lookAt(args[1].p, visualsilentangle)
+						end
+	end
 	end
 	if method == 'SetPrimaryPartCFrame' and self.Name ~= 'Arms' then
 		args[1] = args[1] + Vector3.new(0, 3, 0)
@@ -11580,6 +12614,13 @@ mt.__namecall = function(self, ...)
 			args[3] = 'Innocent'
 			args[4] = false
 			args[5] = false
+		end
+		if self.Name == "PlayerChatted" and not values.misc.chat["chat spam"].Toggle then
+			for i,v in pairs(emojis) do
+				if args[1]:find(i) then
+					args[1] = string.gsub(args[1], i, v)
+				end
+			end
 		end
 		if self.Name == 'ReplicateCamera' then
 			if values.misc.client['anti spectate'].Toggle then
