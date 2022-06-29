@@ -47,9 +47,9 @@ local UIGradient_2 = Instance.new("UIGradient")
 local vipyellow = Color3.fromRGB(246, 255, 0)
 local originalcolor = Color3.fromRGB(170, 0, 0)
 local loadername = "LuckyLounge"
-local lastupdate = "Updated: 23/5/2022"
+local lastupdate = "Updated: 29/6/2022"
 local scriptstatus = "Status: Working"
-local versiondisplay2 = "VIP Version: 0.30"
+local versiondisplay2 = "VIP Version: 0.41"
 
 loader.Name = "loader"
 loader.Parent = game.CoreGui
@@ -576,9 +576,9 @@ local purple = Color3.fromRGB(153, 0, 255)
 local warningred = Color3.fromRGB(255, 41, 41)
 local originalcolor = Color3.fromRGB(170, 0, 0)
 local loadername = "LuckyLounge"
-local lastupdate = "Updated: 23/5/2022"
+local lastupdate = "Updated: 29/6/2022"
 local scriptstatus = "Status: Working"
-local versiondisplay2 = "Version: 0.30"
+local versiondisplay2 = "Version: 0.41"
 
 loader.Name = "loader"
 loader.Parent = game.CoreGui
