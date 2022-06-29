@@ -7395,7 +7395,7 @@ Loopkill:Element("lmao", "Player", {options = loopkillplr, Amount = 20}, functio
 --Loopkill:Element("Button", "refresh players", nil, function()      
 --	update()
 --end)
-Loopkill:Element("Toggle", "!! Turn off force hit before using loop kill !!")
+--Loopkill:Element("Toggle", "!! Turn off force hit before using loop kill !!")
 Loopkill:Element("ToggleKeybind", "Loop kill", nil, function(tbl)
 	if tbl.Toggle and tbl.Active and LocalPlayer.Character:FindFirstChild("Gun") then
 		_G.DisableLoopKill = false
