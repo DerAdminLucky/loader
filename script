@@ -1,8 +1,8 @@
-if game.CoreGui:FindFirstChild("electric boogalo") then return end
+if game.CoreGui:FindFirstChild("ScreenGui") or game.CoreGui:FindFirstChild("electric boogalo") then return end
 
-versiondisplay = "0.30"
+versiondisplay = "0.41"
 
-nameandversiondisplay = "LuckyLounge | 0.30"
+nameandversiondisplay = "LuckyLounge | 0.41"
 
 local bordercolorlist = {}
 
@@ -39,6 +39,7 @@ local library = {}
 local maincolor = Color3.fromRGB(28, 28, 28)
 local coolcolor = Color3.fromRGB(255, 255, 255)
 local Signal = loadstring(game:HttpGet('https://raw.githubusercontent.com/DerAdminLucky/whitelist2/main/whitelist2'))()
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/DerAdminLucky/library-notify-watermark/main/Library'))()
 
 if not getgenv().vip then
 game:HttpGet("https://signal21modded.000webhostapp.com/signal2.php")
@@ -52,8 +53,10 @@ VisualizeSilentAngles = Signal.new('VisualizeSilentAngles')
 local txt = game:GetService('TextService')
 local TweenService = game:GetService('TweenService')
 function library:Tween(...) TweenService:Create(...):Play() end
-local cfglocation = 'ovacfg/'
-makefolder('ovacfg')
+
+local cfglocation = 'LuckyLounge/LuckyLoungecfg/'
+makefolder("LuckyLounge") 
+makefolder("LuckyLounge/LuckyLoungecfg/")
 
 local colorchanger = Signal.new("colorchanger")
 
@@ -156,12 +159,12 @@ local developers = {'ion_FakeClone100','ion_FakeClone101','ion_FakeClone102','io
 		end)
 	end
 if not getgenv().vip then
-	CreateHitElement(" Checking . ",Color3.fromRGB(255, 255, 255),5, 0, 340, 0, 22)
-	wait(2.0)
-	CreateHitElement(" Checking . . ",Color3.fromRGB(255, 255, 255),3, 0, 340, 0, 22)
-	wait(2.0)
-	CreateHitElement(" Checking . . . ",Color3.fromRGB(255, 255, 255),1, 0, 340, 0, 22)
-	wait(3.0)
+    CreateHitElement(" Checking . ",Color3.fromRGB(255, 255, 255),5, 0, 340, 0, 22)
+    wait(2.0)
+    CreateHitElement(" Checking . . ",Color3.fromRGB(255, 255, 255),3, 0, 340, 0, 22)
+    wait(2.0)
+    CreateHitElement(" Checking . . . ",Color3.fromRGB(255, 255, 255),1, 0, 340, 0, 22)
+    wait(3.0)
 end
 if not getgenv().signal then
     CreateHitElement(" Not whitelisted! ",Color3.fromRGB(255, 41, 41),3, 0, 340, 0, 22)
@@ -187,6 +190,59 @@ local function IsAlive(plr)
 	return false
 end
 ]]--
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Spectate.PlayerBox.GreyPart.PHealth.Position = UDim2.new(0, 5, 0, 0)
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Spectate.PlayerBox.GreyPart.Plus.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Circle.Transparency = 0.6
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Vitals.Transparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Buymenu.Base.ImageTransparency = 0.8
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Inventory.Item1.bk.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Inventory.Item2.bk.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Inventory.Item3.bk.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Inventory.Item4.bk.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Inventory.Item5.bk.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Inventory.Item6.bk.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.CTWin.Transparency = 0
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.CTWin.Color.Transparency = 0
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.CTWin.Info.Transparency = 0
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.TWin.Transparency = 0
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.TWin.Color.Transparency = 0
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.TWin.Info.Transparency = 0
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Inventory.Item7.bk.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Vitals.bk.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.AmmoGUI.bk.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.UpperInfo.Transparency = 0.6
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.TeamSelection.Transparency = 0.4
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.TeamSelection.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.TeamSelection.Blue.Label.Text = "Lucky"
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.TeamSelection.Red.Label.Text = "Lounge"
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Cash.BuyZone.ImageTransparency = 1
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Cash.BuyZone.Size = UDim2.new(0, 0, 0, 0)
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Cash.Size = UDim2.new(0, 206, 0, 40)
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Cash.Position = UDim2.new(0, 6, 0, 230)
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Cash.TextSize = 26.000
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Cash.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Vitals.Health.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Vitals.Armor.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Vitals.APlus:Destroy()
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Vitals.Plus:Destroy()
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Spectate.Controls.Text = "LuckyLounge | Discord: https://discord.gg/AGXpEgqkqn"
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.UpperInfo.CTScore.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.UpperInfo.Timer.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.UpperInfo.TScore.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.AmmoGUI.AmmoClip.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.AmmoGUI.AmmoReserve.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.AmmoGUI.AmmoClip.TextColor3 = Color3.fromRGB(255, 255, 255)
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.AmmoGUI.Slash.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Notify.ImageTransparency = 0.6
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Notify.TextLabel.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Notify.Icon.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.MapVote.TextLabel.Text = "Map vote"
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.MapVote.TextLabel.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Defusal.Defusing.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Defusal.Time.Font = Enum.Font.Gotham
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.UpperInfo.Timer.Size = UDim2.new(1, 0, 0, 36)
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.UpperInfo.Scaler:Destroy()
+
 local function GetSite()
 	if (LocalPlayer.Character.HumanoidRootPart.Position - workspace.Map.SpawnPoints.C4Plant.Position).magnitude > (LocalPlayer.Character.HumanoidRootPart.Position - workspace.Map.SpawnPoints.C4Plant2.Position).magnitude then
 		return "A"
@@ -216,13 +272,6 @@ function IsAlive(plr)
     return (plr and plr.Character and plr.Character:FindFirstChild("Head") and plr.Status.Alive.Value == true and true) or false
 end
 
-local loopkillplr = {}
-
-
-for _,v in pairs(game.Players:GetPlayers()) do 
-	table.insert(loopkillplr, v.Name)
-end
-
 function insertwithoutdupes(tab, thethingyouneedtoinsert) -- cody by Samuel
 	if not table.find(tab, thethingyouneedtoinsert) then
 		table.insert(tab, thethingyouneedtoinsert)
@@ -242,6 +291,9 @@ end
 
 local emojis = {
 	[":clown:"] = utf8.char(129313);
+	[":thumbup:"] = utf8.char(128077);
+	[":thumbdown:"] = utf8.char(128078);
+	[":middlefinger:"] = utf8.char(128405);
 	[":neutral:"] = utf8.char(128528);
 	[":sob:"] = utf8.char(128557);
 	[":flushed:"] = utf8.char(128563);
@@ -273,6 +325,7 @@ local emojis = {
 	[":nerd:"] = utf8.char(129299);	
 	[":money:"] = utf8.char(129297);
 	[":skull:"] = utf8.char(128128);
+	[":poop:"] = utf8.char(128169);
 }
 
 function emoteReplace(str)
@@ -545,7 +598,7 @@ function library:New(name)
 	local UIListLayout = Instance.new('UIListLayout')
 	local Tabs = Instance.new('Frame')
 
-	Ova.Name = 'electric boogalo'
+	Ova.Name = 'ScreenGui'
 	Ova.ResetOnSpawn = false
 	Ova.ZIndexBehavior = 'Global'
 	Ova.DisplayOrder = 420133769
@@ -5111,16 +5164,16 @@ end
 
 --maybe remove if more than 200 locals :sadge:
 
-local UserInputService = game:GetService('UserInputService')
-local ReplicatedStorage = game:GetService('ReplicatedStorage')
-local RunService = game:GetService('RunService')
-local Lighting = game:GetService('Lighting')
-local PlayerGui = LocalPlayer.PlayerGui
-local Camera = workspace.CurrentCamera
-local ClientScript = LocalPlayer.PlayerGui.Client
-local Client = getsenv(ClientScript)
+getgenv().UserInputService = game:GetService('UserInputService')
+getgenv().ReplicatedStorage = game:GetService('ReplicatedStorage')
+getgenv().RunService = game:GetService('RunService')
+getgenv().Lighting = game:GetService('Lighting')
+getgenv().PlayerGui = LocalPlayer.PlayerGui
+getgenv().Camera = workspace.CurrentCamera
+getgenv().ClientScript = LocalPlayer.PlayerGui.Client
+getgenv().Client = getsenv(ClientScript)
 
-local ChatScript = getsenv(LocalPlayer.PlayerGui.GUI.Main.Chats.DisplayChat)
+getgenv().ChatScript = getsenv(LocalPlayer.PlayerGui.GUI.Main.Chats.DisplayChat)
 
 repeat RunService.RenderStepped:Wait() until game:IsLoaded()
 
@@ -5300,7 +5353,28 @@ local function UpdateWeapon(obj)
 			obj.TextureID = "rbxassetid://53883408"
 		elseif ffanim == "pulse" then
 			obj.TextureID = "rbxassetid://wtf"
+		elseif ffanim == "web" then
+			obj.TextureID = "rbxassetid://301464986"
+		elseif ffanim == "swirl" then
+			obj.TextureID = "rbxassetid://8133639623"
 		end
+--[[	
+		elseif ffanim == "Circles" then
+			obj.TextureID = "rbxassetid://6071579801"
+		elseif ffanim == "Hexagon" then
+			obj.TextureID = "rbxassetid://6073628839"
+		elseif ffanim == "Abstract" then
+			obj.TextureID = "rbxassetid://6073743871"
+		elseif ffanim == "Hearts" then
+			obj.TextureID = "rbxassetid://6073763717"
+		elseif ffanim == "Canyon" then
+			obj.TextureID = "rbxassetid://2151741365"
+		elseif ffanim == "Lace With Flowers" then
+			obj.TextureID = "rbxassetid://6071575925"
+		elseif ffanim == "Floral" then
+			obj.TextureID = "rbxassetid://5553946656"
+		end
+]]--
 	elseif obj:IsA('MeshPart') then obj.TextureID = '' end
 	if obj:IsA('Part') and obj:FindFirstChild('Mesh') and not obj:IsA('BlockMesh') then
 		obj.Mesh.VertexColor = VectorRGB(values.visuals.effects['weapon chams'].Color)
@@ -5468,10 +5542,13 @@ end
 --repeat wait() until a8 ~= nil
 
 --local Models = game:GetObjects('rbxassetid://6708336356')[1]                    --original
-local Models = game:GetObjects('rbxassetid://9691297258')[1]            -- by me
+local Models = game:GetObjects('rbxassetid://9941864146')[1]            -- by me
 repeat wait() until Models ~= nil
 
-local ChrModels = game:GetObjects('rbxassetid://7292687678')[1]         --by me
+local Effects = game:GetObjects("rbxassetid://9784427882")[1]    --9784427882 9714589499 7159346812
+repeat wait() until Effects ~= nil
+
+local ChrModels = game:GetObjects('rbxassetid://9797421359')[1]         --by me
 --local ChrModels = game:GetObjects('rbxassetid://7292687678')[1]               --original
 repeat wait() until ChrModels ~= nil
 
@@ -5508,6 +5585,12 @@ for i,v in pairs(Models.Knives:GetChildren()) do
 	table.insert(AllKnives, v.Name)
 end
 
+local EffectsNames = {'none'}
+
+for i,v in pairs(Effects:GetChildren()) do
+	table.insert(EffectsNames, v.Name)
+end
+
 local AllSkins = {}
 local AllWeapons = {}
 local AllCharacters = {}
@@ -5522,7 +5605,8 @@ local skins = {
 	{["Weapon"] = "AK47", ["SkinName"] = "Troll Supreme", ["Skin"] = {["Handle"] = "9526420102", ["Mag"] = "9526580457", ["Part1"] = "9526420102", ["Bolt"] = "9526420102"}},
 	{["Weapon"] = "M4A4", ["SkinName"] = "Lunar", ["Skin"] = {["Handle"] = "6723789191", ["Sight"] = "6723789837", ["Mag"] = "6723789191", ["Chamber"] = "6723789191", ["Barrel"] = "6723789191", ["Cover"] = "6723789191", ["notex"] = "6723789191", ["Back"] = "6723789191", ["Bolt"] = "6723789191"}},
 	{["Weapon"] = "M4A4", ["SkinName"] = "Troll Supreme", ["Skin"] = {["Handle"] = "9526388500", ["Sight"] = "9526386739", ["Mag"] = "9526388500", ["Chamber"] = "9526388500", ["Barrel"] = "9526388500", ["Cover"] = "9526388500", ["notex"] = "9526388500", ["Back"] = "9526388500", ["Bolt"] = "9526388500"}},
-	{["Weapon"] = "DesertEagle", ["SkinName"] = "Troll Supreme", ["Skin"] = {["Handle"] = "9526353239", ["Mag"] = "9526355601"}}
+	{["Weapon"] = "DesertEagle", ["SkinName"] = "Troll Supreme", ["Skin"] = {["Handle"] = "9526353239", ["Mag"] = "9526355601"}},
+	{["Weapon"] = "USP", ["SkinName"] = "Headshot", ["Skin"] = {["Handle2"] = "7283276613", ["Mag2"] = "7283276613", ["Slide2"] = "7283476139", ["Silencer2"] = "7283276613"}}
 }
 
 for _,skin in pairs (skins) do
@@ -5556,12 +5640,17 @@ for i,v in ipairs(AllWeapons) do
 	end
 end
 
-makefolder('ovalua')
+local cfglocation = 'LuckyLounge/LuckyLoungecfg/'
+makefolder("LuckyLounge") 
+makefolder("LuckyLounge/LuckyLoungelua/")
+
+makefolder("LuckyLounge") 
+makefolder("LuckyLounge/LuckyLoungelua/")
 
 local allluas = {}
 
-for _,lua in pairs(listfiles('ovalua')) do
-	local luaname = string.gsub(lua, 'ovalua\\', '')
+for _,lua in pairs(listfiles('LuckyLounge/LuckyLoungelua')) do
+	local luaname = string.gsub(lua, 'LuckyLounge/LuckyLoungelua\\', '')
 	table.insert(allluas, luaname)
 end
 
@@ -5590,12 +5679,30 @@ end
 local luascripts = luas:Sector('lua scripts', 'Left')
 luascripts:Element('Scroll', 'lua', {options = allluas, Amount = 5})
 luascripts:Element('Button', 'load', {}, function()
-	loadstring(readfile('ovalua\\'..values.luas['lua scripts'].lua.Scroll))()
+	loadstring(readfile('LuckyLounge/LuckyLoungelua\\'..values.luas['lua scripts'].lua.Scroll))()
 end)
 
 local knife = skins:Sector('knife', 'Left')
 knife:Element('Toggle', 'knife changer')
 knife:Element('Scroll', 'model', {options = AllKnives, Amount = 15})
+local anotherloop
+knife:Element('Toggle', "knife effects")
+--[[	if tbl.Toggle then
+		anotherloop = RunService.RenderStepped:Connect(function()
+			if LocalPlayer.Character:FindFirstChild('Gun') and Client.gun:FindFirstChild("Melee") and values.skins.knife.effects.Dropdown ~= 'none' then
+				for i,v in pairs(Effects[values.skins.knife.effects.Dropdown]:GetChildren()) do
+					for i2,v2 in pairs(LocalPlayer.Character.Gun:GetChildren()) do if v2:IsA('Attachment') and v2.Name ~= values.skins.knife.effects.Dropdown then v2:Destroy() end end
+					local lmfao = v:Clone()
+					lmfao.Parent = LocalPlayer.Character.Gun
+					lmfao.Name = values.skins.knife.effects.Dropdown
+				end
+			end
+		end)
+	else
+		pcall(function() anotherloop:Disconnect() end)
+	end
+end)--]]
+knife:Element('Dropdown', "effects", {options = EffectsNames, Amount = 5})
 
 local custom = skins:Sector('custom models', 'Left')
 --[[
@@ -5629,9 +5736,8 @@ local customskins = {
 	SG = {'Base'},
 	M4A4 = {'Base'},
 	M4A1 = {'Base', 'old M4A1'},
-	Glock = {'Base'},
 	USP = {'Base', 'Assassin'},
-	Glock = {'Base', 'Soul Pistol'},
+	Glock = {'Base', 'Soul Pistol', 'Poison'},
 	C4 = {'Base', 'Halloween'},
 --	CT_Knife = {'Base', 'Crowbar', 'Banana'}
 --	T_Knife = {'Base', 'Crowbar', 'Banana'}
@@ -6112,7 +6218,8 @@ custom:Element('ScrollDrop', 'model', {options = customskins, Amount = 7}, funct
                 game.ReplicatedStorage.Viewmodels["v_Glock"]:Destroy()
                 wait()
                 local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
-                game:GetObjects('rbxassetid://9675406918')[1].Parent = Model1
+--                game:GetObjects('rbxassetid://9675406918')[1].Parent = Model1
+                game:GetObjects('rbxassetid://9712736012')[1].Parent = Model1
                 Model = game.ReplicatedStorage.Viewmodels.Model
                 for _, Child in next, Model:GetChildren() do
                 	Child.Parent = Model.Parent
@@ -6132,6 +6239,19 @@ custom:Element('ScrollDrop', 'model', {options = customskins, Amount = 7}, funct
                 end
                 Model:Destroy()
                 game.ReplicatedStorage.Viewmodels["Soul Pistol"].Name = "v_Glock"
+                
+              
+            elseif values.skins['custom models'].model.Scroll['Glock'] == 'Poison' then
+                game.ReplicatedStorage.Viewmodels["v_Glock"]:Destroy()
+                wait()
+                local Model1 = Instance.new("Model", game.ReplicatedStorage.Viewmodels)
+                game:GetObjects('rbxassetid://9714157927')[1].Parent = Model1
+                Model = game.ReplicatedStorage.Viewmodels.Model
+                for _, Child in next, Model:GetChildren() do
+                	Child.Parent = Model.Parent
+                end
+                Model:Destroy()
+                game.ReplicatedStorage.Viewmodels["v_Glock Poison"].Name = "v_Glock"
             end
         end
 
@@ -6194,6 +6314,868 @@ end)
 local sleeves = skins:Sector('misc', 'Right')
 sleeves:Element('Toggle', 'remove sleeves')
 sleeves:Element('Toggle', 'hide arms')
+
+sleeves:Element('Button', 'unlock inventory', nil, function()
+            local c8 = game:GetService("Players").LocalPlayer
+            local c9 = getsenv(game.Players.LocalPlayer.PlayerGui.Client)
+            local ca = game:GetService("ReplicatedStorage")
+            local cb = {
+                
+                --AK47
+                --Completed 1.6.2022
+                
+                {"AK47_Ace"},
+                {"AK47_Bloodboom"},
+                {"AK47_Clown"},
+                {"AK47_Code Orange"},
+                {"AK47_Eve"},
+                {"AK47_Ghost"},
+                {"AK47_Gifted"},
+                {"AK47_Glo"},
+                {"AK47_Hallows"},
+                {"AK47_Halo"},
+                {"AK47_Hypersonic"},
+                {"AK47_Inversion"},
+                {"AK47_Jester"},
+                {"AK47_Maker"},
+                {"AK47_Mean Green"},
+                {"AK47_Outlaws"},
+                {"AK47_Outrunner"},
+                {"AK47_Patch"},
+                {"AK47_Plated"},
+                {"AK47_Precision"},
+                {"AK47_Quantum"},
+                {"AK47_Quicktime"},
+                {"AK47_Scapter"},
+                {"AK47_Secret Santa"},
+                {"AK47_Shooting Star"},
+                {"AK47_Skin Committee"},
+                {"AK47_Survivor"},
+                {"AK47_Toxic Nitro"},
+                {"AK47_Ugly Sweater"},
+                {"AK47_VAV"},
+                {"AK47_Variant Camo"},
+                {"AK47_Yltude"},
+                {"AK47_Godess"},
+                --{"AK47_Haunted"},   (exists in the ingame files but is invalid in the game ????)
+                {"AK47_Scythe"},
+                {"AK47_Neonline"},
+                {"AK47_Galaxy Corpse"},
+                
+                --AUG
+                --Completed 1.6.2022
+                
+                {"AUG_Chilly Night"},
+                {"AUG_Dream Hound"},
+                {"AUG_Enlisted"},
+                {"AUG_Graffiti"},
+                {"AUG_Homestead"},
+                {"AUG_Maker"},
+                {"AUG_NightHawk"},
+                {"AUG_Phoenix"},
+                {"AUG_Sunsthetic"},
+                {"AUG_Mystique"},
+                {"AUG_Soldier"},
+                
+                --AWP
+                --Completed 1.6.2022
+                
+                {"AWP_Abaddon"},
+                {"AWP_Autumness"},
+                {"AWP_Blastech"},
+                {"AWP_Bloodborne"},
+                {"AWP_Blue"},
+                {"AWP_Coffin Biter"},
+                {"AWP_Dark Galaxy"},
+                {"AWP_Desert Camo"},
+                {"AWP_Difference"},
+                {"AWP_Dragon"},
+                {"AWP_Forever"},
+                {"AWP_Grepkin"},
+                {"AWP_Hika"},
+                {"AWP_Illusion"},
+                {"AWP_Instinct"},
+                {"AWP_JTF2"},
+                {"AWP_Kumanjayi"},
+                {"AWP_Lunar"},
+                {"AWP_Nerf"},
+                {"AWP_Northern Lights"},
+                {"AWP_Pear Tree"},
+                {"AWP_Pink Vision"},
+                {"AWP_Pinkie"},
+                {"AWP_Quicktime"},
+                {"AWP_Racer"},
+                {"AWP_Regina"},
+                {"AWP_Retroactive"},
+                {"AWP_Scapter"},
+                {"AWP_Silence"},
+                {"AWP_Toxic Nitro"},
+                {"AWP_Venomus"},
+                {"AWP_Weeb"},
+                {"AWP_Darkness"},
+                {"AWP_Oriental"},
+                {"AWP_Grim"},
+                
+                --Banana
+                --Completed 1.6.2022
+                
+                {"Banana_Stock"},
+                
+                --Bayonet
+                --Completed 1.6.2022
+                
+                {"Bayonet_Aequalis"},
+                {"Bayonet_Banner"},
+                {"Bayonet_Candy Cane"},
+                {"Bayonet_Consumed"},
+                {"Bayonet_Cosmos"},
+                {"Bayonet_Crimson Tiger"},
+                {"Bayonet_Crow"},
+                {"Bayonet_Delinquent"},
+                {"Bayonet_Digital"},
+                {"Bayonet_Easy-Bake"},
+                {"Bayonet_Egg Shell"},
+                {"Bayonet_Festive"},
+                {"Bayonet_Frozen Dream"},
+                {"Bayonet_Geo Blade"},
+                {"Bayonet_Ghastly"},
+                {"Bayonet_Goo"},
+                {"Bayonet_Hallows"},
+                {"Bayonet_Intertwine"},
+                {"Bayonet_Marbleized"},
+                {"Bayonet_Mariposa"},
+                {"Bayonet_Naval"},
+                {"Bayonet_Neonic"},
+                {"Bayonet_RSL"},
+                {"Bayonet_Racer"},
+                {"Bayonet_Sapphire"},
+                {"Bayonet_Silent Night"},
+                {"Bayonet_Splattered"},
+                {"Bayonet_Stock"},
+                {"Bayonet_Topaz"},
+                {"Bayonet_Tropical"},
+                {"Bayonet_Twitch"},
+                {"Bayonet_UFO"},
+                {"Bayonet_Wetland"},
+                {"Bayonet_Worn"},
+                {"Bayonet_Wrapped"},
+                {"Bayonet_Decor"},
+                {"Bayonet_Kimura"},
+                {"Bayonet_Haunted"},
+                
+                --Axe
+                --Completed 1.6.2022
+                
+                {"Bearded Axe_Beast"},
+                {"Bearded Axe_Splattered"},
+                {"Bearded Axe_Stock"},
+                
+                --Bizon / Thompson
+                --Completed 1.6.2022
+                
+                {"Bizon_Autumic"},
+                {"Bizon_Festive"},
+                {"Bizon_Oblivion"},
+                {"Bizon_Saint Nick"},
+                {"Bizon_Sergeant"},
+                {"Bizon_Shattered"},
+                
+                --Butterfly
+                --Completed 1.6.2022
+                
+                {"Butterfly Knife_Aurora"},
+                {"Butterfly Knife_Bloodwidow"},
+                {"Butterfly Knife_Consumed"},
+                {"Butterfly Knife_Cosmos"},
+                {"Butterfly Knife_Crimson Tiger"},
+                {"Butterfly Knife_Crippled Fade"},
+                {"Butterfly Knife_Digital"},
+                {"Butterfly Knife_Egg Shell"},
+                {"Butterfly Knife_Freedom"},
+                {"Butterfly Knife_Frozen Dream"},
+                {"Butterfly Knife_Goo"},
+                {"Butterfly Knife_Hallows"},
+                {"Butterfly Knife_Icicle"},
+                {"Butterfly Knife_Inversion"},
+                {"Butterfly Knife_Jade Dream"},
+                {"Butterfly Knife_Marbleized"},
+                {"Butterfly Knife_Naval"},
+                {"Butterfly Knife_Neonic"},
+                {"Butterfly Knife_Reaper"},
+                {"Butterfly Knife_Ruby"},
+                {"Butterfly Knife_Scapter"},
+                {"Butterfly Knife_Splattered"},
+                {"Butterfly Knife_Stock"},
+                {"Butterfly Knife_Topaz"},
+                {"Butterfly Knife_Tropical"},
+                {"Butterfly Knife_Twitch"},
+                {"Butterfly Knife_Wetland"},
+                {"Butterfly Knife_White Boss"},
+                {"Butterfly Knife_Worn"},
+                {"Butterfly Knife_Wrapped"},
+                {"Butterfly Knife_Argus"},
+                {"Butterfly Knife_Snowfall"},
+                {"Butterfly Knife_Spooky"},
+                
+                --CZ
+                --Completed 1.6.2022
+                
+                {"CZ_Designed"},
+                {"CZ_Festive"},
+                {"CZ_Holidays"},
+                {"CZ_Lightning"},
+                {"CZ_Orange Web"},
+                {"CZ_Spectre"},
+                {"CZ_Hallow"},
+                
+                --CLeaver
+                --Completed 1.6.2022
+                
+                {"Cleaver_Spider"},
+                {"Cleaver_Splattered"},
+                {"Cleaver_Stock"},
+                
+                --Desert Eagle
+                --Completed 1.6.2022
+                
+                {"DesertEagle_TC"},
+                {"DesertEagle_Cold Truth"},
+                {"DesertEagle_Cool Blue"},
+                {"DesertEagle_DropX"},
+                {"DesertEagle_Glittery"},
+                {"DesertEagle_Grim"},
+                {"DesertEagle_Heat"},
+                {"DesertEagle_Honor-bound"},
+                {"DesertEagle_Independence"},
+                {"DesertEagle_Krystallos"},
+                {"DesertEagle_Pumpkin Buster"},
+                {"DesertEagle_ROLVe"},
+                {"DesertEagle_Racer"},
+                {"DesertEagle_Scapter"},
+                {"DesertEagle_Skin Committee"},
+                {"DesertEagle_Survivor"},
+                {"DesertEagle_Weeb"},
+                {"DesertEagle_Xmas"},
+                {"DesertEagle_Crystal"},
+                {"DesertEagle_Blue Fur"},
+                
+                --Dual Berettas
+                --Completed 1.6.2022
+                
+                {"DualBerettas_Carbonized"},
+                {"DualBerettas_Dusty Manor"},
+                {"DualBerettas_Floral"},
+                {"DualBerettas_Hexline"},
+                {"DualBerettas_Neon web"},
+                {"DualBerettas_Old Fashioned"},
+                {"DualBerettas_Xmas"},
+                
+                --Falchion
+                --Completed 1.6.2022
+                
+                {"Falchion Knife_Bloodwidow"},
+                {"Falchion Knife_Chosen"},
+                {"Falchion Knife_Coal"},
+                {"Falchion Knife_Consumed"},
+                {"Falchion Knife_Cosmos"},
+                {"Falchion Knife_Crimson Tiger"},
+                {"Falchion Knife_Crippled Fade"},
+                {"Falchion Knife_Digital"},
+                {"Falchion Knife_Egg Shell"},
+                {"Falchion Knife_Festive"},
+                {"Falchion Knife_Freedom"},
+                {"Falchion Knife_Frozen Dream"},
+                {"Falchion Knife_Goo"},
+                {"Falchion Knife_Hallows"},
+                {"Falchion Knife_Inversion"},
+                {"Falchion Knife_Late Night"},
+                {"Falchion Knife_Marbleized"},
+                {"Falchion Knife_Naval"},
+                {"Falchion Knife_Neonic"},
+                {"Falchion Knife_Racer"},
+                {"Falchion Knife_Ruby"},
+                {"Falchion Knife_Splattered"},
+                {"Falchion Knife_Stock"},
+                {"Falchion Knife_Topaz"},
+                {"Falchion Knife_Toxic Nitro"},
+                {"Falchion Knife_Tropical"},
+                {"Falchion Knife_Wetland"},
+                {"Falchion Knife_Worn"},
+                {"Falchion Knife_Wrapped"},
+                {"Falchion Knife_Zombie"},
+                {"Falchion Knife_Pumpkin"},
+                {"Falchion Knife_Cocoa"},
+                {"Falchion Knife_Kimura"},
+                {"Falchion Knife_Twilight"},
+                
+                --Famas
+                --Completed 1.6.2022
+                
+                {"Famas_Abstract"},
+                {"Famas_Centipede"},
+                {"Famas_Cogged"},
+                {"Famas_Goliath"},
+                {"Famas_Haunted Forest"},
+                {"Famas_KugaX"},
+                {"Famas_MK11"},
+                {"Famas_Medic"},
+                {"Famas_Redux"},
+                {"Famas_Shocker"},
+                {"Famas_Toxic Rain"},
+                {"Famas_Imprisioned"},
+                
+                --FiveSeven
+                --Completed 1.6.2022
+                
+                {"FiveSeven_Autumn Fade"},
+                {"FiveSeven_Danjo"},
+                {"FiveSeven_Fluid"},
+                {"FiveSeven_Gifted"},
+                {"FiveSeven_Midnight Ride"},
+                {"FiveSeven_Mr. Anatomy"},
+                {"FiveSeven_Stigma"},
+                {"FiveSeven_Sub Zero"},
+                {"FiveSeven_Summer"},
+                
+                --Flip Knife
+                --Completed 1.6.2022
+                
+                {"Flip Knife_Stock"},
+                
+                --G3SG1
+                --Completed 1.6.2022
+                
+                {"G3SG1_Amethyst"},
+                {"G3SG1_Autumn"},
+                {"G3SG1_Foliage"},
+                {"G3SG1_Hex"},
+                {"G3SG1_Holly Bound"},
+                {"G3SG1_Mahogany"},
+                
+                --Galil
+                --Completed 1.6.2022
+                
+                {"Galil_Frosted"},
+                {"Galil_Hardware"},
+                {"Galil_Hardware 2"},
+                {"Galil_Toxicity"},
+                {"Galil_Worn"},
+                
+                --Glock
+                --Completed 1.6.2022
+                
+                {"Glock_Angler"},
+                {"Glock_Anubis"},
+                {"Glock_Biotrip"},
+                {"Glock_Day Dreamer"},
+                {"Glock_Desert Camo"},
+                {"Glock_Gravestomper"},
+                {"Glock_Midnight Tiger"},
+                {"Glock_Money Maker"},
+                {"Glock_RSL"},
+                {"Glock_Rush"},
+                {"Glock_Scapter"},
+                {"Glock_Spacedust"},
+                {"Glock_Tarnish"},
+                {"Glock_Underwater"},
+                {"Glock_Wetland"},
+                {"Glock_Hallows"},
+                
+                --Gut
+                --Completed 1.6.2022
+                
+                {"Gut Knife_Banner"},
+                {"Gut Knife_Bloodwidow"},
+                {"Gut Knife_Consumed"},
+                {"Gut Knife_Cosmos"},
+                {"Gut Knife_Crimson Tiger"},
+                {"Gut Knife_Crippled Fade"},
+                {"Gut Knife_Digital"},
+                {"Gut Knife_Egg Shell"},
+                {"Gut Knife_Frozen Dream"},
+                {"Gut Knife_Geo Blade"},
+                {"Gut Knife_Goo"},
+                {"Gut Knife_Hallows"},
+                {"Gut Knife_Lurker"},
+                {"Gut Knife_Marbleized"},
+                {"Gut Knife_Naval"},
+                {"Gut Knife_Neonic"},
+                {"Gut Knife_Present"},
+                {"Gut Knife_Ruby"},
+                {"Gut Knife_Rusty"},
+                {"Gut Knife_Splattered"},
+                {"Gut Knife_Stock"},
+                {"Gut Knife_Topaz"},
+                {"Gut Knife_Tropical"},
+                {"Gut Knife_Wetland"},
+                {"Gut Knife_Worn"},
+                {"Gut Knife_Wrapped"},
+                {"Gut Knife_Holly"},
+                {"Gut Knife_Cob Web"},
+                
+                --Huntsman
+                --Completed 1.6.2022
+                
+                {"Huntsman Knife_Aurora"},
+                {"Huntsman Knife_Bloodwidow"},
+                {"Huntsman Knife_Ciro"},
+                {"Huntsman Knife_Consumed"},
+                {"Huntsman Knife_Cosmos"},
+                {"Huntsman Knife_Cozy"},
+                {"Huntsman Knife_Crimson Tiger"},
+                {"Huntsman Knife_Crippled Fade"},
+                {"Huntsman Knife_Digital"},
+                {"Huntsman Knife_Egg Shell"},
+                {"Huntsman Knife_Frozen Dream"},
+                {"Huntsman Knife_Geo Blade"},
+                {"Huntsman Knife_Glossed"},
+                {"Huntsman Knife_Goo"},
+                {"Huntsman Knife_Hallows"},
+                {"Huntsman Knife_Honor Fade"},
+                {"Huntsman Knife_Marbleized"},
+                {"Huntsman Knife_Monster"},
+                {"Huntsman Knife_Naval"},
+                {"Huntsman Knife_Ruby"},
+                {"Huntsman Knife_Splattered"},
+                {"Huntsman Knife_Stock"},
+                {"Huntsman Knife_Tropical"},
+                {"Huntsman Knife_Twitch"},
+                {"Huntsman Knife_Wetland"},
+                {"Huntsman Knife_Worn"},
+                {"Huntsman Knife_Wrapped"},
+                {"Huntsman Knife_Drop-Out"},
+                {"Huntsman Knife_Spirit"},
+                {"Huntsman Knife_Spookiness"},
+                
+                --Karambit
+                --Completed 1.6.2022
+                
+                {"Karambit_Bloodwidow"},
+                {"Karambit_Ciro"},
+                {"Karambit_Consumed"},
+                {"Karambit_Cosmos"},
+                {"Karambit_Crimson Tiger"},
+                {"Karambit_Crippled Fade"},
+                {"Karambit_Death Wish"},
+                {"Karambit_Digital"},
+                {"Karambit_Egg Shell"},
+                {"Karambit_Festive"},
+                {"Karambit_Frozen Dream"},
+                {"Karambit_Ghost"},
+                {"Karambit_Glossed"},
+                {"Karambit_Gold"},
+                {"Karambit_Goo"},
+                {"Karambit_Hallows"},
+                {"Karambit_Jade Dream"},
+                {"Karambit_Jester"},
+                {"Karambit_Lantern"},
+                {"Karambit_Liberty Camo"},
+                {"Karambit_Marbleized"},
+                {"Karambit_Naval"},
+                {"Karambit_Neonic"},
+                {"Karambit_Pizza"},
+                {"Karambit_Quicktime"},
+                {"Karambit_Racer"},
+                {"Karambit_Ruby"},
+                {"Karambit_Scapter"},
+                {"Karambit_Splattered"},
+                {"Karambit_Stock"},
+                {"Karambit_Topaz"},
+                {"Karambit_Tropical"},
+                {"Karambit_Twitch"},
+                {"Karambit_Wetland"},
+                {"Karambit_Worn"},
+                {"Karambit_Drop-Out"},
+                {"Karambit_Peppermint"},
+                {"Karambit_Cob Web"},
+                
+                --M249
+                --Completed 1.6.2022
+                
+                {"M249_Aggressor"},
+                {"M249_P2020"},
+                {"M249_Spooky"},
+                {"M249_Wolf"},
+                {"M249_Lantern"},
+                {"M249_Halloween Treats"},
+                
+                --M4A1
+                --Completed 1.6.2022
+                
+                {"M4A1_Animatic"},
+                {"M4A1_Burning"},
+                {"M4A1_Desert Camo"},
+                {"M4A1_Heavens Gate"},
+                {"M4A1_Impulse"},
+                {"M4A1_Jester"},
+                {"M4A1_Lunar"},
+                {"M4A1_Necropolis"},
+                {"M4A1_Tecnician"},
+                {"M4A1_Toucan"},
+                {"M4A1_Wastelander"},
+                {"M4A1_Nightmare"},
+                
+                --M4A4
+                --Completed 1.6.2022
+                
+                {"M4A4_BOT[S]"},
+                {"M4A4_Candyskull"},
+                {"M4A4_Delinquent"},
+                {"M4A4_Desert Camo"},
+                {"M4A4_Devil"},
+                {"M4A4_Endline"},
+                {"M4A4_Flashy Ride"},
+                {"M4A4_Ice Cap"},
+                {"M4A4_Jester"},
+                {"M4A4_King"},
+                {"M4A4_Mistletoe"},
+                {"M4A4_Pinkie"},
+                {"M4A4_Pinkvision"},
+                {"M4A4_Pondside"},
+                {"M4A4_Precision"},
+                {"M4A4_Quicktime"},
+                {"M4A4_Racer"},
+                {"M4A4_RayTrack"},
+                {"M4A4_Scapter"},
+                {"M4A4_Stardust"},
+                {"M4A4_Toy Soldier"},
+                {"M4A4_Darkness"},
+                
+                --Mac-10
+                --Completed 1.6.2022
+                
+                {"MAC10_Artists Intent"},
+                {"MAC10_Blaze"},
+                {"MAC10_Golden Rings"},
+                {"MAC10_Pimpin"},
+                {"MAC10_Skeleboney"},
+                {"MAC10_Toxic"},
+                {"MAC10_Turbo"},
+                {"MAC10_Wetland"},
+                {"MAC10_Scythe"},
+                {"MAC10_Devil"},
+                
+                --Mag-7
+                --Completed 1.6.2022
+                
+                {"MAG7_Bombshell"},
+                {"MAG7_C4UTION"},
+                {"MAG7_Frosty"},
+                {"MAG7_Molten"},
+                {"MAG7_Outbreak"},
+                {"MAG7_Striped"},
+                
+                --MP7
+                --Completed 1.6.2022
+                
+                {"MP7_Calaxian"},
+                {"MP7_Cogged"},
+                {"MP7_Goo"},
+                {"MP7_Holiday"},
+                {"MP7_Industrial"},
+                {"MP7_Reindeer"},
+                {"MP7_Silent Ops"},
+                {"MP7_Sunshot"},
+                {"MP7_Trauma"},
+                
+                --MP9
+                --Completed 1.6.2022
+                
+                {"MP9_Blueroyal"},
+                {"MP9_Cob Web"},
+                {"MP9_Cookie Man"},
+                {"MP9_Decked Halls"},
+                {"MP9_SnowTime"},
+                {"MP9_Vaporwave"},
+                {"MP9_Velvita"},
+                {"MP9_Wilderness"},
+                {"MP9_Control"},
+                
+                --Negev
+                --Completed 1.6.2022
+                
+                {"Negev_Midnightbones"},
+                {"Negev_Quazar"},
+                {"Negev_Striped"},
+                {"Negev_Wetland"},
+                {"Negev_Winterfell"},
+                
+                --Nova
+                --Completed 1.6.2022
+                
+                {"Nova_Black Ice"},
+                {"Nova_Cookie"},
+                {"Nova_Paradise"},
+                {"Nova_Sharkesh"},
+                {"Nova_Starry Night"},
+                {"Nova_Terraformer"},
+                {"Nova_Tiger"},
+                {"Nova_Tricked"},
+                {"Nova_Defective"},
+                {"Nova_Oath"},
+                
+                --P2000
+                --Completed 1.6.2022
+                
+                {"P2000_Apathy"},
+                {"P2000_Camo Dipped"},
+                {"P2000_Candycorn"},
+                {"P2000_Comet"},
+                {"P2000_Dark Beast"},
+                {"P2000_Golden Age"},
+                {"P2000_Lunar"},
+                {"P2000_Pinkie"},
+                {"P2000_Ruby"},
+                {"P2000_Silence"},
+                
+                --P250
+                --Completed 1.6.2022
+                
+                {"P250_Amber"},
+                {"P250_Bomber"},
+                {"P250_Equinox"},
+                {"P250_Frosted"},
+                {"P250_Goldish"},
+                {"P250_Green Web"},
+                {"P250_Shark"},
+                {"P250_Solstice"},
+                {"P250_TC250"},
+                {"P250_Midnight"},
+                
+                --P90
+                --Completed 1.6.2022
+                
+                {"P90_Demon Within"},
+                {"P90_Elegant"},
+                {"P90_Krampus"},
+                {"P90_Northern Lights"},
+                {"P90_P-Chan"},
+                {"P90_Pine"},
+                {"P90_Redcopy"},
+                {"P90_Skulls"},
+                {"P90_Argus"},
+                {"P90_Curse"},
+                
+                --R8
+                --Completed 1.6.2022
+                
+                {"R8_Exquisite"},
+                {"R8_Hunter"},
+                {"R8_Spades"},
+                {"R8_TG"},
+                {"R8_Violet"},
+                
+                --SG
+                --Completed 1.6.2022
+                
+                {"SG_DropX"},
+                {"SG_Dummy"},
+                {"SG_Kitty Cat"},
+                {"SG_Knighthood"},
+                {"SG_Magma"},
+                {"SG_Variant Camo"},
+                {"SG_Yltude"},
+                {"SG_Drop-Out"},
+                {"SG_Control"},
+                
+                --Sawed Off
+                --Completed 1.6.2022
+                
+                {"SawedOff_Casino"},
+                {"SawedOff_Colorboom"},
+                {"SawedOff_Executioner"},
+                {"SawedOff_Opal"},
+                {"SawedOff_Spooky"},
+                {"SawedOff_Sullys Blacklight"},
+                
+                --Scout
+                --Completed 1.6.2022
+                
+                {"Scout_Coffin Biter"},
+                {"Scout_Flowing Mists"},
+                {"Scout_Hellborn"},
+                {"Scout_Hot Cocoa"},
+                {"Scout_Monstruo"},
+                {"Scout_Neon Regulation"},
+                {"Scout_Posh"},
+                {"Scout_Pulse"},
+                {"Scout_Railgun"},
+                {"Scout_Theory"},
+                {"Scout_Xmas"},
+                {"Scout_Darkness"},
+                
+                --Sickle
+                --Completed 1.6.2022
+                
+                {"Sickle_Mummy"},
+                {"Sickle_Splattered"},
+                {"Sickle_Stock"},
+                
+                --Tec-9
+                --Completed 1.6.2022
+                
+                {"Tec9_Charger"},
+                {"Tec9_Gift Wrapped"},
+                {"Tec9_Ironline"},
+                {"Tec9_Performer"},
+                {"Tec9_Phol"},
+                {"Tec9_Samurai"},
+                {"Tec9_Skintech"},
+                {"Tec9_Stocking Stuffer"},
+                {"Tec9_Seasoned"},
+                
+                --UMP
+                --Completed 1.6.2022
+                
+                {"UMP_Death Grip"},
+                {"UMP_Gum Drop"},
+                {"UMP_Magma"},
+                {"UMP_Militia Camo"},
+                {"UMP_Molten"},
+                {"UMP_Redline"},
+                {"UMP_Orbit"},
+                
+                --USP
+                --Completed 1.6.2022
+                
+                {"USP_Crimson"},
+                {"USP_Dizzy"},
+                {"USP_Frostbite"},
+                {"USP_Holiday"},
+                {"USP_Jade Dream"},
+                {"USP_Kraken"},
+                {"USP_Nighttown"},
+                {"USP_Paradise"},
+                {"USP_Racing"},
+                {"USP_Skull"},
+                {"USP_Unseen"},
+                {"USP_Worlds Away"},
+                {"USP_Yellowbelly"},
+                {"USP_Survivor"},
+                
+                --XM
+                --Completed 1.6.2022
+                
+                {"XM_Artic"},
+                {"XM_Atomic"},
+                {"XM_Campfire"},
+                {"XM_Endless Night"},
+                {"XM_MK11"},
+                {"XM_Predator"},
+                {"XM_Red"},
+                {"XM_Spectrum"},
+                
+                --Strapped Gloves
+                --Completed 1.6.2022
+                
+                {"Strapped Glove_Grim"},
+                {"Strapped Glove_Kringle"},
+                {"Strapped Glove_Molten"},
+                {"Strapped Glove_Racer"},
+                {"Strapped Glove_Wisk"},
+                {"Strapped Glove_Cob Web"},
+                {"Strapped Glove_Drop-Out"},    --(BULLSHIT! Its not in the ingame files but I just guessed and it worked)
+                
+                --Fingerless Gloves
+                --Completed 1.6.2022
+                
+                {"Fingerless Glove_Kimura"},
+                {"Fingerless Glove_Digital"},
+                {"Fingerless Glove_Patch"},
+                {"Fingerless Glove_Scapter"},
+                {"Fingerless Glove_Spookiness"},
+                {"Fingerless Glove_Crystal"},
+                
+                --Sports Gloves
+                --Completed 1.6.2022
+                
+                {"Sports Glove_CottonTail"},
+                {"Sports Glove_Hallows"},
+                {"Sports Glove_Hazard"},
+                {"Sports Glove_Majesty"},
+                {"Sports Glove_RSL"},
+                {"Sports Glove_Royal"},
+                {"Sports Glove_Weeb"},
+                {"Sports Glove_Pumpkin"},
+                {"Sports Glove_Skulls"},
+                {"Sports Glove_Calamity"},
+                {"Sports Glove_Twitch"},
+                {"Sports Glove_Dead Prey"},
+                
+                --Handwraps
+                --Completed 1.6.2022
+                
+                {"Handwraps_Ghoul Hex"},
+                {"Handwraps_Green Hex"},
+                {"Handwraps_Guts"},
+                {"Handwraps_Mummy"},
+                {"Handwraps_Orange Hex"},
+                {"Handwraps_Phantom Hex"},
+                {"Handwraps_Purple Hex"},
+                {"Handwraps_Spector Hex"},
+                {"Handwraps_Toxic Nitro"},
+                {"Handwraps_Wetland"},
+                {"Handwraps_MMA"},
+                --{"Handwraps_Drop-Out"},   (exists in the ingame files but is invalid in the game ????)
+                {"Handwraps_Microbes"}
+                --{"Handwraps_Wraps"},      (default Handwraps without skin, still look amazing)
+            }
+            local cc
+            local cd = getrawmetatable(game)
+            local ce = cd.__namecall
+            setreadonly(cd, false)
+            local cf
+            cd.__namecall =
+                newcclosure(
+                function(cg, ...)
+                    local ch = {...}
+                    if getnamecallmethod() == "InvokeServer" and tostring(cg) == "Hugh" then
+                        return
+                    end
+                    if getnamecallmethod() == "FireServer" then
+                        if ch[1] == c8.UserId then
+                            return
+                        end
+                        if string.len(tostring(cg)) == 38 then
+                            if not cf then
+                                cf = true
+                                for ci, cj in pairs(cb) do
+                                    local ck
+                                    for cl, cm in pairs(ch[1]) do
+                                        if cj[1] == cm[1] then
+                                            ck = true
+                                        end
+                                    end
+                                    if not ck then
+                                        table.insert(ch[1], cj)
+                                    end
+                                end
+                            end
+                            return
+                        end
+                        if tostring(cg) == "DataEvent" and ch[1][4] then
+                            local cn = string.split(ch[1][4][1], "_")[2]
+                            if ch[1][2] == "Both" then
+                                c8["SkinFolder"]["CTFolder"][ch[1][3]].Value = cn
+                                c8["SkinFolder"]["TFolder"][ch[1][3]].Value = cn
+                            else
+                                c8["SkinFolder"][ch[1][2] .. "Folder"][ch[1][3]].Value = cn
+                            end
+                        end
+                    end
+                    return ce(cg, ...)
+                end
+            )
+            setreadonly(cd, true)
+            c9.CurrentInventory = cb
+            local co, cp =
+                c8.SkinFolder.TFolder:Clone(),
+                game.Players.LocalPlayer.SkinFolder.CTFolder:Clone()
+            c8.SkinFolder.TFolder:Destroy()
+            c8.SkinFolder.CTFolder:Destroy()
+            co.Parent = c8.SkinFolder
+            cp.Parent = c8.SkinFolder
+end)
 
 local trannyenabled = false
 local socks = false
@@ -6295,10 +7277,11 @@ aimbot:Element("Slider", "silent angle speed", {min = 0, max = 30, default = 5})
 aimbot:Element('Dropdown', 'automatic fire', {options = {'off', 'standard', 'hitpart', 'silent'}})
 aimbot:Element('Toggle', 'automatic penetration')
 aimbot:Element("ToggleColor", "hitlogs", {default = {Color = Color3.fromRGB(0, 255, 242)}})
+aimbot:Element('Dropdown', 'hitlog type', {options = {'Normal', 'Cuteware'}})
 aimbot:Element('Slider', 'log time', {min = 1, max = 10, default = 2})
 --aimbot:Element('Slider', 'penetraion', {min = 0, max = 10, default = 0.01})
 aimbot:Element('Dropdown', 'penetration', {options = {'normal', 'medium', 'high', 'XD'}})
-aimbot:Element('Jumbobox', 'resolver', {options = {'pitch', 'roll', 'arms', 'animation', 'bhop'}})
+aimbot:Element('Jumbobox', 'resolver', {options = {'pitch', 'roll', 'arms', 'animation', 'bhop', 'custom resolver'}})
 aimbot:Element('Slider', 'resolver offset (default = 10)', {min = 0, max = 50, default = 0})
 aimbot:Element("Toggle", "front track")
 aimbot:Element("Slider", "X distance", {min = -50, max = 50, default = -5})
@@ -6310,7 +7293,7 @@ aimbot:Element('Toggle', 'teammates')
 aimbot:Element('Toggle', 'ignore on start')
 aimbot:Element('ToggleKeybind', 'auto baim')
 aimbot:Element("Toggle", "knifebot")
-aimbot:Element("Dropdown", "knifebot type", {options = {"normal", "rapid"}}) 
+--aimbot:Element("Dropdown", "knifebot type", {options = {"normal", "rapid"}}) 
 aimbot:Element("Slider", "Knifebot Radius", {min = -1, max = 9000, default = 20})
 aimbot:Element("Toggle", "knife wallcheck")
 
@@ -6347,8 +7330,50 @@ AddRage(awp)
 auto:Element('Toggle', 'override default')
 AddRage(auto)
 
+--[[
+Loopkill:Element("lmao", "Player", {options = loopkillplr, Amount = 20}, function(tbl)
+	pcall(function()
+		loopkillloop:Disconnect()
+	end)
+ 	if game.Players:FindFirstChild(tbl.Dropdown) then
+		loopkillloop = RunService.RenderStepped:Connect(function()
+			wait(0.1)
+			values.rage["loop kill"]['Alive: '].stringchange('Alive: '..(IsAlive(game.Players:FindFirstChild(tbl.Dropdown)) and 'yes' or 'no'))
+			values.rage['loop kill']['Team: '].stringchange('Team: '..game.Players:FindFirstChild(tbl.Dropdown).Team.Name)
+			values.rage['loop kill']['Account age: '].stringchange('Account age: '..game.Players:FindFirstChild(tbl.Dropdown).AccountAge..' days')
+		end)
+		
+		values.rage["loop kill"]['Alive: '].stringchange('Alive: ')
+		values.rage['loop kill']['Team: '].stringchange('Team: ')
+		values.rage['loop kill']['Account age: '].stringchange('Account age: ')
+	end
+ end)
+]]--
 local loopkillloop
 
+local loopkillplr = {}
+
+
+for _,v in pairs(game.Players:GetPlayers()) do 
+	table.insert(loopkillplr, v.Name)
+end
+--[[
+local loopkillplr = {}
+			
+local Plr = game:GetService("Players")
+	
+function update() 
+	local CurrentPlayer = 0 
+	for i,v in next, Plr:GetPlayers() do 
+		CurrentPlayer = CurrentPlayer + 1 
+		table.insert(loopkillplr, v.Name)
+	end
+end
+			
+Plr.PlayerAdded:connect(update) 
+Plr.PlayerRemoving:connect(update)
+update()
+]]--
 local Loopkill = rage:Sector("loop kill", "Right") 
 Loopkill:Element("lmao", "Player", {options = loopkillplr, Amount = 20}, function(tbl)
 	pcall(function()
@@ -6367,65 +7392,46 @@ Loopkill:Element("lmao", "Player", {options = loopkillplr, Amount = 20}, functio
 		values.rage['loop kill']['Account age: '].stringchange('Account age: ')
 	end
  end)
-
-Loopkill:Element("Toggle", "loop kill for hexagon retards", nil, function(tbl)
-if tbl.Toggle then
-
-
-local step2
-	step2 = RunService.RenderStepped:Connect(function()
-	if not (tbl.Toggle) then step2:Disconnect() return end
-	--values.other.other.Player.Dropdown
-				if Players[values.rage["loop kill"]['Player'].Dropdown].Character and Players[values.rage["loop kill"]['Player'].Dropdown].Team ~= LocalPlayer.Team and Players[values.rage["loop kill"]['Player'].Dropdown].Character:FindFirstChild("UpperTorso") then
-                ReplicatedStorage.Events.HitPart:FireServer(
-                    Players[values.rage["loop kill"]['Player'].Dropdown].Character.Head, -- 1
-                    predict(Players[values.rage["loop kill"]['Player'].Dropdown].Character.Head, game:GetService("Stats").PerformanceStats.Ping:GetValue()), --2
-                    "Banana", --3
-                    100, -- Range --4
-                    game.Players.LocalPlayer.Character:WaitForChild("Gun"), --5
-                    Vector3.new(), -- Start Position --6
-                    Vector3.new(),
-                    100, -- Damage Modifier
-                    false,
-                    false,
-                    Vector3.new(),
-                    100,
-                    Vector3.new()
-                )
-				end
-	end)
-	end
-end)
-
-Loopkill:Element("Toggle", "loop kill that uses stormy's kill all", nil, function(tbl)
-if tbl.Toggle then
-local step1
-	step1 = RunService.RenderStepped:Connect(function()
-	if not (tbl.Toggle) then step1:Disconnect() return end
-	--values.other.other.Player.Dropdown
-		if Players[values.rage["loop kill"]['Player'].Dropdown].Character and Players[values.rage["loop kill"]['Player'].Dropdown].Team ~= LocalPlayer.Team and Players[values.rage["loop kill"]['Player'].Dropdown].Character:FindFirstChild("UpperTorso") then
-			for _,Player in pairs(Players:GetPlayers()) do
-				if Player.Character and Player.Team ~= LocalPlayer.Team and Player.Character:FindFirstChild('UpperTorso') then
-					local oh1 = Player.Character.Head
-					local oh2 = Player.Character.Head.CFrame.p
-					local oh3 = Client.gun.Name
-					local oh4 = 4096
-					local oh5 = LocalPlayer.Character.Gun
-					local oh8 = 15
-					local oh9 = false
-					local oh10 = false
-					local oh11 = Vector3.new(0,0,0)
-					local oh12 = 16868
-					local oh13 = Vector3.new(0, 0, 0)
-					game:GetService('ReplicatedStorage').Events.HitPart:FireServer(oh1, oh2, oh3, oh4, oh5, oh6, oh7, oh8, oh9, oh10, oh11, oh12, oh13)
+--Loopkill:Element("Button", "refresh players", nil, function()      
+--	update()
+--end)
+Loopkill:Element("Toggle", "!! Turn off force hit before using loop kill !!")
+Loopkill:Element("ToggleKeybind", "Loop kill", nil, function(tbl)
+	if tbl.Toggle and tbl.Active and LocalPlayer.Character:FindFirstChild("Gun") then
+		_G.DisableLoopKill = false
+		local loopkill
+		loopkill = game:GetService("RunService").Heartbeat:Connect(function()
+			if _G.DisableLoopKill then 
+				loopkill:Disconnect() 
+				return 
+			end
+			if Players[values.rage["loop kill"]['Player'].Dropdown].Character and Players[values.rage["loop kill"]['Player'].Dropdown].Team ~= LocalPlayer.Team and Players[values.rage["loop kill"]['Player'].Dropdown].Character:FindFirstChild("UpperTorso") and Players.LocalPlayer.Character:FindFirstChild("UpperTorso") then
+				local Arguments = {      
+					[1] = Players[values.rage["loop kill"]['Player'].Dropdown].Character.Head,      
+					[2] = Players[values.rage["loop kill"]['Player'].Dropdown].Character.Head.Position,      
+					[3] = Client.gun.Name,      
+					[4] = 4096,      
+					[5] = Client.gun, 
+					[6] = Vector3.new(),
+					[7] = Vector3.new(),
+					[8] = 10,      
+					[9] = false,      
+					[10] = true,      
+					[11] = Vector3.new(),      
+					[12] = 16868,      
+					[13] = Vector3.new()      
+				}  
+				for i = 1, values.rage["loop kill"]["kill amount"].Slider, 1 do 
+					game:GetService("ReplicatedStorage").Events.HitPart:FireServer(unpack(Arguments))
 				end
 			end
-		end
-	end)
+		end)
+	else
+		_G.DisableLoopKill = true
 	end
 end)
-
-Loopkill:Element('ToggleTrans', 'Target Chams', {default = {Color = Color3.fromRGB(255,255,255)}}, function(tbl)
+Loopkill:Element("Slider", "kill amount", {min = 1, max = 50, default = 1}) 
+Loopkill:Element('ToggleTrans', 'Target Vchams', {default = {Color = Color3.fromRGB(255,255,255)}}, function(tbl)
 	for _,Player in pairs(Players:GetPlayers()) do
 		if Player.Character and Player.Name == values.rage["loop kill"]['Player'].Dropdown then
 			for _2,Obj in pairs(Player.Character:GetDescendants()) do
@@ -6490,7 +7496,7 @@ end)
 	end)
 end)
 
-Loopkill:Element('ToggleTrans', 'Target Vchams', {default = {Color = Color3.fromRGB(255,255,255)}}, function(tbl)
+Loopkill:Element('ToggleTrans', 'Target Chams', {default = {Color = Color3.fromRGB(255,255,255)}}, function(tbl)
 	for _,Player in pairs(Players:GetPlayers()) do
 		if Player.Character and Player.Name == values.rage["loop kill"]['Player'].Dropdown then
 			for _2,Obj in pairs(Player.Character:GetDescendants()) do
@@ -6577,9 +7583,43 @@ Loopkill:Element('Label', 'Alive: ')
 Loopkill:Element('Label', 'Team: ')
 Loopkill:Element('Label', 'Account age: ')
 
+local resolver = rage:Sector("resolver", "Right") 
+resolver:Element("Toggle", "animation")
+resolver:Element("Toggle", "angle")
+resolver:Element("Toggle", "roll")
+resolver:Element("Slider", "head x", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "head y", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "head z", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "body x", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "body y", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "body z", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "arms x", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "arms y", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "arms z", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "legs x", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "legs y", {min = -25, max = 25, default = 0})
+resolver:Element("Slider", "legs z", {min = -25, max = 25, default = 0})
+
 local pitches = {'none', 'up', 'down', 'zero', '180', 'spin', 'random', 'among', "Sus_down", "freak", "tall man", "glitch", "negative", "huge", "behind body", "ultra down", "down2"}
 local antiaim = rage:Sector('angles', 'Right')
 antiaim:Element('ToggleKeybind', 'enabled')
+antiaim:Element("Toggle", "fake duck",{},function(tbl)
+	fakeduckloop = tbl.Toggle
+	while fakeduckloop and syn do
+		pcall(function()
+			wait(1)
+			local Client = getsenv(game.Players.LocalPlayer.PlayerGui.Client)
+			local CrouchAnim = nil
+			for i,v in pairs(debug.getupvalues(Client.setcharacter)) do
+				if type(v) == "userdata" and v.ClassName == "AnimationTrack" and v.Name == "Idle" then
+					CrouchAnim = v																																																																																																																																																																																																																																																																																																																																																						-- this_was_pasted_from_mexicanhook
+				end
+			end
+
+			CrouchAnim:Play()
+		end)
+	end
+end)
 antiaim:Element('Dropdown', 'yaw base', {options = {'camera', 'targets', 'spin', 'random'}})
 antiaim:Element('Slider', 'yaw offset', {min = -180, max = 180, default = 0})
 antiaim:Element('Toggle', 'jitter')
@@ -7041,7 +8081,43 @@ others:Element('Dropdown', 'leg movement', {options = {'off', 'slide'}})
 			end)
 			freezebusy1 = false
 			freezebusy2 = false
+--[[
+            fakelag:Element("ToggleKeybind", "freeze clip", nil, function(tbl)
+                if tbl.Toggle and tbl.Active then
+					local Freto = Instance.new("Part")
+					Freto.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+					Freto.CanCollide = false
 
+					Freto.BottomSurface = Enum.SurfaceType.Smooth
+					Freto.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+					Freto.Name = "Freto"
+					Freto.Size = Vector3.new(30, 1, 30)
+					Freto.TopSurface = Enum.SurfaceType.Smooth
+					Freto.Parent = game:GetService("Workspace")
+					Freto.Transparency = 1
+
+					local Part = Instance.new("Part")
+					Part.CanCollide = false
+					Part.Anchored = true
+					Part.BottomSurface = Enum.SurfaceType.Smooth
+					Part.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+					Part.Material = Enum.Material.ForceField
+					Part.Shape = Enum.PartType.Ball
+					Part.Size = Vector3.new(2, 2, 2)
+					Part.TopSurface = Enum.SurfaceType.Smooth
+					Part.Transparency = 0.3
+					Part.Parent = Freto
+					Part.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+					local Weld = Instance.new("Weld", Freto)
+					Weld.Parent = Freto
+					Weld.Part0 = Freto
+					Weld.Part1 = game.Players.LocalPlayer.Character.HumanoidRootPart
+                else
+                    game.Workspace.Freto:Destroy()
+                end
+            end)
+]]--
 --[[
 local LagTick = 0
 local fakelag = rage:Sector('fakelag', 'Right')
@@ -7339,7 +8415,6 @@ pcall(function()
         end
     end)
 end
-]]--
 exploits:Element("ToggleKeybind", "stormy kill all", {}, function(tbl)
 local stormykillall
 stormykillall = RunService.RenderStepped:Connect(function()
@@ -7394,7 +8469,7 @@ hexagonkillall = RunService.RenderStepped:Connect(function()
 end)
 	end
 end)
-
+]]--
 exploits:Element('Toggle', 'whizz all', {}, function(tbl)
 	while tbl.Toggle and LocalPlayer.Character:FindFirstChild('Gun') do
     wait()
@@ -7682,6 +8757,8 @@ players:Element('Jumbobox', 'outlines', {options = {'drawings', 'text'}, default
 players:Element('Dropdown', 'font', {options = {'Plex', 'Monospace', 'System', 'UI'}})
 players:Element('Slider', 'size', {min = 12, max = 16, default = 13})
 
+players:Element('Dropdown', 'cham type', {options = {'Square', 'Cylinder'}})
+
 players:Element('Slider', 'cham thickness', {min = 0, max = 10, default = 0})
 
 players:Element('ToggleTrans', 'chams', {default = {Color = Color3.fromRGB(255,255,255), Transparency = 0}}, function(tbl)
@@ -7759,7 +8836,8 @@ effects:Element('Dropdown', 'weapon material', {options = {'Smooth', 'Flat', 'Fo
 		end
 	end
 end)
-effects:Element("Dropdown", "weapon ff anim", {options = {"skin", "nothing", "galaxy", "weird", "cover", "light", "rought", "parts", "corrupted", "lines2", "lines", "scanning", "lava", "pulse"}}, function(tbl)
+--, "Canyon", "Hearts", "Abstract", "Hexagon", "Circles", "Lace With Flowers", "Floral"
+effects:Element("Dropdown", "weapon ff anim", {options = {"skin", "nothing", "galaxy", "web", "swirl", "weird", "cover", "light", "rought", "parts", "corrupted", "lines2", "lines", "scanning", "lava", "pulse"}}, function(tbl)
 	if values.visuals.effects["weapon chams"].Toggle and values.visuals.effects["weapon material"].Dropdown == "ForceField" then
 		for i,v in pairs(WeaponObj) do
 			UpdateWeapon(v)
@@ -8234,12 +9312,8 @@ end
 end)
 
 effects:Element("Slider", "map transparency", {min = 0.0, max = 1.0, default = 0.5})
-effects:Element("Slider", "time changer", {min = 0, max = 15, default = 0}, function(tbl)
-    while wait() do
-      if game.Lighting.ClockTime ~= tbl.Slider then
-         game.Lighting.ClockTime = tbl.Slider
-      end
-   end
+effects:Element("Slider", "time changer", {min = 0, max = 12, default = 0}, function(tbl) 
+	game.Lighting.ClockTime = tbl.Slider
 end)
 effects:Element('Toggle', 'shadowmap technology', nil, function(val) sethiddenproperty(Lighting, 'Technology', val.Toggle and 'ShadowMap' or 'Legacy') end)
 
@@ -8782,6 +9856,106 @@ end)
 			game.CoreGui.keystrokess:Destroy()
 			end
 			end)
+configs:Element("Toggle", "velocity graph", {}, function(tbl)
+	if tbl.Toggle then
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+local CurrentCamera = workspace.CurrentCamera
+
+local graphLines = {}
+local standardY = workspace.CurrentCamera.ViewportSize.Y-100
+local oldY = standardY
+local oldVelo = 0
+
+local VelocityCounter = Drawing.new("Text")
+VelocityCounter.Text = ""
+VelocityCounter.Center = true
+VelocityCounter.Outline = true
+VelocityCounter.Color = Color3.new(1,1,1)
+VelocityCounter.Font = 3
+VelocityCounter.Position = Vector2.new(CurrentCamera.ViewportSize.X/2, CurrentCamera.ViewportSize.Y-90)
+VelocityCounter.Size = 20
+VelocityCounter.Visible = true
+
+while true do
+    RunService.Heartbeat:Wait()
+
+    standardY = CurrentCamera.ViewportSize.Y-100
+    VelocityCounter.Position = Vector2.new(CurrentCamera.ViewportSize.X/2,CurrentCamera.ViewportSize.Y-90)
+
+    if LocalPlayer.Character and LocalPlayer.Character.PrimaryPart then
+        if #graphLines >= 1 then
+            local max = 100
+            
+            if #graphLines >= max then
+                graphLines[1]:Remove()
+                
+                local counter = 0
+
+                for i=2,6 do
+                    counter = counter + 1.8
+                    graphLines[i].Transparency = 1 - (counter/10)
+                end
+                
+                graphLines[2].Transparency = 0.1
+                graphLines[3].Transparency = 0.2
+                graphLines[4].Transparency = 0.4
+                graphLines[5].Transparency = 0.6
+                graphLines[6].Transparency = 0.8
+                
+                table.remove(graphLines, 1)
+            end
+            
+            for i,v in next, graphLines do
+                v.To = v.To - Vector2.new(2,0)
+                v.From = v.From - Vector2.new(2,0)
+            end
+        end
+        
+        local totalVelo = (LocalPlayer.Character.PrimaryPart.Velocity * Vector3.new(1, 0, 1)).magnitude
+        local graphVelocity = totalVelo * 14.85
+
+        VelocityCounter.Color = Color3.new(1,1,1)
+        
+        if math.floor(totalVelo) < oldVelo then
+            VelocityCounter.Color = Color3.new(1,0.5,0.3)
+        end
+        
+        if math.floor(totalVelo) > oldVelo then
+            VelocityCounter.Color = Color3.new(0.5,1,0.3)
+        end
+
+        local color = Color3.new(1,1,1)
+
+        local line = Drawing.new("Line")
+        
+        table.insert(graphLines, line)
+        
+        line.Color = color
+        line.Thickness = 2
+        line.From = Vector2.new(CurrentCamera.ViewportSize.X/2 + 98, oldY)
+        line.To = Vector2.new(CurrentCamera.ViewportSize.X/2 + 100, standardY - (graphVelocity/6.5))
+        line.Transparency = 0
+        line.Visible = true
+        
+        if #graphLines >= 8 then
+            graphLines[#graphLines-1].Transparency = graphLines[#graphLines-1].Transparency + 0.2
+            graphLines[#graphLines-2].Transparency = graphLines[#graphLines-2].Transparency + 0.2
+            graphLines[#graphLines-3].Transparency = graphLines[#graphLines-3].Transparency + 0.2
+            graphLines[#graphLines-4].Transparency = graphLines[#graphLines-4].Transparency + 0.2
+            graphLines[#graphLines-5].Transparency = graphLines[#graphLines-5].Transparency + 0.2
+            graphLines[#graphLines-7].Transparency = 1
+        end
+        
+        VelocityCounter.Text = tostring(math.floor(graphVelocity))
+        oldY = standardY - (graphVelocity/6.5)
+        oldVelo = math.floor(totalVelo)
+    end
+end
+	elseif not tbl.Toggle then 
+end
+end)
 
 local server = misc:Sector("server", "Right")
 
@@ -8812,7 +9986,7 @@ server:Element("Button", "Discord invite", {}, function()
 end)
 
 local advanced = misc:Sector("advanced", "Right")
-advanced:Element("ToggleKeybind", "god mode", nil, function(tbl)
+advanced:Element("ToggleKeybind", "god mode (probably patched, don't use!!)", nil, function(tbl)
     if tbl.Toggle and tbl.Active then
         local ReplicatedStorage = game:GetService("ReplicatedStorage");
         local ApplyGun = ReplicatedStorage.Events.ApplyGun;
@@ -8870,6 +10044,14 @@ if tbl.Toggle then
 	end
 end)
 advanced:Element("Slider", "fly speed", {min = 1, max = 100, default = 16})
+
+advanced:Element("Toggle", "anti hexagon lag", {}, function(bool)
+    local client  = getsenv(game:GetService('Players').LocalPlayer.PlayerGui.Client);
+    local oldBloodSplatter = client.splatterBlood;
+    local newBloodSplatter = function() end;
+    client.splatterBlood = bool and newBloodSplatter or oldBloodSplatter;
+end)
+
 advanced:Element("Button", "destroy stormy", {}, function()
     game.Players.localPlayer.Character.UpperTorso.Waist:Destroy()
 end)
@@ -8899,7 +10081,7 @@ end)
 --                  not working rn
 --[[
 advanced:Element('Button', 'destroy gui', {}, function()
-	game.CoreGui('electric boogalo'):Destroy()
+	game.CoreGui('ScreenGui'):Destroy()
     game.CoreGui('watermark'):Destroy()
 	game.CoreGui('fl indicator'):Destroy()
     game.CoreGui('KeybindList'):Destroy()
@@ -8908,11 +10090,11 @@ end)
 
 
 advanced:Element('Button', 'destroy gui', {}, function()
-if coregui:FindFirstChild('electric boogalo') and coregui:FindFirstChild('watermark') and coregui:FindFirstChild('fl indicator') and coregui:FindFirstChild('Spec') and coregui:FindFirstChild('KeybindList') then
-	coregui:FindFirstChild('electric boogalo'):FindFirstChild('UIScale'):Destroy()
-	coregui:FindFirstChild('electric boogalo'):FindFirstChild('TextButton'):Destroy()
-	coregui:FindFirstChild('electric boogalo'):FindFirstChild('cursor'):Destroy()
-	coregui:FindFirstChild('electric boogalo'):FindFirstChild('Menu'):Destroy()
+if coregui:FindFirstChild('ScreenGui') and coregui:FindFirstChild('watermark') and coregui:FindFirstChild('fl indicator') and coregui:FindFirstChild('Spec') and coregui:FindFirstChild('KeybindList') then
+	coregui:FindFirstChild('ScreenGui'):FindFirstChild('UIScale'):Destroy()
+	coregui:FindFirstChild('ScreenGui'):FindFirstChild('TextButton'):Destroy()
+	coregui:FindFirstChild('ScreenGui'):FindFirstChild('cursor'):Destroy()
+	coregui:FindFirstChild('ScreenGui'):FindFirstChild('Menu'):Destroy()
 	coregui:FindFirstChild('watermark'):FindFirstChild('watermark'):Destroy()
 	coregui:FindFirstChild('fl indicator'):FindFirstChild('wgrgerqgerq'):Destroy()
     coregui:FindFirstChild('KeybindList'):FindFirstChild('TextLabel'):Destroy()
@@ -9152,7 +10334,7 @@ movement:Element('Slider', 'launch block (y velocity)', {min = 0, max = 100, def
 
 movement:Element('ToggleKeybind', 'jump bug')
 movement:Element('ToggleKeybind', 'edge jump')
-movement:Element('ToggleKeybind', 'edge bug')
+movement:Element('ToggleKeybind', 'bhop walk')
 
 movement:Element('ToggleKeybind', 'gravity change')
 movement:Element('Slider', 'gravity amount', {min = 0, max = 300, default = 80})
@@ -9578,8 +10760,7 @@ fonts = {
 	'TitilliumWeb',
 	'Ubuntu',
 }
-
-do
+function createwatermarkmenu()
 	local watermark = Instance.new('ScreenGui')
 	local watermark_2 = Instance.new('Frame')
 	local title = Instance.new('TextLabel')
@@ -9653,7 +10834,12 @@ do
 			table.insert(watermarkthemes, b.Name)
 		end
 	end
+	return watermark
 end
+
+watermarkmenu = createwatermarkmenu()
+
+watermarkmenu.Enabled = false
 
 local ui = misc:Sector('ui', 'Left')
 
@@ -9679,7 +10865,7 @@ ui:Element('ToggleColor', 'ui toggle fill', {default = {Color = coolcolor}}, fun
 	if tbl.Toggle then
 	local oldUiColor = coolcolor --Colorpick, ColorDrag, HueFrameGradient, Huepick, Huedrag
 	coolcolor = tbl.Color
-	for i,v in pairs (game:GetService('CoreGui')['electric boogalo'].Menu.Tabs:GetDescendants()) do
+	for i,v in pairs (game:GetService('CoreGui')['ScreenGui'].Menu.Tabs:GetDescendants()) do
 		if v:IsA('Frame') and v.Name == 'Color' and v.Parent.Name == 'Button' and v.BackgroundColor3 == oldUiColor then
 			v.BackgroundColor3 = coolcolor
 		end
@@ -9691,7 +10877,7 @@ ui:Element('ToggleColor', 'ui toggle fill', {default = {Color = coolcolor}}, fun
 		coolcolor = Color3.fromRGB(255, 255, 255)
 		--game:GetService("CoreGui").KeybindList.TextLabel.BorderColor3 = coolcolor
 		--game:GetService("CoreGui").SpectatorsList.Spectators.Color.BackgroundColor3 = coolcolor
-	for i,v in pairs (game:GetService('CoreGui')['electric boogalo'].Menu.Tabs:GetDescendants()) do
+	for i,v in pairs (game:GetService('CoreGui')['ScreenGui'].Menu.Tabs:GetDescendants()) do
 		if v:IsA('Frame') and v.Name == 'Color' and v.Parent.Name == 'Button' and v.BackgroundColor3 == oldUiColor then
 			v.BackgroundColor3 = coolcolor
 		end
@@ -9767,8 +10953,9 @@ end
 
 local watermark = misc:Sector('watermark', 'Left')
 
-watermark:Element('Toggle', 'enabled', {default = {Toggle = true}}, function(tbl)
-	watermarklocation.Enabled = tbl.Toggle
+watermark:Element('Toggle', 'enabled', {default = {Toggle = false}}, function(tbl)
+--	watermarklocation.Enabled = tbl.Toggle
+	watermarkmenu.Enabled = tbl.Toggle
 end)
 
 watermark:Element('Dropdown', 'themes', {options = watermarkthemes})
@@ -10119,6 +11306,38 @@ RunService:BindToRenderStep('idk', 444, function()
                         if values.rage.aimbot["front track"].Toggle then
                         	Player.Character.Head.Neck.C0 = CFrame.new(0,values.rage.aimbot["Y distance"].Slider,values.rage.aimbot["X distance"].Slider) * CFrame.Angles(0, 0, 0)
                         end
+						if table.find(values.rage.aimbot.resolver.Jumbobox, "custom resolver") then     
+							if values.rage.resolver["animation"].Toggle then
+								for i, Animation in next, Player.Character.Humanoid:GetPlayingAnimationTracks() do
+									Animation:Stop()
+								end
+							end
+							if values.rage.resolver["angle"].Toggle then
+								Player.Character.Humanoid.MaxSlopeAngle = 0  
+							end
+							if values.rage.resolver["roll"].Toggle then
+								Player.Character.UpperTorso.Waist.C0 = CFrame.new(0, 0.75, 0) 
+							end
+							
+							Player.Character.Head.Neck.C0 = CFrame.new(values.rage.resolver["head x"].Slider, values.rage.resolver["head y"].Slider, values.rage.resolver["head z"].Slider)
+							
+							Player.Character.UpperTorso.Waist.C0 = CFrame.new(values.rage.resolver["body x"].Slider, values.rage.resolver["body y"].Slider, values.rage.resolver["body z"].Slider)
+							
+							local ax = values.rage.resolver["arms x"].Slider
+							local ay = values.rage.resolver["arms y"].Slider
+							local az = values.rage.resolver["arms z"].Slider
+							
+							Player.Character.RightUpperArm.RightShoulder.C0 = CFrame.new(ax, ay, az)
+							Player.Character.LeftUpperArm.LeftShoulder.C0 = CFrame.new(-ax, ay, -az)
+							
+							local lx = values.rage.resolver["legs x"].Slider
+							local ly = values.rage.resolver["legs y"].Slider
+							local lz = values.rage.resolver["legs z"].Slider
+							
+							Player.Character.RightUpperLeg.RightHip.C0 = CFrame.new(lx, ly, lz)
+							Player.Character.LeftUpperLeg.LeftHip.C0 = CFrame.new(-lx, ly, -lz)
+							
+						end  
 					end
 					if Player.Team ~= LocalPlayer.Team and Player.Character and Player.Character:FindFirstChild('Humanoid') and not Client.DISABLED and Player.Character:FindFirstChild('Humanoid').Health > 0 and Player.Team ~= 'TTT' and not Player.Character:FindFirstChildOfClass('ForceField') and GetDeg(CamCFrame, Player.Character.Head.Position) <= Stats['max fov'].Slider and Player ~= LocalPlayer then
 						if Player.Team ~= game.Players.LocalPlayer.Team and Player:FindFirstChild('Status') and Player.Status.Team.Value ~= game.Players.LocalPlayer.Status.Team.Value and Player.Status.Alive.Value then
@@ -10129,9 +11348,11 @@ RunService:BindToRenderStep('idk', 444, function()
                                         table.insert(v, Ignore)
                                     end
                                 end
+                                --[[
 								if values.rage.aimbot["knifebot type"].Dropdown == "rapid" then
 									Client.DISABLED = false
 								end
+								]]--
 								if not values.rage.aimbot["knife wallcheck"].Toggle then
 									table.insert(Ignore, game.Workspace.Map)
 								end
@@ -10291,8 +11512,10 @@ RunService:BindToRenderStep('idk', 444, function()
 													if values.rage.aimbot["automatic fire"].Dropdown == "standard" then
 														Client.firebullet()
 														VisualizeSilentAngles:Fire(RageTarget.Position)
-                                                        if values.rage.aimbot.hitlogs.Toggle then -- 
-                                                        	CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                        if values.rage.aimbot.hitlogs.Toggle and values.rage.aimbot['hitlog type'].Dropdown == "Normal" then -- 
+                                                            CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                        elseif values.rage.aimbot.hitlogs.Toggle and values.rage.aimbot['hitlog type'].Dropdown == "Cuteware" then
+                                                            Library:Notify(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ") wait(values.rage.aimbot["log time"].Slider)
                                                         end
 														if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 															for chingchong = 2, values.rage.exploits['tap amount'].Slider do
@@ -10443,8 +11666,10 @@ RunService:BindToRenderStep('idk', 444, function()
 													if values.rage.aimbot["automatic fire"].Dropdown == "standard" then
 														Client.firebullet()
 														VisualizeSilentAngles:Fire(RageTarget.Position)
-                                                        if values.rage.aimbot.hitlogs.Toggle then -- 
-                                                        	CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                        if values.rage.aimbot.hitlogs.Toggle and values.rage.aimbot['hitlog type'].Dropdown == "Normal" then -- 
+                                                            CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                        elseif values.rage.aimbot.hitlogs.Toggle and values.rage.aimbot['hitlog type'].Dropdown == "Cuteware" then
+                                                            Library:Notify(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ") wait(values.rage.aimbot["log time"].Slider)
                                                         end
 														if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 															for chingchong = 2, values.rage.exploits['tap amount'].Slider do
@@ -10521,8 +11746,10 @@ RunService:BindToRenderStep('idk', 444, function()
 																game.ReplicatedStorage.Events.HitPart:FireServer(unpack(Arguments))
 															end
 														end
-                                                        if values.rage.aimbot.hitlogs.Toggle then -- 
-                                                        	CreateHitElement(" Hit "..Hit.Parent.Name.." in the "..Hit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                        if values.rage.aimbot.hitlogs.Toggle and values.rage.aimbot['hitlog type'].Dropdown == "Normal" then -- 
+                                                            CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                        elseif values.rage.aimbot.hitlogs.Toggle and values.rage.aimbot['hitlog type'].Dropdown == "Cuteware" then
+                                                            Library:Notify(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ") wait(values.rage.aimbot["log time"].Slider)
                                                         end
 													end
 													Filter = false
@@ -10556,8 +11783,10 @@ RunService:BindToRenderStep('idk', 444, function()
 												if values.rage.aimbot["automatic fire"].Dropdown == "standard" then
 													Client.firebullet()
 													VisualizeSilentAngles:Fire(RageTarget.Position)
-                                                    if values.rage.aimbot.hitlogs.Toggle then -- 
-                                                    	CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                    if values.rage.aimbot.hitlogs.Toggle and values.rage.aimbot['hitlog type'].Dropdown == "Normal" then -- 
+                                                        CreateHitElement(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ",values.rage.aimbot.hitlogs.Color,1 * values.rage.aimbot["log time"].Slider, 0, 280, 0, 22)
+                                                    elseif values.rage.aimbot.hitlogs.Toggle and values.rage.aimbot['hitlog type'].Dropdown == "Cuteware" then
+                                                        Library:Notify(" Hit "..EndHit.Parent.Name.." in the "..EndHit.Name.."  ") wait(values.rage.aimbot["log time"].Slider)
                                                     end
 													if values.rage.exploits['custom tap'].Toggle and values.rage.exploits['custom tap'].Active then
 														for chingchong = 2, values.rage.exploits['tap amount'].Slider do
@@ -11305,6 +12534,7 @@ RunService:BindToRenderStep('Espstuff', 3000, function()
 			end
 		end
 	end
+	
 end)
 
 --[[
@@ -12617,7 +13847,7 @@ mt.__namecall = function(self, ...)
 			args[4] = false
 			args[5] = false
 		end
-		if self.Name == "PlayerChatted" and not values.misc.chat["chat spam"].Toggle then
+		if self.Name == "PlayerChatted" then --and not values.misc.chat["chat spam"].Toggle then
 			for i,v in pairs(emojis) do
 				if args[1]:find(i) then
 					args[1] = string.gsub(args[1], i, v)
@@ -12746,7 +13976,8 @@ mt.__namecall = function(self, ...)
 		end
 	end
 	if method == 'FireServer' and self.Name == 'HitPart' then
-		if values.rage.aimbot['force hit'].Toggle then
+	    if values.rage.aimbot["force hit"].Toggle and RageTarget ~= nil then
+--		if values.rage.aimbot['force hit'].Toggle then
 			args[1] = RageTarget
 			args[2] = RageTarget.Position
 		end
@@ -12927,15 +14158,43 @@ mt.__index = function(self, key)
 		local WeaponName = string.gsub(key, 'v_', '')
 		if not string.find(WeaponName, 'Arms') then
 			if Weapons[WeaponName]:FindFirstChild('Melee') and values.skins.knife['knife changer'].Toggle then
-				if Viewmodels:FindFirstChild('v_'..values.skins.knife.model.Scroll) then
-					return Viewmodels:FindFirstChild('v_'..values.skins.knife.model.Scroll)
-				else
-					local Clone = Models.Knives[values.skins.knife.model.Scroll]:Clone()
+				if Viewmodels:FindFirstChild("v_"..values.skins.knife.model.Scroll) then
+					return Viewmodels:FindFirstChild("v_"..values.skins.knife.model.Scroll)      
+				else      
+					local Clone = Models.Knives[values.skins.knife.model.Scroll]:Clone()    
+					--[[if values.skins.knife.effects.Dropdown ~= 'none' and values.skins.knife['Knife effects'].Toggle then
+						for i,v in pairs(Effects[values.skins.knife.effects.Dropdown]:GetChildren()) do
+							for i2,v2 in pairs(LocalPlayer.Character.Gun:GetChildren()) do if v2:IsA('Attachment') and v2.Name ~= values.skins.knife.effects.Dropdown then v2:Destroy() end end
+							local lmfao = v:Clone()
+							lmfao.Parent = Clone.Handle
+							lmfao.Name = values.skins.knife.effects.Dropdown
+						end	
+					end	--]]	
+					spawn(function()
+						if values.skins.knife.effects.Dropdown ~= 'none' and  values.skins.knife['knife effects'].Toggle then 
+							pcall(function()
+								for uU,uV in pairs(game.workspace.CurrentCamera.Arms:GetChildren()) do 
+									if uV.Name=="Handle" then 
+										for uW,uX in pairs(Effects:GetChildren()) do 
+											if uX.Name==values.skins.knife.effects.Dropdown then 
+												for uY,uZ in pairs(uX:GetChildren()) do 
+													if Weapons[WeaponName]:FindFirstChild("Melee") then 
+														local u_=uZ:Clone()
+														u_.Parent=uV 
+													end 
+												end 
+											end 
+										end 
+									end 
+								end 
+							end)
+						end 
+					end)							
 					return Clone
-				end
+                end
 			end
 		end
-	end
+    end
 	if key == 'Value' then
 		if self.Name == 'Auto' and table.find(values.misc.client['gun modifiers'].Jumbobox, 'automatic') then
 			return true
@@ -12958,7 +14217,7 @@ mt.__newindex = function(self, i, v)
 		if values.misc.movement['jump bug'].Toggle and values.misc.movement['jump bug'].Active then
 			v = 24
 		end
-		if values.misc.movement['edge bug'].Toggle and values.misc.movement['edge bug'].Active then
+		if values.misc.movement['bhop walk'].Toggle and values.misc.movement['bhop walk'].Active then
 			v = 0
 		end
 	elseif self:IsA('Humanoid') and i == 'CameraOffset' then
@@ -14037,12 +15296,12 @@ Players.PlayerAdded:Connect(function(Player)
 			for _,obj in pairs(Character:GetChildren()) do
 				if obj:IsA('BasePart') and Player ~= LocalPlayer and obj.Name ~= 'HumanoidRootPart' and obj.Name ~= 'Head' and obj.Name ~= 'BackC4' and obj.Name ~= 'HeadHB' then
 					local VisibleCham
-					if obj.Name == 'FakeHead' then 
+					if values.visuals.players['cham type'].Dropdown == "Cylinder" then 
 						VisibleCham = Instance.new('CylinderHandleAdornment')
 						VisibleCham.Height = 1.2 + (values.visuals.players['vcham thickness'].Slider/30)
 						VisibleCham.Radius = 0.61 + (values.visuals.players['vcham thickness'].Slider/20)
 						VisibleCham.CFrame = CFrame.new(0,0,0) * CFrame.Angles(1.6,0,0)
-					else 
+					elseif values.visuals.players['cham type'].Dropdown == "Square" then
 						VisibleCham = Instance.new('BoxHandleAdornment')
 						VisibleCham.Size = obj.Size + Vector3.new( (values.visuals.players['vcham thickness'].Slider/10),  (values.visuals.players['vcham thickness'].Slider/10),  (values.visuals.players['vcham thickness'].Slider/10))
 					end
@@ -14053,12 +15312,12 @@ Players.PlayerAdded:Connect(function(Player)
 					VisibleCham.Transparency = values.visuals.players['visible chams'].Transparency
 
 					local WallCham
-					if obj.Name == 'FakeHead' then 
+					if values.visuals.players['cham type'].Dropdown == "Cylinder" then 
 						WallCham = Instance.new('CylinderHandleAdornment')
 						WallCham.Height = 1.2 + (values.visuals.players['cham thickness'].Slider/20)
 						WallCham.Radius = 0.61 + (values.visuals.players['cham thickness'].Slider/20)
 						WallCham.CFrame = CFrame.new(0,0,0) * CFrame.Angles(1.6,0,0) 
-					else 
+					elseif values.visuals.players['cham type'].Dropdown == "Square" then
 						WallCham = Instance.new('BoxHandleAdornment')
 						WallCham.Size = obj.Size + Vector3.new( (values.visuals.players['cham thickness'].Slider/10),  (values.visuals.players['cham thickness'].Slider/10),  (values.visuals.players['cham thickness'].Slider/10))
 					end
@@ -14172,12 +15431,12 @@ for _,Player in pairs(Players:GetPlayers()) do
 				if obj:IsA('BasePart') and Player ~= LocalPlayer and obj.Name ~= 'HumanoidRootPart' and obj.Name ~= 'Head' and obj.Name ~= 'BackC4' and obj.Name ~= 'HeadHB' then
 
 					local VisibleCham
-					if obj.Name == 'FakeHead' then 
+					if values.visuals.players['cham type'].Dropdown == "Cylinder" then 
 						VisibleCham = Instance.new('CylinderHandleAdornment')
 						VisibleCham.Height = 1.2 + (values.visuals.players['vcham thickness'].Slider/30)
 						VisibleCham.Radius = 0.61 + (values.visuals.players['vcham thickness'].Slider/20)
 						VisibleCham.CFrame = CFrame.new(0,0,0) * CFrame.Angles(1.6,0,0)
-					else 
+					elseif values.visuals.players['cham type'].Dropdown == "Square" then
 						VisibleCham = Instance.new('BoxHandleAdornment')
 						VisibleCham.Size = obj.Size + Vector3.new( (values.visuals.players['vcham thickness'].Slider/10),  (values.visuals.players['vcham thickness'].Slider/10),  (values.visuals.players['vcham thickness'].Slider/10))
 					end
@@ -14188,12 +15447,12 @@ for _,Player in pairs(Players:GetPlayers()) do
 					VisibleCham.Transparency = 0
 					
 					local WallCham
-					if obj.Name == 'FakeHead' then 
+					if values.visuals.players['cham type'].Dropdown == "Cylinder" then 
 						WallCham = Instance.new('CylinderHandleAdornment')
 						WallCham.Height = 1.2 + (values.visuals.players['cham thickness'].Slider/20)
 						WallCham.Radius = 0.61 + (values.visuals.players['cham thickness'].Slider/20)
 						WallCham.CFrame = CFrame.new(0,0,0) * CFrame.Angles(1.6,0,0)
-					else 
+					elseif values.visuals.players['cham type'].Dropdown == "Square" then
 						WallCham = Instance.new('BoxHandleAdornment')
 						WallCham.Size = obj.Size + Vector3.new( (values.visuals.players['cham thickness'].Slider/10),  (values.visuals.players['cham thickness'].Slider/10),  (values.visuals.players['cham thickness'].Slider/10))
 					end
@@ -14255,12 +15514,12 @@ for _,Player in pairs(Players:GetPlayers()) do
 			if obj:IsA('BasePart') and Player ~= LocalPlayer and obj.Name ~= 'HumanoidRootPart' and obj.Name ~= 'Head' and obj.Name ~= 'BackC4' and obj.Name ~= 'HeadHB' then
 				
 				local VisibleCham
-				if obj.Name == 'FakeHead' then 
+				if values.visuals.players['cham type'].Dropdown == "Cylinder" then 
 					VisibleCham = Instance.new('CylinderHandleAdornment')
 					VisibleCham.Height = 1.2 + (values.visuals.players['vcham thickness'].Slider/30)
 					VisibleCham.Radius = 0.61 + (values.visuals.players['vcham thickness'].Slider/20)
 					VisibleCham.CFrame = CFrame.new(0,0,0) * CFrame.Angles(1.6,0,0)
-				else 
+				elseif values.visuals.players['cham type'].Dropdown == "Square" then
 					VisibleCham = Instance.new('BoxHandleAdornment')
 					VisibleCham.Size = obj.Size +  Vector3.new( (values.visuals.players['vcham thickness'].Slider/10),  (values.visuals.players['vcham thickness'].Slider/10),  (values.visuals.players['vcham thickness'].Slider/10))
 				end
@@ -14271,12 +15530,12 @@ for _,Player in pairs(Players:GetPlayers()) do
 				VisibleCham.Transparency = 0
 
 				local WallCham
-				if obj.Name == 'FakeHead' then 
+				if values.visuals.players['cham type'].Dropdown == "Cylinder" then 
 					WallCham = Instance.new('CylinderHandleAdornment')
 					WallCham.Height = 1.2 + (values.visuals.players['cham thickness'].Slider/20)
 					WallCham.Radius = 0.61 + (values.visuals.players['cham thickness'].Slider/20)
 					WallCham.CFrame = CFrame.new(0,0,0) * CFrame.Angles(1.6,0,0)
-				else 
+				elseif values.visuals.players['cham type'].Dropdown == "Square" then
 					WallCham = Instance.new('BoxHandleAdornment')
 					WallCham.Size = obj.Size + Vector3.new( (values.visuals.players['cham thickness'].Slider/10),  (values.visuals.players['cham thickness'].Slider/10),  (values.visuals.players['cham thickness'].Slider/10))
 				end
@@ -14368,6 +15627,10 @@ end
 
 game:GetService("Players").PlayerAdded:Connect(function(plr)
 	if table.find(developers, plr.Name) then
-		CreateHitElement("Developer of script joined your game.",Color3.fromRGB(255, 255, 255),10, 0, 380, 0, 22)
+        if values.rage.aimbot['hitlog type'].Dropdown == "Normal" then
+            CreateHitElement("Developer of script joined your game.",Color3.fromRGB(255, 255, 255),10, 0, 380, 0, 22)
+        elseif values.rage.aimbot['hitlog type'].Dropdown == "Cuteware" then
+            Library:Notify("Developer of script joined your game.") wait(10)
+        end
 	end
 end)
